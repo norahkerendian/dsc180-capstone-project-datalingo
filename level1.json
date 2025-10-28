@@ -42,7 +42,7 @@
       "title": "Variables",
       "content": "Variables are used to store information. You can give a name to a value using the = sign.",
       "examples": [
-        "name = 'Norah'",
+        "name = 'John'",
         "age = 21",
         "print(name, age)"
       ]
@@ -52,9 +52,9 @@
       "title": "Rules for Variable Names",
       "content": "Variable names must start with a letter or underscore, cannot have spaces, and are case-sensitive.",
       "examples": [
-        "my_name = 'Norah'",
+        "my_name = 'John'",
         "_count = 5",
-        "# my name = 'Norah'  ❌ (invalid)"
+        "# my name = 'John'  ❌ (invalid)"
       ]
     },
     {
@@ -73,7 +73,7 @@
       "title": "Printing Variables",
       "content": "You can print variables by including them in print().",
       "examples": [
-        "name = 'Norah'",
+        "name = 'John'",
         "print('Hello', name)"
       ]
     },
@@ -135,7 +135,7 @@
       "title": "Strings",
       "content": "Strings are text in quotes. You can use single or double quotes.",
       "examples": [
-        "name = 'Norah'",
+        "name = 'John'",
         "greeting = \"Hi there!\""
       ]
     },
@@ -423,7 +423,7 @@
       "title": "Dictionaries",
       "content": "Dictionaries store key-value pairs. You can use keys to look up values.",
       "examples": [
-        "person = {'name': 'Norah', 'age': 21}",
+        "person = {'name': 'John', 'age': 21}",
         "print(person['name'])"
       ]
     },
@@ -432,7 +432,7 @@
       "title": "Adding and Changing Dictionary Items",
       "content": "You can add or modify dictionary values using their keys.",
       "examples": [
-        "person = {'name': 'Norah', 'age': 21}",
+        "person = {'name': 'John', 'age': 21}",
         "person['city'] = 'San Diego'",
         "person['age'] = 22"
       ]
@@ -442,7 +442,7 @@
       "title": "Looping Through Dictionaries",
       "content": "You can loop through keys, values, or both in a dictionary.",
       "examples": [
-        "person = {'name': 'Norah', 'age': 21}",
+        "person = {'name': 'John', 'age': 21}",
         "for key, value in person.items():",
         "    print(key, value)"
       ]
@@ -485,7 +485,7 @@
         "def greet(name):",
         "    print('Hello,', name)",
         "",
-        "greet('Norah')"
+        "greet('John')"
       ]
     },
     {
@@ -509,7 +509,7 @@
         "    print('Hello,', name)",
         "",
         "greet()",
-        "greet('Norah')"
+        "greet('John')"
       ]
     },
     {
@@ -594,7 +594,7 @@
         "        if len(name) > 3:",
         "            print('Hello,', name)",
         "",
-        "greet_users(['Ali', 'Norah', 'Bo'])"
+        "greet_users(['Ali', 'John', 'Bo'])"
       ]
     }
   ]

@@ -1,0 +1,80 @@
+Q1: What is Python used for?  
+A1: Python is a programming language used to write instructions (code) that computers execute.
+
+Q2: How do you display text or numbers on the screen in Python?  
+A2: Use the `print()` function with text in quotes to display text or numbers on the screen.
+
+Q3: What symbol is used to start a comment in Python?  
+A3: The `#` symbol starts a comment.
+
+Q4: In what order does Python run code?  
+A4: Python runs code line by line, from top to bottom.
+
+Q5: How do you assign the value ‘John’ to a variable named `name`?  
+A5: By writing `name = 'John'`.
+
+Q6: What are two rules for naming variables in Python?  
+A6: Variable names must start with a letter or underscore, contain no spaces, and are case-sensitive.
+
+Q7: Name four common data types in Python.  
+A7: Integers (`int`), decimals (`float`), text (`str`), and booleans (`bool`).
+
+Q8: How can you print the value stored in a variable?  
+A8: By placing the variable inside the `print()` function, like `print(variable)`.
+
+Q9: Which function tells you the data type of a variable?  
+A9: The `type()` function.
+
+Q10: What operator is used for exponentiation in Python?  
+A10: The `**` operator.
+
+Q11: How do you combine two strings in Python?  
+A11: Using the `+` operator (concatenation).
+
+Q12: What does the `.upper()` string method do?  
+A12: It converts all letters in the string to uppercase.
+
+Q13: What function do you use to get input from a user?  
+A13: The `input()` function.
+
+Q14: How do you convert a string to an integer in Python?  
+A14: By using the `int()` function.
+
+Q15: What symbol is used to check if two values are equal?  
+A15: The `==` symbol.
+
+Q16: What Python statement runs code only if a condition is true?  
+A16: The `if` statement.
+
+Q17: What type of loop repeats while a condition is true?  
+A17: A `while` loop.
+
+Q18: How do you add an item to a list?  
+A18: By using the `.append()` method.
+
+Q19: What is the main difference between lists and tuples?  
+A19: Tuples are immutable and cannot be changed, while lists can be changed.
+
+Q20: How do you store data in key-value pairs in Python?  
+A20: Using dictionaries.
+
+Q21: What kind of Python collection stores unique, unordered items?  
+A21: A set.
+
+Q22: How do you define a function in Python?  
+A22: Using the `def` keyword followed by the function name and parentheses.
+
+Q23: How do you use code from another Python file or library?  
+A23: By importing it with the `import` statement.
+
+Q24: Why can’t you add a string and a number directly with `+`?  
+A24: Because they are different data types; you must convert the number to a string first or use commas in `print()`.
+
+Q25: Which mode in `open()` do you use to write to a file?  
+A25: Mode `'w'`.
+
+Q26: What does the `with` statement do when working with files?  
+A26: It ensures files are properly closed after use.
+
+Q27: Name three things you combine in Python to build complete programs.  
+A27: Variables, loops, and conditional statements (and functions).

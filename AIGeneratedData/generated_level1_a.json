@@ -1,0 +1,110 @@
+[
+    {
+        "question": "What is Python used for?",
+        "answer": "Python is a programming language used to write instructions (code) that computers execute."
+    },
+    {
+        "question": "How do you display text or numbers on the screen in Python?",
+        "answer": "Use the `print()` function with text in quotes to display text or numbers on the screen."
+    },
+    {
+        "question": "What symbol is used to start a comment in Python?",
+        "answer": "The `#` symbol starts a comment."
+    },
+    {
+        "question": "In what order does Python run code?",
+        "answer": "Python runs code line by line, from top to bottom."
+    },
+    {
+        "question": "How do you assign the value ‘John’ to a variable named `name`?",
+        "answer": "By writing `name = 'John'`."
+    },
+    {
+        "question": "What are two rules for naming variables in Python?",
+        "answer": "Variable names must start with a letter or underscore, contain no spaces, and are case-sensitive."
+    },
+    {
+        "question": "Name four common data types in Python.",
+        "answer": "Integers (`int`), decimals (`float`), text (`str`), and booleans (`bool`)."
+    },
+    {
+        "question": "How can you print the value stored in a variable?",
+        "answer": "By placing the variable inside the `print()` function, like `print(variable)`."
+    },
+    {
+        "question": "Which function tells you the data type of a variable?",
+        "answer": "The `type()` function."
+    },
+    {
+        "question": "What operator is used for exponentiation in Python?",
+        "answer": "The `**` operator."
+    },
+    {
+        "question": "How do you combine two strings in Python?",
+        "answer": "Using the `+` operator (concatenation)."
+    },
+    {
+        "question": "What does the `.upper()` string method do?",
+        "answer": "It converts all letters in the string to uppercase."
+    },
+    {
+        "question": "What function do you use to get input from a user?",
+        "answer": "The `input()` function."
+    },
+    {
+        "question": "How do you convert a string to an integer in Python?",
+        "answer": "By using the `int()` function."
+    },
+    {
+        "question": "What symbol is used to check if two values are equal?",
+        "answer": "The `==` symbol."
+    },
+    {
+        "question": "What Python statement runs code only if a condition is true?",
+        "answer": "The `if` statement."
+    },
+    {
+        "question": "What type of loop repeats while a condition is true?",
+        "answer": "A `while` loop."
+    },
+    {
+        "question": "How do you add an item to a list?",
+        "answer": "By using the `.append()` method."
+    },
+    {
+        "question": "What is the main difference between lists and tuples?",
+        "answer": "Tuples are immutable and cannot be changed, while lists can be changed."
+    },
+    {
+        "question": "How do you store data in key-value pairs in Python?",
+        "answer": "Using dictionaries."
+    },
+    {
+        "question": "What kind of Python collection stores unique, unordered items?",
+        "answer": "A set."
+    },
+    {
+        "question": "How do you define a function in Python?",
+        "answer": "Using the `def` keyword followed by the function name and parentheses."
+    },
+    {
+        "question": "How do you use code from another Python file or library?",
+        "answer": "By importing it with the `import` statement."
+    },
+    {
+        "question": "Why can’t you add a string and a number directly with `+`?",
+        "answer": "Because they are different data types; you must convert the number to a string first or use commas in `print()`."
+    },
+    {
+        "question": "Which mode in `open()` do you use to write to a file?",
+        "answer": "Mode `'w'`."
+    },
+    {
+        "question": "What does the `with` statement do when working with files?",
+        "answer": "It ensures files are properly closed after use."
+    },
+    {
+        "question": "Name three things you combine in Python to build complete programs.",
+        "answer": "Variables, loops, and conditional statements (and functions)."
+    }
+]

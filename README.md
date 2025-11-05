@@ -77,6 +77,11 @@ This project uses n8n for workflows and some AI nodes. The instructions below as
    - Open `AIGeneratedData_n8n/` in this repo (or download the outputs from n8n's node output) to view the newly generated items.
    - Each node typically includes the prompt or the code used to generate outputs, click any node to view its prompt and debug if results are unexpected.
 
+8. Convert to JSON Format
+   
+   - Open `convert_to_json.py` in this repo and change the file name variable to the name of the txt file just saved to `AIGeneratedData_n8n/`.
+   - Open your terminal and run the command `python convert_to_json.py`. This will convert the txt file to a JSON file saved in `AIGeneratedData_json/`.
+
 ## Common issues and fixes
 
 - If the `HTTP Request` node returns 404: verify you copied the RAW URL (it typically begins with `https://raw.githubusercontent.com/` when opened via the RAW button).

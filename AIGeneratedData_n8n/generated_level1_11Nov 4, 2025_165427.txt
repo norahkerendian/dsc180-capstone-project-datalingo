@@ -1,0 +1,77 @@
+Q1: How do you display text or numbers in Python?  
+A1: Use the `print()` function, with text enclosed in quotes.
+
+Q2: What symbol is used to start a comment in Python, and what does Python do with it?  
+A2: The `#` symbol starts a comment, and Python ignores everything on that line after it.
+
+Q3: How does Python execute code in a file or script?  
+A3: Python runs code line by line, from top to bottom.
+
+Q4: How do you create a variable in Python, and what rules apply to its name?  
+A4: Use the `=` sign to assign a value (e.g., `name = 'John'`); the name must start with a letter or underscore, have no spaces, and is case-sensitive.
+
+Q5: Name four common data types in Python.  
+A5: Integer (`int`), float (`float`), string (`str`), and boolean (`bool`).
+
+Q6: How can you check the data type of a variable?  
+A6: Use the `type()` function.
+
+Q7: Which operator would you use in Python for exponentiation?  
+A7: The `**` operator.
+
+Q8: How do you combine two strings into one?  
+A8: Use the `+` operator to concatenate them.
+
+Q9: How do you get the first character of a string stored in a variable called `text`?  
+A9: Use indexing with `text[0]`.
+
+Q10: What function do you use to get text input from a user, and what type does it return?  
+A10: Use `input()`, which always returns a string.
+
+Q11: How do you convert a string `'123'` into an integer?  
+A11: Use `int('123')`.
+
+Q12: What are the boolean values in Python and how do you test if two values are equal?  
+A12: The boolean values are `True` and `False`; test equality with `==`.
+
+Q13: Which logical operator means "and" and requires both conditions to be true?  
+A13: The `and` operator.
+
+Q14: What Python keywords are used to create conditional branches?  
+A14: `if`, `elif`, and `else`.
+
+Q15: How does Python define blocks of code instead of using `{}` braces?  
+A15: By indentation (spaces).
+
+Q16: What type of loop repeats as long as a condition is true?  
+A16: A `while` loop.
+
+Q17: How can you create a sequence of numbers to use in a `for` loop?  
+A17: Use the `range()` function.
+
+Q18: What does the `break` statement do inside a loop?  
+A18: It immediately exits the loop.
+
+Q19: Name two differences between lists and tuples.  
+A19: Lists are changeable (mutable), tuples are not (immutable); both are ordered.
+
+Q20: How do dictionaries store data, and how do you access values?  
+A20: Dictionaries store data as key-value pairs, accessed by keys.
+
+Q21: What Python keyword is used to define a function?  
+A21: `def`.
+
+Q22: How do you return a value from a function?  
+A22: Use the `return` statement.
+
+Q23: What module would you import to generate random numbers in Python?  
+A23: The `random` module.
+
+Q24: How do you open a file for writing in Python?  
+A24: Use `open()` with the mode `'w'`.
+
+Q25: What is the advantage of using a `with` statement when working with files?  
+A25: It automatically closes the file after use safely.
+
+Q26: What main programming concepts are often combined to create Python programs?  
+A26: Variables, loops, conditionals, functions, and data structures.

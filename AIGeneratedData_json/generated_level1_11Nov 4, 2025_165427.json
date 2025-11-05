@@ -1,0 +1,106 @@
+[
+    {
+        "question": "How do you display text or numbers in Python?",
+        "answer": "Use the `print()` function, with text enclosed in quotes."
+    },
+    {
+        "question": "What symbol is used to start a comment in Python, and what does Python do with it?",
+        "answer": "The `#` symbol starts a comment, and Python ignores everything on that line after it."
+    },
+    {
+        "question": "How does Python execute code in a file or script?",
+        "answer": "Python runs code line by line, from top to bottom."
+    },
+    {
+        "question": "How do you create a variable in Python, and what rules apply to its name?",
+        "answer": "Use the `=` sign to assign a value (e.g., `name = 'John'`); the name must start with a letter or underscore, have no spaces, and is case-sensitive."
+    },
+    {
+        "question": "Name four common data types in Python.",
+        "answer": "Integer (`int`), float (`float`), string (`str`), and boolean (`bool`)."
+    },
+    {
+        "question": "How can you check the data type of a variable?",
+        "answer": "Use the `type()` function."
+    },
+    {
+        "question": "Which operator would you use in Python for exponentiation?",
+        "answer": "The `**` operator."
+    },
+    {
+        "question": "How do you combine two strings into one?",
+        "answer": "Use the `+` operator to concatenate them."
+    },
+    {
+        "question": "How do you get the first character of a string stored in a variable called `text`?",
+        "answer": "Use indexing with `text[0]`."
+    },
+    {
+        "question": "What function do you use to get text input from a user, and what type does it return?",
+        "answer": "Use `input()`, which always returns a string."
+    },
+    {
+        "question": "How do you convert a string `'123'` into an integer?",
+        "answer": "Use `int('123')`."
+    },
+    {
+        "question": "What are the boolean values in Python and how do you test if two values are equal?",
+        "answer": "The boolean values are `True` and `False`; test equality with `==`."
+    },
+    {
+        "question": "Which logical operator means \"and\" and requires both conditions to be true?",
+        "answer": "The `and` operator."
+    },
+    {
+        "question": "What Python keywords are used to create conditional branches?",
+        "answer": "`if`, `elif`, and `else`."
+    },
+    {
+        "question": "How does Python define blocks of code instead of using `{}` braces?",
+        "answer": "By indentation (spaces)."
+    },
+    {
+        "question": "What type of loop repeats as long as a condition is true?",
+        "answer": "A `while` loop."
+    },
+    {
+        "question": "How can you create a sequence of numbers to use in a `for` loop?",
+        "answer": "Use the `range()` function."
+    },
+    {
+        "question": "What does the `break` statement do inside a loop?",
+        "answer": "It immediately exits the loop."
+    },
+    {
+        "question": "Name two differences between lists and tuples.",
+        "answer": "Lists are changeable (mutable), tuples are not (immutable); both are ordered."
+    },
+    {
+        "question": "How do dictionaries store data, and how do you access values?",
+        "answer": "Dictionaries store data as key-value pairs, accessed by keys."
+    },
+    {
+        "question": "What Python keyword is used to define a function?",
+        "answer": "`def`."
+    },
+    {
+        "question": "How do you return a value from a function?",
+        "answer": "Use the `return` statement."
+    },
+    {
+        "question": "What module would you import to generate random numbers in Python?",
+        "answer": "The `random` module."
+    },
+    {
+        "question": "How do you open a file for writing in Python?",
+        "answer": "Use `open()` with the mode `'w'`."
+    },
+    {
+        "question": "What is the advantage of using a `with` statement when working with files?",
+        "answer": "It automatically closes the file after use safely."
+    },
+    {
+        "question": "What main programming concepts are often combined to create Python programs?",
+        "answer": "Variables, loops, conditionals, functions, and data structures."
+    }
+]

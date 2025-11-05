@@ -3,36 +3,6 @@
   "nodes": [
     {
       "parameters": {
-        "promptType": "define",
-        "text": "=You are an expert Python instructor. \nYour task is to read the following lesson and produce a clear, accurate explanation or answer for the material it covers. \nFocus on summarizing the key concepts, definitions, and reasoning so that your response could later be used to create high-quality quiz questions.\n\nLesson Content:\n\"{{ $json.parsedData.map(item => item.text).join(', ')  }}\"\n\nYour response should:\n- Be written as if explaining to a beginner.\n- Contain only factual, educational content from the lesson.\n- Avoid asking any questions.\n- Be concise, clear, and accurate.",
-        "batching": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.7,
-      "position": [
-        560,
-        0
-      ],
-      "id": "1112a50a-6b6e-4c14-a142-a57bea1d12b2",
-      "name": "Basic LLM Chain"
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "=You are an expert Python instructor. \nYou will receive a short explanation of a concept. \nYour task is to generate clear, concise, beginner-friendly questions **and their correct answers** based on the information provided.\n\nBase Explanation:\n\"{{ $json.text }}\"\n\nGuidelines:\n- Each question should test a key point from the explanation.\n- Each answer should be short, factual, and clearly correct based on the explanation.\n- Avoid yes/no questions unless necessary.\n- Keep everything beginner-friendly and easy to read.\n\nOutput Format:\nQ1: [Question]\nA1: [Answer]\n\nQ2: [Question]\nA2: [Answer]\n\nQ3: [Question]\nA3: [Answer]\n",
-        "batching": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.7,
-      "position": [
-        976,
-        0
-      ],
-      "id": "695bf507-a3aa-4d16-868c-33f9b1046557",
-      "name": "Basic LLM Chain1"
-    },
-    {
-      "parameters": {
         "model": {
           "__rl": true,
           "mode": "list",
@@ -125,7 +95,37 @@
         0
       ],
       "id": "73631f2b-4b6c-4ded-8d93-804ffda63d04",
-      "name": "Edit Fields"
+      "name": "Convert 2 JSON"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert Python instructor. \nYour task is to read the following lesson and produce a clear, accurate explanation or answer for the material it covers. \nFocus on summarizing the key concepts, definitions, and reasoning so that your response could later be used to create high-quality quiz questions.\n\nLesson Content:\n\"{{ $json.parsedData.map(item => item.text).join(', ')  }}\"\n\nYour response should:\n- Be written as if explaining to a beginner.\n- Contain only factual, educational content from the lesson.\n- Avoid asking any questions.\n- Be concise, clear, and accurate.",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        560,
+        0
+      ],
+      "id": "1112a50a-6b6e-4c14-a142-a57bea1d12b2",
+      "name": "LLM Chain - Answer Generation"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert Python instructor. \nYou will receive a short explanation of a concept. \nYour task is to generate clear, concise, beginner-friendly questions **and their correct answers** based on the information provided.\n\nBase Explanation:\n\"{{ $json.text }}\"\n\nGuidelines:\n- Each question should test a key point from the explanation.\n- Each answer should be short, factual, and clearly correct based on the explanation.\n- Avoid yes/no questions unless necessary.\n- Keep everything beginner-friendly and easy to read.\n\nOutput Format:\nQ1: [Question]\nA1: [Answer]\n\nQ2: [Question]\nA2: [Answer]\n\nQ3: [Question]\nA3: [Answer]\n",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        976,
+        0
+      ],
+      "id": "695bf507-a3aa-4d16-868c-33f9b1046557",
+      "name": "LLM Chain - Question Generation"
     },
     {
       "parameters": {
@@ -148,7 +148,7 @@
         0
       ],
       "id": "c30da710-671e-40d4-925e-33ba3f16056b",
-      "name": "Edit Fields2"
+      "name": "Format Output"
     },
     {
       "parameters": {
@@ -177,7 +177,7 @@
         0
       ],
       "id": "049fb3f8-a158-402a-b3db-eb7840a198cd",
-      "name": "Create a file",
+      "name": "Save to Git Repo",
       "webhookId": "419f0e5d-a6d5-49b1-b958-3b845a0bbbd7",
       "alwaysOutputData": false,
       "executeOnce": false,
@@ -187,55 +187,15 @@
           "name": "GitHub account"
         }
       }
-    },
-    {
-      "parameters": {
-        "language": "pythonNative",
-        "pythonCode": "# just run: python convert_to_json.py\n\nimport json\n\nfile_name = 'generated_level1_11Nov 4, 2025_161930'\n# Step 1: Read the contents of your file\nwith open(f\"AIGeneratedData_n8n/{file_name}.txt\", \"r\", encoding=\"utf-8\") as f:\n    text = f.read()\n\n# Step 2: Split into lines and remove empty ones\nlines = [line.strip() for line in text.strip().split(\"\\n\") if line.strip()]\n\n# Step 3: Create a list to hold Q&A pairs\nqa_list = []\n\n# Step 4: Loop through lines two at a time (Q then A)\nfor i in range(0, len(lines), 2):\n    q_line = lines[i]\n    a_line = lines[i + 1]\n\n    # Extract question and answer text (everything after \": \")\n    question = q_line.split(\": \", 1)[1]\n    answer = a_line.split(\": \", 1)[1]\n\n    qa_list.append({\n        \"question\": question,\n        \"answer\": answer\n    })\n\n# Step 5: Save to JSON file\nwith open(f\"AIGeneratedData_json/{file_name}.json\", \"w\", encoding=\"utf-8\") as f:\n    json.dump(qa_list, f, indent=4, ensure_ascii=False)\n\nprint(\"✅ Saved to questions.json!\")\n"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        1744,
-        0
-      ],
-      "id": "98f17ca3-47b5-4b0a-9db6-94de37428e86",
-      "name": "Code in Python (Native) (Beta)"
-    },
-    {
-      "parameters": {
-        "content": "can't use json import :(\nmight just have to do it in the repo seperately\n",
-        "height": 80,
-        "width": 224
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        1696,
-        -96
-      ],
-      "typeVersion": 1,
-      "id": "f3d10669-309f-4ef7-8502-01b12b6c0748",
-      "name": "Sticky Note"
     }
   ],
   "pinData": {},
   "connections": {
-    "Basic LLM Chain": {
-      "main": [
-        [
-          {
-            "node": "Basic LLM Chain1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "OpenAI Chat Model - Answers": {
       "ai_languageModel": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "LLM Chain - Answer Generation",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -246,7 +206,7 @@
       "ai_languageModel": [
         [
           {
-            "node": "Basic LLM Chain1",
+            "node": "LLM Chain - Question Generation",
             "type": "ai_languageModel",
             "index": 0
           }
@@ -268,55 +228,60 @@
       "main": [
         [
           {
-            "node": "Edit Fields",
+            "node": "Convert 2 JSON",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields": {
+    "Convert 2 JSON": {
       "main": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "LLM Chain - Answer Generation",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Basic LLM Chain1": {
+    "LLM Chain - Answer Generation": {
       "main": [
         [
           {
-            "node": "Edit Fields2",
+            "node": "LLM Chain - Question Generation",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields2": {
+    "LLM Chain - Question Generation": {
       "main": [
         [
           {
-            "node": "Create a file",
+            "node": "Format Output",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Create a file": {
+    "Format Output": {
       "main": [
         [
           {
-            "node": "Code in Python (Native) (Beta)",
+            "node": "Save to Git Repo",
             "type": "main",
             "index": 0
           }
         ]
+      ]
+    },
+    "Save to Git Repo": {
+      "main": [
+        []
       ]
     }
   },
@@ -324,7 +289,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "4fcc0228-e5c9-4890-a9e1-74381ed5c7b7",
+  "versionId": "ab5fa0aa-fbe4-4890-a5e1-2a54b2b19405",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "f210ebe8f78e3f53d02b8c9247898d880c9238f81cca6f4b4b6fa2125e42c3cc"

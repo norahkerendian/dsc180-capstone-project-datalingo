@@ -56,8 +56,8 @@ This project uses n8n for workflows and some AI nodes. The instructions below as
    - In the workflow there is a node named `HTTP Request` (the second node in the provided workflow).
    - Click that node and find the URL field where it fetches the input JSON.
    - Replace the existing URL with the RAW link to the repository JSON you want to use. Example steps to get the raw link:
-     1. Visit: https://github.com/norahkerendian/dsc180a-q1/tree/main/AIGeneratedData_json
-     2. Click `generated_level1_a.json`.
+     1. Visit: https://github.com/norahkerendian/dsc180a-q1/tree/main/ogData
+     2. Click `level1_clean.json`.
      3. Click the `RAW` button. That opens the raw JSON in a new tab. Copy the URL from that page.
      4. Paste that RAW URL into the `HTTP Request` node's URL field.
 

@@ -19,7 +19,7 @@ If you're reading this, you're either running the workflow locally, inspecting t
 ## Files in this repository (simple explanations)
 
 - `data_organization.ipynb`, a Jupyter notebook that demonstrates how we preprocess and organize source data. If you want to see the data transformations or replicate them locally, open this file in Jupyter.
-- `convert_to_json.py`, a small utility that converts CSV data in `ogData/` (for example) into JSON format. Useful if you prefer scripted conversions instead of the notebook.
+- `convert_to_json.py`, a small utility that converts txt data in `AIGeneratedData_n8n/` (for example) into JSON format. 
 - `AIGeneratedData_json/`, folder containing JSON versions of previously generated level-1 items. These are the raw JSON files used as inputs for some workflow steps.
 - `AIGeneratedData_n8n/`, folder containing text outputs produced by the n8n workflow. When the workflow runs, it creates new generated question files here (depending on how your n8n instance is configured to save or push files).
 - `ogData/`, original raw data used as a source for generation and sampling (example: `level1.json`, `level1_clean.csv`, `level1_clean.json`).

@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "topic": "python_basics",
+    "question": "What is Python used for?",
+    "answer": "Python is a programming language used to write instructions that computers execute.",
+    "explanation": "Python is widely used for automation, data science, backend development, AI, and scripting.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "topic": "python_input_output",
+    "question": "How do you display text or numbers on the screen in Python?",
+    "answer": "Use the print() function with text in quotes.",
+    "explanation": "The print() function outputs data to the console. Example: print('Hello').",
+    "difficulty": "easy"
+  },
+  {
+    "id": 3,
+    "topic": "python_comments",
+    "question": "What symbol is used to start a comment in Python?",
+    "answer": "The # symbol.",
+    "explanation": "Comments help explain code to humans and are ignored by the interpreter.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "topic": "python_variables",
+    "question": "How do you assign the value ‘John’ to a variable named name?",
+    "answer": "name = 'John'",
+    "explanation": "Variables are containers for data. Use = to assign values.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 5,
+    "topic": "data_types",
+    "question": "Name common data types in Python.",
+    "answer": "int, float, str, bool.",
+    "explanation": "They represent numbers, decimals, text, and true/false values.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "topic": "functions",
+    "question": "How do you define a function in Python?",
+    "answer": "Using the def keyword.",
+    "explanation": "Functions group reusable code. Example: def greet(): print('Hi').",
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "topic": "conditionals",
+    "question": "What Python statement runs code only if a condition is true?",
+    "answer": "The if statement.",
+    "explanation": "Example: if x > 10: print('Greater').",
+    "difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "topic": "loops",
+    "question": "What type of loop repeats while a condition is true?",
+    "answer": "A while loop.",
+    "explanation": "Loops allow repeated execution until the condition becomes false.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 9,
+    "topic": "lists",
+    "question": "How do you add an item to a list?",
+    "answer": "Using .append().",
+    "explanation": "Example: names.append('John') adds an element to the end of a list.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "topic": "dictionaries",
+    "question": "How do you store key-value data in Python?",
+    "answer": "Using a dictionary.",
+    "explanation": "Example: person = {'name': 'Ana', 'age': 20}.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 11,
+    "topic": "python_operators",
+    "question": "What is the difference between `==` and `is` in Python?",
+    "answer": "`==` checks for value equality, while `is` checks for object identity (if they are the same object in memory).",
+    "explanation": "For example, two different lists with the same values would be `==` but not `is`.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 12,
+    "topic": "string_methods",
+    "question": "How would you convert the string 'hello world' to 'HELLO WORLD'?",
+    "answer": "Using the `.upper()` method: `'hello world'.upper()`.",
+    "explanation": "String methods return a new modified string and do not change the original string.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "topic": "list_methods",
+    "question": "How do you remove and return the last item from a list?",
+    "answer": "Using the `.pop()` method.",
+    "explanation": "If no index is specified, `list.pop()` removes and returns the last item. You can also specify an index, e.g., `list.pop(0)`.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "topic": "error_handling",
+    "question": "What Python construct is used to handle exceptions (errors)?",
+    "answer": "The `try` and `except` blocks.",
+    "explanation": "Code that might cause an error goes in the `try` block, and the handling code goes in the `except` block.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 15,
+    "topic": "python_modules",
+    "question": "How do you make functions from a module available in your script?",
+    "answer": "Use the `import` statement.",
+    "explanation": "For example, `import math` allows you to use `math.sqrt(4)`. You can also use `from math import sqrt` to import a specific function.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 16,
+    "topic": "function_arguments",
+    "question": "What is a default argument in a function?",
+    "answer": "It's a parameter that assumes a default value if no value is provided in the function call.",
+    "explanation": "Example: `def greet(name='User'): print(f'Hello {name}')`. Calling `greet()` will output 'Hello User'.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 17,
+    "topic": "loops",
+    "question": "What is the key difference between a `for` loop and a `while` loop?",
+    "answer": "A `for` loop iterates over a sequence (like a list or string), while a `while` loop repeats as long as a condition is True.",
+    "explanation": "You use a `for` loop when you know how many times to iterate, and a `while` loop when it depends on a dynamic condition.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 18,
+    "topic": "list_comprehensions",
+    "question": "How would you create a list of squares for numbers 0 to 9 using a list comprehension?",
+    "answer": "`squares = [x**2 for x in range(10)]`",
+    "explanation": "List comprehensions provide a concise way to create lists based on existing iterables.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 19,
+    "topic": "dictionary_methods",
+    "question": "How do you safely get a value from a dictionary if you're unsure the key exists?",
+    "answer": "Use the `.get()` method.",
+    "explanation": "`dict.get(key, default_value)` returns the value for the key if it exists, otherwise it returns the `default_value` (or `None` if not provided).",
+    "difficulty": "medium"
+  },
+  {
+    "id": 20,
+    "topic": "file_handling",
+    "question": "What is the standard way to open and read a file in Python, ensuring it is properly closed?",
+    "answer": "Using a `with` statement.",
+    "explanation": "Example: `with open('file.txt', 'r') as f: content = f.read()`. The file is automatically closed when the block is exited.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 21,
+    "topic": "python_basics",
+    "question": "What does the `len()` function do?",
+    "answer": "It returns the number of items in an object, such as a string, list, or dictionary.",
+    "explanation": "For a string, it returns the number of characters. For a list, the number of elements.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 22,
+    "topic": "data_types",
+    "question": "What is a tuple and how is it different from a list?",
+    "answer": "A tuple is an ordered, immutable collection. It is defined with parentheses `()` and cannot be changed after creation.",
+    "explanation": "Lists are mutable (can be changed), while tuples are immutable. This makes tuples faster and hashable (can be used as dictionary keys).",
+    "difficulty": "medium"
+  },
+  {
+    "id": 23,
+    "topic": "functions",
+    "question": "What does the `return` statement do in a function?",
+    "answer": "It ends the function's execution and sends a value back to the caller.",
+    "explanation": "If no `return` statement is present, the function implicitly returns `None`.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 24,
+    "topic": "conditionals",
+    "question": "What keyword is used to handle cases that aren't caught by an `if` or `elif` condition?",
+    "answer": "The `else` keyword.",
+    "explanation": "The `else` block executes if none of the previous conditions in the `if`/`elif` chain were true.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 25,
+    "topic": "python_operators",
+    "question": "What does the `%` operator do when used with numbers?",
+    "answer": "It is the modulus operator, which returns the remainder of a division.",
+    "explanation": "Example: `10 % 3` returns `1`, because 10 divided by 3 is 3 with a remainder of 1.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 26,
+    "topic": "string_methods",
+    "question": "How would you check if a string starts with a specific substring?",
+    "answer": "Using the `.startswith()` method.",
+    "explanation": "Example: `'hello'.startswith('he')` returns `True`.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 27,
+    "topic": "list_methods",
+    "question": "How do you find the index of the first occurrence of an item in a list?",
+    "answer": "Using the `.index()` method.",
+    "explanation": "Example: `['a', 'b', 'c'].index('b')` returns `1`. A `ValueError` is raised if the item is not found.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 28,
+    "topic": "sets",
+    "question": "What is a set in Python and what is its primary property?",
+    "answer": "A set is an unordered collection of unique, immutable objects.",
+    "explanation": "It is defined with curly braces `{}` or the `set()` function. It automatically removes duplicates and is useful for membership testing and mathematical operations.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 29,
+    "topic": "error_handling",
+    "question": "How can you handle multiple different types of exceptions separately?",
+    "answer": "By using multiple `except` blocks.",
+    "explanation": "Example: `try: ... except ValueError: ... except TypeError: ...`. Each `except` block handles a specific exception.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 30,
+    "topic": "loops",
+    "question": "What are the `break` and `continue` statements used for in loops?",
+    "answer": "`break` exits the loop entirely, while `continue` skips the rest of the current iteration and moves to the next one.",
+    "explanation": "`break` is used to stop the loop when a condition is met. `continue` is used to skip specific cases within the loop.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 31,
+    "topic": "function_arguments",
+    "question": "What does `*args` allow you to do in a function definition?",
+    "answer": "It allows the function to accept any number of positional arguments.",
+    "explanation": "The `*args` parameter collects extra positional arguments into a tuple. Example: `def func(*args): print(args)`.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 32,
+    "topic": "function_arguments",
+    "question": "What does `**kwargs` allow you to do in a function definition?",
+    "answer": "It allows the function to accept any number of keyword arguments.",
+    "explanation": "The `**kwargs` parameter collects extra keyword arguments into a dictionary. Example: `def func(**kwargs): print(kwargs)`.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 33,
+    "topic": "scope",
+    "question": "What is the difference between a local and a global variable?",
+    "answer": "A local variable is defined inside a function and is only accessible within that function. A global variable is defined outside any function and is accessible throughout the module.",
+    "explanation": "To modify a global variable from inside a function, you must use the `global` keyword.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 34,
+    "topic": "python_basics",
+    "question": "What are the boolean values in Python?",
+    "answer": "`True` and `False`.",
+    "explanation": "They must be capitalized. They are the result of comparison operations (e.g., `==`, `>`, `<`).",
+    "difficulty": "easy"
+  },
+  {
+    "id": 35,
+    "topic": "list_comprehensions",
+    "question": "How can you add a condition to a list comprehension?",
+    "answer": "By adding an `if` clause at the end.",
+    "explanation": "Example: `evens = [x for x in range(10) if x % 2 == 0]` creates a list of even numbers.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 36,
+    "topic": "dictionary_comprehensions",
+    "question": "How would you create a dictionary where the keys are numbers and the values are their squares, for numbers 0 to 4?",
+    "answer": "`squares_dict = {x: x**2 for x in range(5)}`",
+    "explanation": "Dictionary comprehensions are similar to list comprehensions but use curly braces and a key-value pair.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 37,
+    "topic": "python_modules",
+    "question": "What is the `__name__` variable used for?",
+    "answer": "It is a special variable that holds the name of the current module. If the module is being run directly, `__name__` is set to `'__main__'`.",
+    "explanation": "It is commonly used to include code that should only run when the script is executed directly, not when imported: `if __name__ == '__main__':`.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 38,
+    "topic": "classes",
+    "question": "What is the purpose of the `__init__` method in a class?",
+    "answer": "It is the constructor method that is automatically called when a new instance of the class is created.",
+    "explanation": "It is used to initialize the attributes of the new object. The first parameter is always `self`.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 39,
+    "topic": "classes",
+    "question": "What is `self` in a Python class?",
+    "answer": "`self` is a reference to the current instance of the class. It is used to access variables and methods associated with that instance.",
+    "explanation": "It is the first parameter of instance methods, though you can name it anything (but `self` is the strong convention).",
+    "difficulty": "medium"
+  },
+  {
+    "id": 40,
+    "topic": "inheritance",
+    "question": "How does a class inherit from another class in Python?",
+    "answer": "By placing the parent class name in parentheses after the child class name.",
+    "explanation": "Example: `class ChildClass(ParentClass):`. The child class inherits all attributes and methods of the parent.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 41,
+    "topic": "string_formatting",
+    "question": "What are two common ways to format strings in modern Python?",
+    "answer": "f-strings (formatted string literals) and the `.format()` method.",
+    "explanation": "f-strings: `f'Hello {name}'`. `.format()`: `'Hello {}'.format(name)`. f-strings are generally preferred for their readability and speed.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 42,
+    "topic": "iterators_generators",
+    "question": "What is the key difference between an iterator and a generator?",
+    "answer": "An iterator is an object with a `__next__()` method. A generator is a special kind of iterator created using a function with `yield` statements.",
+    "explanation": "Generators are a concise way to create iterators. They generate values on-the-fly and do not store all values in memory at once.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 43,
+    "topic": "built_in_functions",
+    "question": "What does the `range()` function return and what are its common parameters?",
+    "answer": "It returns an immutable sequence of numbers. Common parameters are `start`, `stop`, and `step`.",
+    "explanation": "Example: `range(5)` gives numbers 0 to 4. `range(1, 10, 2)` gives odd numbers from 1 to 9. It's often used in `for` loops.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 44,
+    "topic": "list_methods",
+    "question": "How do you create a shallow copy of a list?",
+    "answer": "Using the `.copy()` method or the slice syntax `list[:]`.",
+    "explanation": "A shallow copy creates a new list object, but the elements inside are the same objects as in the original list.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 45,
+    "topic": "modules",
+    "question": "What is the Python Standard Library?",
+    "answer": "It is a collection of modules and packages that come bundled with Python, providing common functionality like file I/O, system calls, and data structures.",
+    "explanation": "Examples include `math`, `os`, `sys`, `json`, `datetime`, and `collections`. You don't need to install them separately.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 46,
+    "topic": "file_handling",
+    "question": "What is the difference between the `'r'` and `'w'` modes when opening a file?",
+    "answer": "`'r'` opens a file for reading (default). `'w'` opens a file for writing, truncating the file first (erasing existing content).",
+    "explanation": "Use `'a'` for appending to a file without erasing its content. Always be cautious with `'w'` mode.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 47,
+    "topic": "data_structures",
+    "question": "What is the time complexity of looking up an item by key in a dictionary?",
+    "answer": "Average case O(1), or constant time.",
+    "explanation": "This is because dictionaries are implemented as hash tables, making lookups very efficient on average.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 48,
+    "topic": "decorators",
+    "question": "What is a decorator in Python?",
+    "answer": "A decorator is a function that takes another function and extends its behavior without explicitly modifying it.",
+    "explanation": "It is represented by the `@` symbol above a function definition. Decorators are a form of metaprogramming.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 49,
+    "topic": "python_operators",
+    "question": "What is the `in` operator used for?",
+    "answer": "It is used to check for membership within a sequence (like a string, list, or tuple) or a collection (like a set or dictionary keys).",
+    "explanation": "Example: `'a' in ['a', 'b', 'c']` returns `True`. `'name' in person_dict` checks for the key 'name' in the dictionary.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 50,
+    "topic": "conditionals",
+    "question": "What is the ternary conditional operator in Python?",
+    "answer": "It's a one-line expression: `value_if_true if condition else value_if_false`.",
+    "explanation": "Example: `status = 'adult' if age >= 18 else 'minor'`. It's a concise alternative to a simple if-else block.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 51,
+    "topic": "python_basics",
+    "question": "What is the result of `2 ** 3` in Python?",
+    "answer": "`8`",
+    "explanation": "The `**` operator is used for exponentiation. `2 ** 3` means 2 raised to the power of 3.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 52,
+    "topic": "functions",
+    "question": "Can a function return multiple values in Python?",
+    "answer": "Yes, by returning them as a tuple, which can be unpacked.",
+    "explanation": "Example: `return a, b, c`. This is equivalent to `return (a, b, c)`. The caller can write `x, y, z = func()`.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 53,
+    "topic": "error_handling",
+    "question": "What is the purpose of the `finally` clause in a try-except block?",
+    "answer": "The `finally` clause executes whether an exception occurred or not. It is used for cleanup code (like closing files).",
+    "explanation": "The code in the `finally` block runs no matter what, even if there's a `return`, `break`, or `continue` in the `try` or `except` blocks.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 54,
+    "topic": "loops",
+    "question": "What function is used to iterate over both the index and the value of a sequence?",
+    "answer": "The `enumerate()` function.",
+    "explanation": "Example: `for index, value in enumerate(my_list):`. It returns an iterator of tuples containing the index and the value.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 55,
+    "topic": "dictionaries",
+    "question": "How do you iterate over both keys and values in a dictionary simultaneously?",
+    "answer": "Using the `.items()` method.",
+    "explanation": "Example: `for key, value in my_dict.items():`. This is the most efficient and Pythonic way.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 56,
+    "topic": "python_operators",
+    "question": "What is short-circuit evaluation in logical operators (`and`, `or`)?",
+    "answer": "It means that the second argument is only evaluated if the first one doesn't determine the result already.",
+    "explanation": "For `and`, if the first is False, it returns False without checking the second. For `or`, if the first is True, it returns True without checking the second.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 57,
+    "topic": "list_methods",
+    "question": "How do you sort a list in-place?",
+    "answer": "Using the `.sort()` method.",
+    "explanation": "`my_list.sort()` modifies the original list. To get a new sorted list without changing the original, use the `sorted(my_list)` function.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 58,
+    "topic": "python_basics",
+    "question": "What is the difference between `is not` and `!=`?",
+    "answer": "`!=` checks for value inequality. `is not` checks for object identity inequality.",
+    "explanation": "Similar to `==` vs `is`, `is not` is used when you care that two variables point to different objects in memory, not just that their values are different.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 59,
+    "topic": "string_methods",
+    "question": "How would you split a string into a list of substrings based on a delimiter?",
+    "answer": "Using the `.split()` method.",
+    "explanation": "Example: `'a,b,c'.split(',')` returns `['a', 'b', 'c']`. If no delimiter is given, it splits on whitespace.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 60,
+    "topic": "data_types",
+    "question": "What is `None` in Python?",
+    "answer": "It is a special constant that represents the absence of a value or a null value.",
+    "explanation": "It is often used as a default return value for functions that don't explicitly return anything and to initialize variables.",
+    "difficulty": "easy"
+  }
+]

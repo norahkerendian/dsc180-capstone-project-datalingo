@@ -1,0 +1,242 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:11434/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"model\": \"deepseek-r1:1.5b\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Separate the main ideas of the provided slide text into clear explanatory sentences. Avoid questions. Use wording from the text where possible.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"\"\n    }\n  ],\n  \"temperature\": 0.2\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [768, 0],
+      "id": "9b475eca-2ebe-47ef-8266-7ca6cfedfa54",
+      "name": "LLM - Explanation (DeepSeek)"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Extract explanation text from DeepSeek response\nconst explanation = ($json.choices && $json.choices[0] && $json.choices[0].message && $json.choices[0].message.content) ? $json.choices[0].message.content.trim() : '';\nreturn [{ json: { explanation } }];"
+      },
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [928, 0],
+      "id": "0f05f9d9-1926-4b42-99e1-0b2bae723907",
+      "name": "Function - Parse Explanation"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:11434/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "=json",
+        "bodyParameters": {
+          "parameters": [{}]
+        },
+        "jsonBody": "{  \"model\": \"deepseek-r1:1.5b\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"Generate ONE short question whose correct answer is fully contained in the provided explanation text. Output only the question.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"{{ $json.explanation }}\"\n    }\n  ],\n  \"temperature\": 0.2}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1088, 0],
+      "id": "6c74cf9e-f7f1-4731-b837-68fc69ba75f9",
+      "name": "LLM - Question (DeepSeek)"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [208, 0],
+      "id": "501927e8-548f-43c8-997a-bba539468127",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/norahkerendian/dsc180a-q1/refs/heads/main/AIGeneratedData_json/test_questions.json?token=GHSAT0AAAAAADNZC4XN6QNDD3KJSGQD36WO2I7TWYA",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [368, 0],
+      "id": "d8138587-873c-48e6-bf54-9b19278db2e2",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "17e8a1ba-7e9b-4fdd-9db3-3ab019035cc3",
+              "name": "parsedData",
+              "value": "={{ JSON.parse($json.data) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [496, 0],
+      "id": "1aa3c826-6ac4-4b54-9a43-b035462b4a04",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Build question-answer pair from DeepSeek question response.\n// Fetch explanation from previous parse node via $node reference.\nconst question = ($json.choices && $json.choices[0] && $json.choices[0].message && $json.choices[0].message.content) ? $json.choices[0].message.content.trim() : '';\nconst explanation = $node['Function - Parse Explanation'].json.explanation || '';\nreturn [{ json: { question_text: question, answer_text: explanation } }];"
+      },
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [1536, 0],
+      "id": "5c6edbf5-3120-4016-8fc3-ce8dc435b1ab",
+      "name": "Function - Wrap Question"
+    },
+    {
+      "parameters": {
+        "operation": "query",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [1856, 0],
+      "id": "ddde4af5-6b44-4392-9bff-7a50c9e6b528",
+      "name": "Postgres - Insert Questions"
+    },
+    {
+      "parameters": {
+        "content": "## Add context & Remove/Change Privacy\n1. Right not we are currently HTTP requesting the data from GitHub which is fine however, we need to constantly change the link, I'm not entiely sure why but we need to find another way to fetch data.\n2. There will be more context windows/nodes. Either the Python docs, Sklearn Docs,etc  here. So it will be 1-n nodes that conect to `Edit Fields` ",
+        "height": 240,
+        "width": 560
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [80, -320],
+      "id": "688f3b10-eed5-47dd-bc80-6bd452fbce48",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Fetching data to the \n1. As soon as the data is connected, we can start fetching data into the DB that the backend team is working on",
+        "height": 240,
+        "width": 560
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [1504, -304],
+      "id": "d99d9520-c94a-4482-a6fd-d373cd125876",
+      "name": "Sticky Note1"
+    }
+  ],
+  "connections": {
+    "LLM - Explanation (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Function - Parse Explanation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function - Parse Explanation": {
+      "main": [
+        [
+          {
+            "node": "LLM - Question (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM - Question (DeepSeek)": {
+      "main": [
+        [
+          {
+            "node": "Function - Wrap Question",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "LLM - Explanation (DeepSeek)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function - Wrap Question": {
+      "main": [
+        [
+          {
+            "node": "Postgres - Insert Questions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1974dd6ca7423d3098b399538292493b1591b626bf174604d4a363247723d1d7"
+  }
+}

@@ -12,6 +12,13 @@
 // }
 
 import Link from "next/link";
+import { supabase } from "../lib/supabaseClient";
+
+async function getQuestions() {
+  const { data, error } = await supabase.from("questions").select("*");
+  return { data, error };
+}
+
 
 export default function Home() {
   return (

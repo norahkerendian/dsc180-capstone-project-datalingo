@@ -5,11 +5,48 @@
   "content_md": "# Error Handling\n\nPrograms crash without proper error handling.\n\n```python\ntry:\n    num = int('abc')\nexcept ValueError:\n    print('Invalid number')\n```\n\n## Common Exceptions\n| Exception | Meaning |\n|-----------|---------|\n| `ValueError` | Wrong value type |\n| `ZeroDivisionError` | Divide by zero |\n| `TypeError` | Wrong data type |\n\nML pipelines depend heavily on error handling.",
   "topic": "Python",
   "level": 6,
-  "metadata": { "estimated_minutes": 14 },
+  "created_at": "2025-11-19T01:11:19.340Z",
+  "updated_at": "2025-11-27T21:00:00.000Z",
+  "metadata": {
+    "source": "Python Docs",
+    "estimated_minutes": 14
+  },
   "questions": [
-    { "id": 1, "question": "What happens when code crashes?", "answer": "The program stops unless handled.", "difficulty": 1 },
-    { "id": 2, "question": "Write a try/except block catching ZeroDivisionError.", "answer": "try: x/0\nexcept ZeroDivisionError: print('Error')", "difficulty": 3, "question_type": "code" },
-    { "id": 3, "question": "Why use exceptions?", "answer": "To avoid crashes and handle issues gracefully.", "difficulty": 2 },
-    { "id": 4, "question": "Which exception happens when converting text to int incorrectly?", "answer": "ValueError.", "difficulty": 1 }
+    {
+      "id": 1,
+      "question": "What happens when code crashes?",
+      "answer": "The program stops unless handled.",
+      "difficulty": 1,
+      "category": "concepts",
+      "question_type": "short_answer",
+      "tags": ["exceptions", "crashes", "behavior"]
+    },
+    {
+      "id": 2,
+      "question": "Write a try/except block catching ZeroDivisionError.",
+      "answer": "try: x/0\nexcept ZeroDivisionError: print('Error')",
+      "difficulty": 3,
+      "category": "syntax",
+      "question_type": "short_answer",
+      "tags": ["try", "except", "ZeroDivisionError", "code"]
+    },
+    {
+      "id": 3,
+      "question": "Why use exceptions?",
+      "answer": "To avoid crashes and handle issues gracefully.",
+      "difficulty": 2,
+      "category": "concepts",
+      "question_type": "short_answer",
+      "tags": ["benefits", "error-handling", "robustness"]
+    },
+    {
+      "id": 4,
+      "question": "Which exception happens when converting text to int incorrectly?",
+      "answer": "ValueError.",
+      "difficulty": 1,
+      "category": "exceptions",
+      "question_type": "short_answer",
+      "tags": ["ValueError", "conversion", "exceptions"]
+    }
   ]
 }

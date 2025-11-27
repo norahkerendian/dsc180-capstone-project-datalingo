@@ -5,11 +5,48 @@
   "content_md": "# Functions in Python\n\nFunctions let you reuse code efficiently.\n\n## Basic Syntax\n```python\ndef greet(name):\n    return f\"Hello, {name}!\"\n```\n\n## Why Use Functions?\n- Avoid repetition\n- Organize code\n- Enable testing\n\nFunctions are the core of all automation and reusable logic.",
   "topic": "Python",
   "level": 5,
-  "metadata": { "source": "Python Docs", "estimated_minutes": 18 },
+  "created_at": "2025-11-18T01:11:19.340Z",
+  "updated_at": "2025-11-27T21:00:00.000Z",
+  "metadata": {
+    "source": "Python Docs",
+    "estimated_minutes": 18
+  },
   "questions": [
-    { "id": 1, "question": "What keyword defines a function?", "answer": "`def`.", "difficulty": 1 },
-    { "id": 2, "question": "What does `return` do?", "answer": "It sends a value back from the function.", "difficulty": 2 },
-    { "id": 3, "question": "Write a function called add that returns a+b.", "answer": "def add(a, b): return a + b", "difficulty": 2, "question_type": "code" },
-    { "id": 4, "question": "Why are functions useful?", "answer": "They let us reuse and organize code.", "difficulty": 1 }
+    {
+      "id": 1,
+      "question": "What keyword defines a function?",
+      "answer": "`def`.",
+      "difficulty": 1,
+      "category": "syntax",
+      "question_type": "short_answer",
+      "tags": ["def", "keywords", "syntax"]
+    },
+    {
+      "id": 2,
+      "question": "What does `return` do?",
+      "answer": "It sends a value back from the function.",
+      "difficulty": 2,
+      "category": "keywords",
+      "question_type": "short_answer",
+      "tags": ["return", "output", "functions"]
+    },
+    {
+      "id": 3,
+      "question": "Write a function called add that returns a+b.",
+      "answer": "def add(a, b): return a + b",
+      "difficulty": 2,
+      "category": "syntax",
+      "question_type": "short_answer",
+      "tags": ["def", "parameters", "return", "code"]
+    },
+    {
+      "id": 4,
+      "question": "Why are functions useful?",
+      "answer": "They let us reuse and organize code.",
+      "difficulty": 1,
+      "category": "concepts",
+      "question_type": "short_answer",
+      "tags": ["reusability", "organization", "benefits"]
+    }
   ]
 }

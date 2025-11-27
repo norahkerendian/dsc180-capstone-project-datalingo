@@ -5,11 +5,48 @@
   "content_md": "# Virtual Environments\n\nA virtual environment isolates dependencies for a project.\n\n## Creating One\n```bash\npython -m venv venv\n```\n\n## Activating\n- Windows: `venv\\Scripts\\activate`\n- Mac/Linux: `source venv/bin/activate`\n\nUse `pip install X` **after activation** to keep packages isolated.",
   "topic": "Python",
   "level": 11,
-  "metadata": { "estimated_minutes": 15 },
+  "created_at": "2025-11-24T01:11:19.340Z",
+  "updated_at": "2025-11-27T21:00:00.000Z",
+  "metadata": {
+    "source": "Python Docs",
+    "estimated_minutes": 15
+  },
   "questions": [
-    { "id": 1, "question": "Why use virtual environments?", "answer": "To isolate package versions for each project.", "difficulty": 2 },
-    { "id": 2, "question": "What command creates a virtual environment?", "answer": "python -m venv venv", "difficulty": 2 },
-    { "id": 3, "question": "Where do you install libraries after activation?", "answer": "Inside the virtual environment using pip.", "difficulty": 2 },
-    { "id": 4, "question": "What problem do virtual environments solve?", "answer": "Package conflicts between projects.", "difficulty": 3 }
+    {
+      "id": 1,
+      "question": "Why use virtual environments?",
+      "answer": "To isolate package versions for each project.",
+      "difficulty": 2,
+      "category": "concepts",
+      "question_type": "short_answer",
+      "tags": ["isolation", "purpose", "benefits"]
+    },
+    {
+      "id": 2,
+      "question": "What command creates a virtual environment?",
+      "answer": "python -m venv venv",
+      "difficulty": 2,
+      "category": "commands",
+      "question_type": "short_answer",
+      "tags": ["venv", "creation", "command-line"]
+    },
+    {
+      "id": 3,
+      "question": "Where do you install libraries after activation?",
+      "answer": "Inside the virtual environment using pip.",
+      "difficulty": 2,
+      "category": "workflow",
+      "question_type": "short_answer",
+      "tags": ["pip", "installation", "workflow"]
+    },
+    {
+      "id": 4,
+      "question": "What problem do virtual environments solve?",
+      "answer": "Package conflicts between projects.",
+      "difficulty": 3,
+      "category": "concepts",
+      "question_type": "short_answer",
+      "tags": ["conflicts", "problems", "dependencies"]
+    }
   ]
 }

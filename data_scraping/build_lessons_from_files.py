@@ -256,3 +256,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# python build_lessons_from_files.py --md_dir chapters --output inferential_lessons.json --save-md cleaned_md

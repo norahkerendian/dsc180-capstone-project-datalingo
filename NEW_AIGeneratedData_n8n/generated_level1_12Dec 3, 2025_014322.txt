@@ -1,0 +1,54 @@
+[
+  {
+    "lesson_slug": "0111computational-toolsmd",
+    "lesson_title": "Computational-Tools",
+    "topic": "Python",
+    "level": 1,
+    "question": "What is exploratory data analysis (EDA) used for in data science?",
+    "answer": "Exploratory data analysis (EDA) is crucial for understanding datasets by summarizing their main characteristics.",
+    "difficulty": 1,
+    "category": "definition",
+    "question_type": "short_answer",
+    "source": "baseline",
+    "index": 0
+  },
+  {
+    "lesson_slug": "0111computational-toolsmd",
+    "lesson_title": "Computational-Tools",
+    "topic": "Python",
+    "level": 1,
+    "question": "Which visual methods are commonly used during exploratory data analysis?",
+    "answer": "Common techniques include using histograms, box plots, scatter plots, and calculating summary statistics such as mean, median, mode, and standard deviation.",
+    "difficulty": 2,
+    "category": "concept_check",
+    "question_type": "short_answer",
+    "source": "baseline",
+    "index": 1
+  },
+  {
+    "lesson_slug": "0111computational-toolsmd",
+    "lesson_title": "Computational-Tools",
+    "topic": "Python",
+    "level": 1,
+    "question": "Why is data cleaning important before conducting exploratory data analysis?",
+    "answer": "Proper data cleaning is essential to handle missing values and identify outliers before analysis.",
+    "difficulty": 3,
+    "category": "application",
+    "question_type": "short_answer",
+    "source": "baseline",
+    "index": 2
+  },
+  {
+    "lesson_slug": "0111computational-toolsmd",
+    "lesson_title": "Computational-Tools",
+    "topic": "Python",
+    "level": 1,
+    "question": "How does exploratory data analysis assist in building predictive models?",
+    "answer": "EDA helps in selecting appropriate models and features for further predictive or inferential tasks.",
+    "difficulty": 2,
+    "category": "application",
+    "question_type": "short_answer",
+    "source": "baseline",
+    "index": 3
+  }
+]

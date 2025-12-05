@@ -1,0 +1,545 @@
+{
+  "name": "gemini_question_generation_pure-12/5",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/norahkerendian/dsc180a-q1/refs/heads/main/data_scraping/levels/level_1.json?token=GHSAT0AAAAAADL5WWDGJQCVLUKPLKYMZSRY2JQVPYA",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -112,
+        32
+      ],
+      "id": "f73a85a9-030c-4af2-99af-a41af5e8f74b",
+      "name": "HTTP Request – level_1.json"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dee42752-1db6-45d5-b514-2c829145a877",
+              "name": "parsedData",
+              "value": "={{ JSON.parse($json.data) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        32
+      ],
+      "id": "495166d2-e07c-4e52-954b-cd30e5b9fd43",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// parsedData should be an array of lessons from your JSON\nconst lessons = $json.parsedData;\nconst source = lessons;\n\nreturn source.map(item => ({\n  json: item,\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        336,
+        32
+      ],
+      "id": "730c0d50-80ba-467e-ad46-4be266c5db86",
+      "name": "mapping"
+    },
+    {
+      "parameters": {
+        "jsCode": "const chunkSize = 900;\n\nfunction clean(str) {\n  return str\n    .replace(/\\r?\\n+/g, ' ')\n    .replace(/\\s+/g, ' ')\n    .replace(/\\[.*?\\]\\(.*?\\)/g, '')\n    .replace(/[#*_`>~=-]/g, '')\n    .trim();\n}\n\nconst inputItems = $input.all();\nlet out = [];\n\nfor (const item of inputItems) {\n  const lesson = item.json;\n  const text = clean(lesson.content_md || '');\n\n  for (let i = 0; i < text.length; i += chunkSize) {\n    out.push({\n      json: {\n        ...lesson,\n        text_chunk: text.slice(i, i + chunkSize),\n        chunk_index: Math.floor(i / chunkSize),\n      },\n    });\n  }\n}\n\nreturn out;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        32
+      ],
+      "id": "fd43719a-78cb-44b7-9235-a46d1f903898",
+      "name": "chunking"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "lesson_slug",
+              "name": "lesson_slug",
+              "value": "={{ $json.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "lesson_title",
+              "name": "lesson_title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "topic",
+              "name": "topic",
+              "value": "={{ $json.topic || $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "level",
+              "name": "level",
+              "value": "={{ $json.level }}",
+              "type": "number"
+            },
+            {
+              "id": "lesson_text",
+              "name": "lesson_text",
+              "value": "={{ $json.text_chunk }}",
+              "type": "string"
+            },
+            {
+              "id": "0c3999ed-6dbf-4ed5-b2eb-e865e9587c59",
+              "name": "chunk_id",
+              "value": "={{ $json.chunk_index }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        784,
+        32
+      ],
+      "id": "90cd1944-bad5-468c-834c-b7e26f959b67",
+      "name": "Set – Lesson Metadata"
+    },
+    {
+      "parameters": {
+        "jsCode": "// items = array of workflow items n8n gives this node automatically\n// Each item has .json.lesson_text\n\nreturn items.map(item => {\n  let text = (item.json.lesson_text || '').toString();\n\n  // Clean & shrink text\n  text = text\n    .replace(/\\r?\\n+/g, ' ')\n    .replace(/\\s+/g, ' ')\n    .replace(/\\[.*?\\]\\(.*?\\)/g, '')\n    .replace(/[#*_`>~=-]/g, '')\n    .trim();\n\n  return {\n    json: {\n      ...item.json,\n      safe_text: text,\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1008,
+        32
+      ],
+      "id": "fcc8bf0a-6c0b-4f3a-a9f1-11b19f1b9809",
+      "name": "Prepare Lesson Text"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a data-science tutor and expert Python instructor. Your task is to read the lesson_text and generate clear, correct answer explanations that summarize key concepts. These answers will later be used to create quiz questions. \n\nYou MUST respond with a single valid JSON object and nothing else.\n\nSchema:\n\n{\n  \"lesson_text\": \"<string (MUST COPY EXACTLY from input, character-for-character)>\",\n  \"answers\": [\n    {\n      \"answer\": \"<string (exact, concise explanation from lesson_text)>\",\n      \"difficulty\": 1 | 2 | 3,\n      \"category\": \"concept_check\" | \"definition\" | \"application\"\n    }\n  ]\n}\n\nRules:\n\n1. Copy lesson_text EXACTLY as received; do not modify, summarize, or truncate it. \n2. Use ONLY information present in lesson_text; do NOT add or infer content. \n3. Produce **4–6 answers**. Each answer must be concise, beginner-friendly, and factually accurate. \n4. Do NOT write questions; only generate answer explanations. \n5. Each answer must include:\n   - difficulty: 1 for basic, 2 for intermediate, 3 for advanced\n   - category: one of \"concept_check\", \"definition\", or \"application\"\n6. Do not include any extra text, markdown, or code fences. Output must be valid JSON.\n\nLesson Content:\n\"{{ $json.lesson_text }}\"\n",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1504,
+        32
+      ],
+      "id": "4bc8e248-0854-4503-a49c-acc119f5254e",
+      "name": "LLM Chain - Answer Generation1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a data-science tutor.\nYou must NOT rewrite, summarize, modify, or replace the lesson_text.\nYou must NOT introduce any concepts that do not already appear in the input.\nYou must STRICTLY produce JSON following the schema below.\n\nYou MUST treat all input values as literal truth.\nIf something is missing or unclear, do NOT invent content. Simply use what is present.\n\nOutput a single JSON object with this schema:\n\n{\n  \"lesson_text\": \"<string> (MUST COPY EXACTLY from input, character-for-character)\",\n  \"qa_pairs\": [\n    {\n      \"question\": \"<string ending with '?'>\",\n      \"answer\": \"<string (exact copy of the input answer)>\",\n      \"difficulty\": 1 | 2 | 3,\n      \"category\": \"concept_check\" | \"definition\" | \"application\"\n    }\n  ]\n}\n\n\nRules:\n\nlesson_text must be copied EXACTLY as received.\n\nFor each input answer, generate exactly ONE question.\n\nThe answer in each qa_pair MUST be copied verbatim.\n\ndifficulty and category must be copied verbatim.\n\nThe question must be based ONLY on the answer. Not the lesson text.\n\nGenerate the SAME number of qa_pairs as answers.\n\nYour response MUST be valid JSON with no Markdown, no code fences, no explanations.\n\nIf the input includes 4 answers, output 4 qa_pairs.\n\nInput:\n\n{{ JSON.stringify($json.parsedAnswers) }}",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        2080,
+        32
+      ],
+      "id": "be5e6b54-44ac-4181-800c-fdd52383be6f",
+      "name": "LLM Chain - Question Generation1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e76f7ff8-f16f-4b3d-91d8-97c04d1d5b24",
+              "name": "parsedAnswers",
+              "value": "={{ \n  JSON.parse(\n    $json.text\n      .replace(/```json/gi, '')\n      .replace(/```/g, '')\n      .trim()\n  ) \n}}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1856,
+        32
+      ],
+      "id": "f514e887-cb7c-4d63-9d42-5a7c749e7a49",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Your input item looks like:\n// {\n//   parsedQuestions: {\n//       lesson_text: \"...\",\n//       qa_pairs: [ ... ]\n//   }\n// }\n\n// 1) Read parsedQuestions safely\nconst pq = $json.parsedQuestions;\n\nif (!pq) {\n  throw new Error('Missing parsedQuestions in input');\n}\n\nconst qaPairs = Array.isArray(pq.qa_pairs) ? pq.qa_pairs : [];\n\nif (!qaPairs.length) {\n  return []; // nothing to output\n}\n\n// 2) Read lesson metadata from earlier Set node\nconst metaNode = $node['Set – Lesson Metadata1'].json || {};\n\nconst lesson_slug  = metaNode.lesson_slug  ?? null;\nconst lesson_title = metaNode.lesson_title ?? null;\nconst topic        = metaNode.topic        ?? null;\nconst level        = metaNode.level        ?? null;\n\n// 3) Flatten into one output item per QA pair\nreturn qaPairs.map((q, index) => ({\n  json: {\n    lesson_slug,\n    lesson_title,\n    topic,\n    level,\n    question: q.question,\n    answer: q.answer,\n    difficulty: typeof q.difficulty === 'number' ? q.difficulty : 1,\n    category: q.category || 'concept_check',\n    question_type: q.question_type || 'short_answer',\n    source: 'baseline',\n    index,\n  },\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2656,
+        32
+      ],
+      "id": "64371618-bf2e-4baa-b35a-86329217a14f",
+      "name": "Flatten Lesson Bundle1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e76f7ff8-f16f-4b3d-91d8-97c04d1d5b24",
+              "name": "parsedQuestions",
+              "value": "={{ \n  JSON.parse(\n    $json.text\n      .replace(/```json/gi, '')\n      .replace(/```/g, '')\n      .trim()\n  ) \n}}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2432,
+        32
+      ],
+      "id": "db22cb2e-df18-412d-8e8d-29b2b5ba37c5",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "norahkerendian",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "dsc180a-q1",
+          "mode": "list",
+          "cachedResultName": "dsc180a-q1",
+          "cachedResultUrl": "https://github.com/norahkerendian/dsc180a-q1"
+        },
+        "filePath": "=NEW_AIGeneratedData_n8n/generated_level1_{{ $now.format('MMDD_HHmmss') }}.txt",
+        "fileContent": "={{ $json.fileContent }}",
+        "commitMessage": "=added generated questions for level 1 {{ $now.format('MMDD_HHmmss') }}"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        3104,
+        32
+      ],
+      "id": "d7a62d42-3a94-4178-a936-53f4cf5d246e",
+      "name": "Save to Git Repo1",
+      "webhookId": "419f0e5d-a6d5-49b1-b958-3b845a0bbbd7",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "1NGSD5bkqtvWsUlv",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const allItems = $input.all();\nconst dataArray = allItems.map(item => item.json);\nconst jsonString = JSON.stringify(dataArray, null, 2);\n\nreturn [{ json: { fileContent: jsonString } }];"
+      },
+      "id": "28ca15dc-16e4-47f2-a5de-1c87f9c3793c",
+      "name": "Convert Array to String1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        256
+      ],
+      "id": "b48f232d-1bb2-40fa-ad28-ff0215bbcb7b",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "G7FkRdH3c6CVjJsU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1504,
+        256
+      ],
+      "id": "3c4a859d-8b1b-4f1e-9c5b-7c764f755130",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "G7FkRdH3c6CVjJsU",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "lesson_slug",
+              "name": "lesson_slug",
+              "value": "={{ $json.lesson_slug }}",
+              "type": "string"
+            },
+            {
+              "id": "lesson_title",
+              "name": "lesson_title",
+              "value": "={{ $json.lesson_title }}",
+              "type": "string"
+            },
+            {
+              "id": "topic",
+              "name": "topic",
+              "value": "={{ $json.topic || $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "level",
+              "name": "level",
+              "value": "={{ $json.level }}",
+              "type": "number"
+            },
+            {
+              "id": "lesson_text",
+              "name": "lesson_text",
+              "value": "={{ $json.safe_text }}",
+              "type": "string"
+            },
+            {
+              "id": "0c3999ed-6dbf-4ed5-b2eb-e865e9587c59",
+              "name": "chunk_id",
+              "value": "={{ $json.chunk_id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1248,
+        32
+      ],
+      "id": "d042e7f1-f14b-48e2-98cf-ca61eb9e2013",
+      "name": "Set – Lesson Metadata1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request – level_1.json": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "mapping",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "mapping": {
+      "main": [
+        [
+          {
+            "node": "chunking",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chunking": {
+      "main": [
+        [
+          {
+            "node": "Set – Lesson Metadata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set – Lesson Metadata": {
+      "main": [
+        [
+          {
+            "node": "Prepare Lesson Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Lesson Text": {
+      "main": [
+        [
+          {
+            "node": "Set – Lesson Metadata1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Chain - Answer Generation1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Chain - Question Generation1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Question Generation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flatten Lesson Bundle1": {
+      "main": [
+        [
+          {
+            "node": "Convert Array to String1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Flatten Lesson Bundle1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert Array to String1": {
+      "main": [
+        [
+          {
+            "node": "Save to Git Repo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Chain - Question Generation1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Chain - Answer Generation1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set – Lesson Metadata1": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Answer Generation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8dec00f2-3345-4870-9eab-51445beb9ee4",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "dab8e126164999561934e23c4488371750f5d0248d0ff8f5a1eaf3b670141647"
+  },
+  "id": "n67omtkbcJTjEAEH",
+  "tags": []
+}

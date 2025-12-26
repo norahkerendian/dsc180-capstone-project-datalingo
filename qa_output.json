@@ -1,0 +1,2658 @@
+[
+  {
+    "parsedQuestions": {
+      "lesson_id": "1295251401",
+      "qa_pairs": [
+        {
+          "question": "Why is Python 3 widely used in various fields?",
+          "answer": "Python 3 is widely used in commercial applications, scientific experiments, and open-source projects due to its numerical and data visualization tools.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is one benefit of learning Python?",
+          "answer": "Learning Python connects you to a large community of software developers and data scientists.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can you start writing Python programs if you have a @berkeley.edu email address?",
+          "answer": "You can start writing Python programs easily by using the web-based programming environment available on the companion site, especially if you have a @berkeley.edu email address.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What is a key characteristic of Python program execution regarding hardware and operating systems?",
+          "answer": "A Python program can be executed on any computer, regardless of its manufacturer or operating system.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1295251401",
+      "qa_pairs": [
+        {
+          "question": "What is Anaconda recommended for?",
+          "answer": "Anaconda is a recommended distribution for installing Python 3 and its libraries, which includes the IPython libraries and the Jupyter notebook environment.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What does the lesson include regarding computational tools?",
+          "answer": "The lesson includes a complete introduction to computational tools like Python 3, IPython libraries, and Jupyter notebook.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does using Anaconda ensure for following along with the lesson content?",
+          "answer": "Using Anaconda ensures you have the necessary Python environment to follow along with the lesson content.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What topics does the course cover?",
+          "answer": "The course covers how to write programs, generate images from data, and work with real-world datasets published online.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3685813449",
+      "qa_pairs": [
+        {
+          "question": "What does statistics provide in terms of vocabulary for relationships between observations and conclusions?",
+          "answer": "Statistics provides a consistent vocabulary to describe relationships between observations and conclusions.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How does data science extend the capabilities of statistics?",
+          "answer": "Data science extends statistics by incorporating computing, data visualization, and machine learning.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What are the core tasks in statistics?",
+          "answer": "Hypothesis testing, estimating confidence, and predicting unknown quantities are core tasks in statistics.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does data science allow regarding analysis and datasets?",
+          "answer": "Data science allows the analysis of vast datasets using fast computers and the Internet.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "What is the common aim of both statistics and data science?",
+          "answer": "Both statistics and data science aim to draw robust conclusions from incomplete information.",
+          "difficulty": 1,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3685813449",
+      "qa_pairs": [
+        {
+          "question": "Why are real data sets complex to analyze with basic statistical summaries?",
+          "answer": "Real data sets don't always follow regular patterns or match standard equations, making them complex to analyze with basic statistical summaries.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What can happen when focusing too much on simplistic summaries like average values?",
+          "answer": "Focusing too much on simplistic summaries like average values can lead to losing interesting variations present in real data.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What are resampling methods in statistics?",
+          "answer": "Resampling methods are a family of techniques in statistics that are flexible, require few assumptions, and are suited to a wide range of inference problems.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "Why are resampling methods suitable for data science applications?",
+          "answer": "Though often reserved for advanced statistics courses, resampling methods are suitable for data science applications due to their flexibility and simplicity.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "What motivates the use of statistical techniques that capture variations beyond basic summaries?",
+          "answer": "Real data's complexity is a motivation for the use of statistical techniques described in the text, which aim to capture interesting variations beyond basic summaries.",
+          "difficulty": 1,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2727718540",
+      "qa_pairs": [
+        {
+          "question": "What is the discipline of drawing conclusions from data using computation?",
+          "answer": "Data science is the discipline of drawing conclusions from data using computation.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What are the three core aspects of effective data analysis?",
+          "answer": "Effective data analysis consists of three core aspects: exploration, prediction, and inference.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does understanding data science require knowledge of?",
+          "answer": "Understanding data science requires knowledge of statistical and computational techniques and their application to real-world scenarios.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What are data in the context of the world and computers?",
+          "answer": "Data are descriptions of the world that are collected through observations and stored on computers.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What involves introducing statistical ideas alongside fundamental computer science concepts?",
+          "answer": "A consistent approach to data analysis involves introducing statistical ideas alongside fundamental computer science concepts.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2727718540",
+      "qa_pairs": [
+        {
+          "question": "What does data science involve to make reliable conclusions using incomplete information?",
+          "answer": "Data science involves making reliable conclusions using incomplete information by combining computation with randomization.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How does computation in data science help in drawing more comprehensive conclusions?",
+          "answer": "Computation in data science allows us to use all available data to draw more comprehensive conclusions, such as analyzing a full range of temperatures to understand climate trends.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How does randomization aid in data science?",
+          "answer": "Randomization helps in data science by allowing the consideration of multiple possible scenarios that align with partial data, aiding in making informed predictions.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does using randomness mean in the context of handling incomplete information?",
+          "answer": "Using randomness means imagining different ways incomplete information might be completed, rather than making assumptions on specific data variations.",
+          "difficulty": 3,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does a nuanced analysis in data science involve?",
+          "answer": "A nuanced analysis in data science involves looking beyond simple averages, considering a broader range of data to make more nuanced insights.",
+          "difficulty": 1,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2727718540",
+      "qa_pairs": [
+        {
+          "question": "Does the text require any prior knowledge for a complete introduction to programming?",
+          "answer": "The text integrates a complete introduction to programming, assuming no prior knowledge is required.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What kind of topics will experienced programmers encounter that aren't typically covered in basic computer science courses?",
+          "answer": "Readers with programming experience will encounter computation topics not typically covered in basic computer science courses.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What level of mathematics knowledge is required for understanding the text?",
+          "answer": "The text requires only basic algebra and not any advanced mathematics or statistics knowledge.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is emphasized more when programming languages are explained in the text?",
+          "answer": "Programming languages are used to explain techniques, emphasizing practical application over mathematical equations.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2888989471",
+      "qa_pairs": [
+        {
+          "question": "How does data science reduce uncertainty in decision-making?",
+          "answer": "Data science reduces uncertainty in decision-making by leveraging large data sets and computational tools.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Which industries have been transformed by data-driven decision making?",
+          "answer": "Data-driven decision making has transformed industries like finance, advertising, manufacturing, and real estate.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What are academic disciplines incorporating into their theory and practice?",
+          "answer": "Academic disciplines are incorporating large-scale data analysis into their theory and practice.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does studying data science enable individuals to do?",
+          "answer": "Studying data science enables individuals to apply data analysis techniques to work, scientific endeavors, and personal decisions.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is a critical analysis supported by data more effective?",
+          "answer": "A critical analysis supported by data is more effective than critiques without data support.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2888989471",
+      "qa_pairs": [
+        {
+          "question": "What does inductive reasoning involve and where is it commonly used?",
+          "answer": "Inductive reasoning involves drawing conclusions that can be supported but not proven outright, which is common in fields like business and social science.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does data science enable with regard to the analysis of observations?",
+          "answer": "Data science enables precise, reliable, and quantitative analysis of observations.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why are effective inferential techniques considered essential?",
+          "answer": "Effective inferential techniques are essential for critical thinking about any measurable aspect of the world.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is it important for all educated members of society to develop the ability to reason about data?",
+          "answer": "It is important for all educated members of society to develop the ability to reason about data, not just specialists.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "How can tools, techniques, and datasets for data science be made accessible?",
+          "answer": "Tools, techniques, and datasets for data science are readily available and can be made accessible to everyone.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2439779044",
+      "qa_pairs": [
+        {
+          "question": "Who is a central character in The Adventures of Huckleberry Finn as indicated by the frequent mention of his name?",
+          "answer": "In The Adventures of Huckleberry Finn, Jim is a central character, as indicated by the frequent mention of his name throughout the book.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "When do Tom Sawyer's mentions increase sharply in The Adventures of Huckleberry Finn?",
+          "answer": "Tom Sawyer's mentions increase sharply after Chapter 30 when he joins Huck and Jim on their journey.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is Huck's name rarely mentioned in the book?",
+          "answer": "Huck's name is rarely mentioned because he is the narrator of the story.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can character mention counts in the book be visualized?",
+          "answer": "Character mention counts in the book can be visualized with a plot showing chapter numbers on the horizontal axis and the number of mentions on the vertical axis.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What does the plot show regarding the frequency of character mentions as action intensifies?",
+          "answer": "The plot shows that as action involving particular characters intensifies, the frequency of their mentions in the book increases.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2439779044",
+      "qa_pairs": [
+        {
+          "question": "What does the book include regarding sisters and the civil war?",
+          "answer": "The book includes sisters growing up during the civil war.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How are chapter numbers and chapter titles formatted in the book?",
+          "answer": "Chapter numbers in the book are spelled out and chapter titles are written in all capital letters.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "Who does Jo, the protagonist, interact with regularly until Chapter 27?",
+          "answer": "Jo, the protagonist, interacts regularly with her sisters Meg, Beth, and Amy until Chapter 27 when she moves to New York alone.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Who does Laurie marry at the end of the book?",
+          "answer": "Laurie is a young man character who marries one of the sisters in the end.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can tracking mentions of main characters help in understanding the plot of the book?",
+          "answer": "Tracking the mentions of main characters can help understand the plot of the book.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2768641799",
+      "qa_pairs": [
+        {
+          "question": "In data analysis, what can be made based on the relationships between different quantities?",
+          "answer": "In data analysis, predictions can be made based on the relationships between different quantities.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is possible when combining multiple sources of information, even if each source is uncertain?",
+          "answer": "To make accurate predictions, it is possible to combine multiple sources of information, even if each source is uncertain.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "In text analysis, what can the term 'character' refer to?",
+          "answer": "In the context of text analysis, 'character' can refer to any printed symbol such as a letter, number, or punctuation mark.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What can computers efficiently count in texts that would be time-consuming to do manually?",
+          "answer": "Computers can efficiently count characters and punctuation in texts, which would be time-consuming to do manually.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "How can visualizing data from multiple sources aid decision-making?",
+          "answer": "Visualizing data from multiple sources can help simplify the combination of information and support decision-making.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2768641799",
+      "qa_pairs": [
+        {
+          "question": "How does the number of periods in a chapter generally correlate with the chapter's length?",
+          "answer": "The number of periods in a chapter generally correlates with the chapter's length; shorter chapters tend to have fewer periods.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Are chapters in 'Little Women' longer on average than those in 'Huckleberry Finn'?",
+          "answer": "Chapters in 'Little Women' are, on average, longer than those in 'Huckleberry Finn'.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What can plotting variables such as chapter length and number of periods reveal?",
+          "answer": "Plotting variables such as chapter length and number of periods can reveal differences between books.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What affects the predictability of the correlation between chapter length and number of periods?",
+          "answer": "Despite the general correlation between chapter length and number of periods, sentences vary in length and punctuation, affecting predictability.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can different colored dots be used in visual data comparison?",
+          "answer": "In visual data comparison, different colored dots can represent data from distinct sources, such as different books.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2768641799",
+      "qa_pairs": [
+        {
+          "question": "What does the plot display about the number of characters for each chapter based on the number of periods it contains?",
+          "answer": "The plot displays the number of characters for each chapter based on the number of periods it contains, allowing us to visually compare the chapter lengths in Little Women and Huckleberry Finn.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does the plot suggest about the chapter lengths of Little Women compared to Huckleberry Finn?",
+          "answer": "The plot suggests that the chapters of Little Women are generally longer than those of Huckleberry Finn, as shown by the distribution of plot points.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What do the blue and yellow points represent in the plot, and what do they suggest?",
+          "answer": "In the plot, blue and yellow points represent chapters from different books and appear to be grouped around a similar straight line, suggesting similar patterns in character distribution.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does the plot show for chapters with approximately 100 periods?",
+          "answer": "For chapters with approximately 100 periods, the plot shows a range of about 10,000 to 15,000 characters, roughly averaging 100 to 150 characters per period.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What is the visual insight from the plot regarding the average number of characters per period in both Little Women and Huckleberry Finn?",
+          "answer": "The visual insight from the plot is that both Little Women and Huckleberry Finn tend to average between 100 and 150 characters per period across chapters.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2768641799",
+      "qa_pairs": [
+        {
+          "question": "Why did Twitter originally limit posts to 140 characters?",
+          "answer": "Twitter originally limited posts to 140 characters to align with the SMS text message length limits, which was a common communication method when Twitter was launched.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How did the 140-character limit on Twitter affect users' message creation?",
+          "answer": "The 140-character limit on Twitter encouraged users to be concise and creative in conveying their messages.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What change did Twitter make to its character limit to allow more detailed expression?",
+          "answer": "Twitter's character limit was later expanded beyond 140 characters to allow more detailed expression while maintaining simplicity.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1930966851",
+      "qa_pairs": [
+        {
+          "question": "What is the status of books published before 1923?",
+          "answer": "Books published before 1923 are in the public domain and can be used freely.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What does the website provide regarding public domain books?",
+          "answer": "The website provides access to public domain books online, allowing them to be read or used programmatically.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How can Python be used in relation to public domain books?",
+          "answer": "Python can be used to load texts of public domain books from the web for analysis.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How are 'The Adventures of Huckleberry Finn' and 'Little Women' organized in the example?",
+          "answer": "In the example, the text of 'The Adventures of Huckleberry Finn' and 'Little Women' are divided into lists of chapters.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is the focus of the example regarding data analysis?",
+          "answer": "The example focuses on interpreting visual outputs of data analysis rather than understanding detailed Python code.",
+          "difficulty": 1,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1930966851",
+      "qa_pairs": [
+        {
+          "question": "What character is used in Python names in place of spaces?",
+          "answer": "In Python, underscores are used in place of spaces within names.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What symbol is used to start comments in Python?",
+          "answer": "Comments in Python start with the # symbol and are ignored by the computer.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does URL stand for and what is its purpose?",
+          "answer": "A URL, or uniform resource locator, is an Internet address for some content.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does the name huckfinnchapters refer to in its current implementation?",
+          "answer": "A current implementation binds the name huckfinnchapters to a list of the book's chapters.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What can the text structure of a book reveal?",
+          "answer": "The text structure of a book can show insights, such as how each chapter begins.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1930966851",
+      "qa_pairs": [
+        {
+          "question": "What does 'PTER' refer to when it is written in all capital letters?",
+          "answer": "'PTER' refers to the word 'pter' written in all capital letters, emphasizing its uppercase form.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What does the conversion to uppercase involve?",
+          "answer": "The conversion to uppercase involves changing all letters in a word to their capital form, such as converting 'pter' to 'PTER'.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does the term 'uppercase' mean regarding letters?",
+          "answer": "The term 'uppercase' means that letters are capitalized, typically used to emphasize or differentiate text.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is uppercase conversion important in programming?",
+          "answer": "Uppercase conversion is important in programming for cases where text uniformity is required, such as standardizing input.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "781822617",
+      "qa_pairs": [
+        {
+          "question": "What does Data Science involve?",
+          "answer": "Data Science involves exploration, prediction, and inference to draw useful conclusions from large datasets.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is exploration in data science about?",
+          "answer": "Exploration in data science is about identifying patterns in data using visualizations and descriptive statistics.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does prediction involve in data science?",
+          "answer": "Prediction involves using known information to make informed guesses about unknown values, often using machine learning and optimization.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "What does inference quantify in data science?",
+          "answer": "Inference quantifies certainty about whether patterns found in data will also appear in new observations.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is statistics crucial in data science?",
+          "answer": "Statistics is crucial in data science for making robust conclusions based on incomplete information.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "Why is computing essential in data science?",
+          "answer": "Computing is essential in data science as programming enables the application of analysis techniques.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "781822617",
+      "qa_pairs": [
+        {
+          "question": "What does data science involve in terms of data types?",
+          "answer": "Data science involves the analysis of diverse data types, including numbers, text, images, videos, and sensor readings.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What is a key aspect of data science concerning data interpretation?",
+          "answer": "A key aspect of data science is the application of inferential and computational tools to interpret data.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why must data scientists understand the domain they are working in?",
+          "answer": "Data scientists must understand the domain they are working in to ask relevant questions about the data.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What does data science include beyond handling various data types?",
+          "answer": "Data science is more than just handling various data types; it includes deriving actionable insights through applications.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3264203265",
+      "qa_pairs": [
+        {
+          "question": "How did John Snow use observation and visualization during the cholera outbreak?",
+          "answer": "John Snow used observation and visualization to establish causality in the cholera outbreak.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What were some characteristics of London in the 1850s?",
+          "answer": "In the 1850s, London was wealthy but had severe poverty and health issues, with common diseases like cholera.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What was the prevailing theory about the cause of diseases before germ theory?",
+          "answer": "The prevailing theory before germ theory was that miasmas, or bad smells from decaying matter, caused diseases.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Who wrote about the struggles of London's poor during significant disease outbreaks?",
+          "answer": "Charles Dickens wrote about the struggles of London's poor during the time of significant disease outbreaks.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3264203265",
+      "qa_pairs": [
+        {
+          "question": "Who was John Snow and what did he study?",
+          "answer": "John Snow was a doctor who studied the waves of cholera affecting England, which could kill hundreds in a week and tens of thousands during a single outbreak.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What theory was John Snow skeptical about regarding the spread of disease?",
+          "answer": "John Snow was skeptical of the prevailing miasma theory, which suggested that disease was spread by bad smells.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What observations led Snow to believe cholera was not spread through air quality?",
+          "answer": "Snow observed that cholera symptoms often included vomiting and diarrhea, leading him to believe the infection was spread in a way not related to air quality.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How did Snow's observations of cholera in households challenge the idea that air quality was responsible for the disease?",
+          "answer": "Snow noted that while some households experiencing cholera were completely infected, neighboring houses remained unaffected, challenging the idea that air quality was to blame.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3264203265",
+      "qa_pairs": [
+        {
+          "question": "What did John Snow discover about the spread of cholera?",
+          "answer": "John Snow discovered that cholera was spread through contaminated water, specifically identifying the Broad Street pump as the source.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How did John Snow use a map in relation to the cholera outbreak?",
+          "answer": "John Snow used a map to record and analyze the spread of cholera, which helped identify patterns and pinpoint the source of the outbreak.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What was Snow's technique that became standard in studying disease?",
+          "answer": "Snow's mapping technique, where he represented deaths with black bars, became a standard method in studying disease spread.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "What was crucial in determining the source of cholera contamination according to Snow?",
+          "answer": "The clustering of cholera deaths around the Broad Street pump was crucial in determining the source of contamination.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is an example of early data visualization in public health?",
+          "answer": "The drawn map by John Snow is an early example of using data visualization to understand and solve public health issues.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3264203265",
+      "qa_pairs": [
+        {
+          "question": "Why did residents in houses nearer to the Rupert Street pump use the Broad Street pump instead?",
+          "answer": "Residents in houses nearer to the Rupert Street pump used the Broad Street pump because it was more accessible despite being further away due to street layout.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why were there no deaths near the Lion Brewery during the Broad Street pump outbreak?",
+          "answer": "The Lion Brewery had no deaths nearby because workers consumed beer or water from the brewery's private well instead of the Broad Street pump.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What was the primary reason for scattered deaths occurring in houses several blocks away from the Broad Street pump?",
+          "answer": "Scattered deaths occurred in houses several blocks away from the Broad Street pump, primarily among children who drank from it on their way to school.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How did two isolated deaths in Hampstead support Snow's theory?",
+          "answer": "Two isolated deaths in Hampstead, far from Soho, supported Snow's theory as the individuals had consumed Broad Street pump water.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3264203265",
+      "qa_pairs": [
+        {
+          "question": "Who was Mrs. Susannah Eley, and what happened with the water she liked?",
+          "answer": "Mrs. Susannah Eley, who liked the taste of the Broad Street pump water, had water delivered to her in Hampstead, but it was later discovered that the water was contaminated due to a nearby cesspit.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why did the Broad Street pump's water become contaminated?",
+          "answer": "The Broad Street pump's water became contaminated because sewage from a nearby cesspit was leaking into its well.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "How did Dr. John Snow demonstrate the link between cholera cases and the Broad Street pump?",
+          "answer": "Dr. John Snow used a map to demonstrate the link between cholera cases and the contaminated Broad Street pump, convincing local authorities to remove the pump handle.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What impact did the removal of the Broad Street pump handle have on future cholera outbreaks?",
+          "answer": "Even though the cholera epidemic was already declining, the removal of the Broad Street pump handle may have helped prevent future cholera outbreaks.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How is the removal of the Broad Street pump handle perceived in terms of problem-solving?",
+          "answer": "The removal of the Broad Street pump handle is legendary and is viewed as an example of a simple solution to a complex problem, as observed by scientists at the CDC.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3264203265",
+      "qa_pairs": [
+        {
+          "question": "What is John Snow's map recognized for?",
+          "answer": "John Snow's map is recognized as one of the earliest and most powerful uses of data visualization for understanding epidemics.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What are disease maps used for in modern epidemiology?",
+          "answer": "Disease maps are now a standard tool for tracking epidemics.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What method is used by scientists to identify an association between a treatment and an outcome?",
+          "answer": "Comparison is a method used by scientists to identify an association between a treatment and an outcome.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "How do scientists establish an association between treatment and outcome?",
+          "answer": "To establish an association, scientists compare the outcomes of individuals in a treatment group to those in a control group.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What did Snow's map suggest regarding the link between water supply cleanliness and cholera control?",
+          "answer": "Though Snow's map suggested a link between water supply cleanliness and cholera control, scientific proof required a more systematic method such as comparison.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3264203265",
+      "qa_pairs": [
+        {
+          "question": "How can comparing murder rates in states with and without the death penalty indicate an association?",
+          "answer": "Comparing murder rates in states with and without the death penalty can indicate an association if differences are observed.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is necessary to establish causation beyond simple comparison?",
+          "answer": "To establish causation, more rigorous analysis beyond simple comparison is necessary.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does association refer to in the context of relationships between variables?",
+          "answer": "Association refers to a relationship between two variables, but it does not imply that one causes the other.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What does causation imply about the relationship between two variables?",
+          "answer": "Causation implies that a change in one variable is responsible for a change in another variable, requiring more evidence than association.",
+          "difficulty": 2,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1628354092",
+      "qa_pairs": [
+        {
+          "question": "What did John Snow focus on in his analysis of cholera deaths in London?",
+          "answer": "John Snow conducted a thorough analysis of cholera deaths in London, focusing on areas served by two water companies with differing water sources.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How did the Lambeth water company ensure relatively clean water supply?",
+          "answer": "The Lambeth water company provided relatively clean water by sourcing it upriver, away from sewage discharge.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What was a major issue with the water supplied by the Southwark and Vauxhall water company?",
+          "answer": "The Southwark and Vauxhall water company supplied water from below the sewage discharge, leading to contamination.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What aspect did Snow's analysis focus on in relation to the two water companies?",
+          "answer": "Snow's analysis focused on the overlapping service region of the two companies to compare cholera death rates.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What did Snow observe about the socioeconomic status or occupation of people supplied by the two water companies?",
+          "answer": "Snow observed no systematic differences in socioeconomic status or occupation among people supplied by the two water companies.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1628354092",
+      "qa_pairs": [
+        {
+          "question": "What does the study compare to determine the impact on cholera deaths?",
+          "answer": "The study compares two groups of houses, one supplied with contaminated water and the other with clean water, to determine the impact on cholera deaths.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What was associated with a significantly higher cholera death rate?",
+          "answer": "The S&V water supply, which contained sewage, was associated with a significantly higher cholera death rate compared to the Lambeth supply.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How were cholera death rates calculated to allow for comparison between different areas?",
+          "answer": "Cholera death rates were calculated per 10,000 houses to allow for comparison between different areas.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "What did the lower cholera death rate in the Lambeth water supply area indicate?",
+          "answer": "The Lambeth water supply area had a cholera death rate much lower than the S&V supply area, indicating a link between water purity and health outcomes.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What did the overall evidence suggest about households supplied with contaminated water?",
+          "answer": "The overall evidence strongly suggested that households supplied with contaminated water experienced much higher rates of cholera.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1628354092",
+      "qa_pairs": []
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1251066844",
+      "qa_pairs": [
+        {
+          "question": "Why is it important to have a treatment group and a control group that are comparable except for the treatment being analyzed?",
+          "answer": "In establishing causality, it is important to have a treatment group and a control group that are comparable except for the treatment being analyzed.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is the difference between a treatment group and a control group?",
+          "answer": "The treatment group refers to the group that receives the specific treatment or condition being studied, while the control group does not.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "Why was John Snow's analysis of cholera effective?",
+          "answer": "John Snow's analysis of cholera was effective because the two groups he studied were similar in all aspects except for their water supply.",
+          "difficulty": 3,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is comparability between groups in an experimental study important?",
+          "answer": "Comparability between groups in an experimental study allows researchers to attribute differences in outcomes specifically to the treatment variable.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What challenge arises when treatment and control groups differ in multiple ways?",
+          "answer": "If treatment and control groups differ in multiple ways, it can be challenging to determine the specific cause of observed differences in outcomes.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1251066844",
+      "qa_pairs": [
+        {
+          "question": "How did John Snow demonstrate that contaminated water was a likely cause of cholera?",
+          "answer": "John Snow demonstrated that contaminated water was a likely cause of cholera by comparing two groups with different water supplies.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why was Snow's approach significant in establishing a causal relation for cholera?",
+          "answer": "Snow's approach was significant because it helped establish a causal relation despite prevailing beliefs about miasmas causing cholera.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Who isolated the bacterium causing cholera in 1883?",
+          "answer": "The bacterium causing cholera, Vibrio cholerae, was isolated by Robert Koch in 1883.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "Who identified Vibrio cholerae in 1854, and why was the discovery overlooked?",
+          "answer": "Filippo Pacini identified Vibrio cholerae in 1854, but his discovery was overlooked due to prevalent miasma theories.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What did Snow's method of comparing groups with different exposures emphasize in scientific studies?",
+          "answer": "Snow's method of comparing groups with different exposures emphasized the importance of controlling variables in scientific studies.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1251066844",
+      "qa_pairs": [
+        {
+          "question": "What is epidemiology, and how did it develop?",
+          "answer": "Epidemiology is the study of the spread of diseases, and it developed from the methods used by John Snow.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is a confounding factor in observational studies?",
+          "answer": "In observational studies, a confounding factor is an underlying difference between treatment and control groups that can make it difficult to determine causality.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How did John Snow contribute to modern epidemiology?",
+          "answer": "John Snow's methods in studying disease spread laid the foundation for modern epidemiology.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "How can a confounding factor affect the results of an observational study?",
+          "answer": "A confounding factor can confound or mess up the interpretation of results in an observational study.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What theory was replaced in the 1800s by methods developed by John Snow?",
+          "answer": "In the 1800s, the theory of miasma, which incorrectly explained the spread of diseases, was replaced by more scientific methods like those developed by John Snow.",
+          "difficulty": 1,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1251066844",
+      "qa_pairs": [
+        {
+          "question": "What are confounding factors in the context of variables and outcomes?",
+          "answer": "Confounding factors are variables that can lead to a false association between a studied variable and an outcome.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What was wrongly identified as a cause of lung cancer due to smoking being a confounding factor?",
+          "answer": "In the past, coffee was wrongly identified as a cause of lung cancer due to a confounding factor: smoking.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why was the association between coffee drinking and lung cancer initially misinterpreted?",
+          "answer": "The association between coffee drinking and lung cancer was misinterpreted because both were linked to smoking, which is the actual cause.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why are observational studies prone to misleading conclusions?",
+          "answer": "Observational studies are prone to confounding factors, which can mislead conclusions if not properly accounted for.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "What do good observational studies do to ensure accurate results?",
+          "answer": "Good observational studies make efforts to identify and adjust for confounding factors to ensure accurate results.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "157990508",
+      "qa_pairs": [
+        {
+          "question": "What is the purpose of using randomization in assigning individuals to treatment and control groups?",
+          "answer": "Randomization is used to assign individuals to treatment and control groups to avoid confounding, ensuring the groups are similar except for the treatment.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is a randomized controlled experiment or randomized controlled trial (RCT)?",
+          "answer": "A randomized controlled experiment, also known as a randomized controlled trial (RCT), is conducted by randomizing individuals into treatment and control groups.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is the purpose of a blind experiment?",
+          "answer": "In a blind experiment, individuals do not know whether they are in the treatment or control group to prevent their responses from being influenced by this knowledge.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is the role of a placebo in a blind experiment?",
+          "answer": "A placebo is used in control groups during blind experiments to mimic the treatment without providing any actual effect.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "157990508",
+      "qa_pairs": [
+        {
+          "question": "What has been a gold standard in the medical field for determining the effectiveness of new drugs?",
+          "answer": "Randomized Controlled Trials (RCTs) have been a gold standard in the medical field for determining the effectiveness of new drugs.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "In which fields, other than medicine, are RCTs being increasingly used?",
+          "answer": "RCTs are being increasingly used in fields other than medicine, such as economics, to test the efficacy of programs and interventions.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why were children from poor families in Mexico often not enrolled in school in the 1990s?",
+          "answer": "In the 1990s in Mexico, children from poor families were often not enrolled in school because they could work to help support the family financially.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "Who conducted an RCT to test the effectiveness of the PROGRESA welfare program in Mexican villages?",
+          "answer": "Santiago Levy conducted an RCT to test the effectiveness of the PROGRESA welfare program in increasing school enrollment and improving health conditions in Mexican villages.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What did the PROGRESA program provide to poor families in Mexico?",
+          "answer": "The PROGRESA program provided financial incentives to poor families in Mexico, conditional on their children attending school and the family using preventive health care.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "157990508",
+      "qa_pairs": [
+        {
+          "question": "How does randomization help in eliminating confounding factors in an experiment?",
+          "answer": "Randomization eliminates confounding factors by ensuring that each group in an experiment is statistically similar at the start.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What was the purpose of the PROGRESA experiment conducted in Mexico?",
+          "answer": "PROGRESA was an experiment conducted to assess the impact of financial incentives on school enrollment in Mexico.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "In the PROGRESA experiment, which group saw a larger increase in enrollment and from what percentages did it change?",
+          "answer": "In the PROGRESA experiment, girls in the treatment group saw an enrollment increase from 67% to almost 75%, which was a larger increase compared to boys.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What was the outcome of the PROGRESA experiment in terms of governmental support and continuation?",
+          "answer": "The success of the PROGRESA experiment led to the Mexican government continuing and supporting the program under the new name OPORTUNIDADES.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "What role does the control group play in an experiment?",
+          "answer": "The control group in an experiment is the group that does not receive the treatment, allowing for comparison with the treatment group.",
+          "difficulty": 2,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "157990508",
+      "qa_pairs": [
+        {
+          "question": "What is a 'natural experiment' and how does it differ from true randomization?",
+          "answer": "A 'natural experiment' involves an observational study where subjects are divided into groups without their choice, unlike true randomization which requires precise probabilistic methods.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is required for true randomization to ensure group formation by chance?",
+          "answer": "True randomization requires carefully defined probabilistic steps to ensure the treatment and control groups are formed by chance, not choice.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "How do randomization methods vary in complexity?",
+          "answer": "Randomization methods can vary in complexity from simple techniques like coin tossing to more complex algorithms.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is it crucial to carry out randomization carefully?",
+          "answer": "Carrying out randomization carefully is crucial, as it enables mathematical accounting for differences between treatment and control groups.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "What is the purpose of randomization in experiments?",
+          "answer": "The purpose of randomization in experiments is to ensure neither the participants' choice nor the researcher’s bias affects the group assignment, thus maintaining objectivity.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "157990508",
+      "qa_pairs": [
+        {
+          "question": "What allows us to make precise mathematical statements about differences between treatment and control groups, helping to draw justifiable conclusions about causal effects?",
+          "answer": "Randomized controlled experiments allow us to make precise mathematical statements about differences between treatment and control groups, helping to draw justifiable conclusions about causal effects.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What type of studies require careful handling of confounding factors when randomization is not possible?",
+          "answer": "When randomization is not possible, observational studies are used to investigate causality, though they require careful handling of confounding factors.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "What is crucial for making precise and justifiable conclusions about the effects of treatments in experiments?",
+          "answer": "Randomization in experiments is crucial for making precise and justifiable conclusions about the effects of treatments.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What are variables that can affect the outcome of an observational study, complicating the interpretation of results?",
+          "answer": "Confounding factors are variables that can affect the outcome of an observational study, complicating the interpretation of results.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "157990508",
+      "qa_pairs": [
+        {
+          "question": "What is recommended if possible to establish causality?",
+          "answer": "To establish causality, a randomized controlled experiment is recommended if possible.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What can be established in observational studies and what is harder to establish?",
+          "answer": "In observational studies, it is possible to establish association but harder to establish causation.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What must be carefully considered in observational studies to avoid incorrect conclusions about causality?",
+          "answer": "Confounding factors must be carefully considered in observational studies to avoid incorrect conclusions about causality.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "What is a randomized controlled experiment designed to establish by controlling variables?",
+          "answer": "A randomized controlled experiment is a method designed to establish cause-and-effect relationships by controlling variables.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What is critical in research when considering association and causation?",
+          "answer": "The difference between association and causation is critical in research; association does not imply causation.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "289240178",
+      "qa_pairs": [
+        {
+          "question": "What is an observational study?",
+          "answer": "An observational study is a type of study where researchers observe outcomes without intervening or manipulating any variables.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does the term 'treatment group' refer to in a study?",
+          "answer": "A treatment group refers to the participants in a study who receive the treatment or intervention being tested.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How does randomization in experiments help ensure comparability between treatment and control groups?",
+          "answer": "Randomization in experiments helps ensure that the treatment and control groups are comparable, reducing the risk of confounding.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Who is known as the father of epidemiology and what was his profession?",
+          "answer": "John Snow is known as the father of epidemiology and was an anesthesiologist who treated Queen Victoria with anesthetics.",
+          "difficulty": 3,
+          "category": "fun_fact"
+        },
+        {
+          "question": "What is a blind study in the context of research?",
+          "answer": "A blind study is one in which participants do not know which group (treatment or control) they are in, reducing bias in the results.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "289240178",
+      "qa_pairs": [
+        {
+          "question": "What is the purpose of RCTs (Randomized Controlled Trials) in research?",
+          "answer": "RCTs (Randomized Controlled Trials) are used to establish the effectiveness of interventions by randomly assigning subjects to a treatment group or a control group.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Who is John Snow and what is he known for?",
+          "answer": "John Snow is known for his work in tracing the source of a cholera outbreak in London, which helped establish the significance of public health interventions.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What were the findings regarding the conditions attached to PROGRESA?",
+          "answer": "The conditions attached to PROGRESA, such as mandatory school attendance and preventive health care, were found not to be necessary for increased enrollment, as financial support alone was sufficient.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "Who are Abhijit Banerjee and Esther Duflo and what did they write about?",
+          "answer": "Abhijit Banerjee and Esther Duflo wrote a well-known book discussing strategies to combat global poverty, highlighting the use of RCTs.",
+          "difficulty": 1,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "289240178",
+      "qa_pairs": [
+        {
+          "question": "Who are recognized for demonstrating that carefully designed experiments are often essential to answer questions effectively?",
+          "answer": "Banerjee, Duflo, and Michael Kremer are recognized for demonstrating that carefully designed experiments are often essential to answer questions effectively.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What example illustrates the significance of using well-structured experiments to obtain reliable answers to research questions?",
+          "answer": "The PROGRESA example illustrates the significance of using well-structured experiments to obtain reliable answers to research questions.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "When did Banerjee, Duflo, and Michael Kremer receive recognition partly for their work on using experiments to answer questions?",
+          "answer": "In 2019, Banerjee, Duflo, and Michael Kremer received recognition partly for their work on using experiments to answer questions.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is crucial for addressing questions effectively, as shown by the work of Banerjee, Duflo, and Michael Kremer?",
+          "answer": "Properly designed experiments are crucial for addressing questions effectively, as shown by the work of Banerjee, Duflo, and Michael Kremer.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2027312779",
+      "qa_pairs": [
+        {
+          "question": "What does an observational study involve?",
+          "answer": "An observational study involves making conclusions based on data observed without the researchers influencing the process that generates the data.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What is causality about?",
+          "answer": "Causality is about establishing a cause-and-effect relationship between variables.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does assigning a cause to an effect involve?",
+          "answer": "Assigning a cause to an effect involves understanding the relationship between variables through careful data analysis.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "Why are observational studies crucial in some situations?",
+          "answer": "Observational studies are crucial in situations where controlled experiments are not feasible or ethical.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "Why is observation a foundational element of good scientific practice?",
+          "answer": "Observation is a foundational element of good scientific practice, as it allows researchers to gather data and infer conclusions.",
+          "difficulty": 1,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2027312779",
+      "qa_pairs": [
+        {
+          "question": "In an observational study, what can individuals be other than people?",
+          "answer": "In an observational study, individuals can be entities other than people, such as states.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is a treatment in a study?",
+          "answer": "A treatment in a study is an intervention or variable that is applied to the individuals.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What does an association between treatment and outcome indicate?",
+          "answer": "An association between treatment and outcome indicates a relationship, but does not necessarily mean causation.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does causality imply in a study?",
+          "answer": "Causality implies that the treatment is responsible for the occurrence of the outcome.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "In a study on the death penalty as a deterrent, what can serve as individuals and what can be the outcomes?",
+          "answer": "In a study examining if the death penalty serves as a deterrent, the 50 states can serve as individuals, with state murder rates as outcomes.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2027312779",
+      "qa_pairs": [
+        {
+          "question": "What does establishing causality in scientific studies usually involve?",
+          "answer": "The establishment of causality in scientific studies usually involves two stages: observing an association and then conducting a more careful analysis to determine if causation is present.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is a key distinction in scientific analysis concerning relationships between variables?",
+          "answer": "One of the key distinctions in scientific analysis is between association and causation, where association indicates a relationship, but not necessarily that one variable causes changes in another.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does determining causality require beyond observing an association?",
+          "answer": "Determining causality requires more than observing a simple association; it involves rigorous analysis to confirm that one factor directly affects another.",
+          "difficulty": 3,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is necessary after observing an association to establish causality?",
+          "answer": "Observing an association is only the first step in establishing causality; further detailed investigation is necessary to reach conclusions about cause and effect.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1739879824",
+      "qa_pairs": [
+        {
+          "question": "What do programming languages have that must be followed, similar to human languages?",
+          "answer": "Programming languages have rules of grammar that must be followed, similar to human languages.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What do expressions in programming languages describe?",
+          "answer": "Expressions in programming languages describe how to combine pieces of data for the computer to evaluate.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What symbols does the Python programming language use to perform operations like multiplication in expressions?",
+          "answer": "The Python programming language uses symbols, such as '*', to perform operations like multiplication in expressions.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What is not allowed to appear twice in a row in a Python expression without valid syntax?",
+          "answer": "In a Python expression, operators like '*' cannot appear twice in a row without valid syntax.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is displayed by the computer after evaluating an expression like 3 * 4?",
+          "answer": "The evaluated result of an expression, such as 3 * 4, is displayed by the computer, for example, 12 in this case.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1739879824",
+      "qa_pairs": [
+        {
+          "question": "What does a SyntaxError indicate in programming?",
+          "answer": "A SyntaxError in programming indicates that an expression structure has violated the language's grammar rules.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What are operators in Python?",
+          "answer": "In Python, operators are symbols that specify operations to be performed on operands, such as addition or multiplication.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How are operators used in programming languages?",
+          "answer": "Operators are used in programming languages to perform arithmetic on numerical values, such as adding or exponentiating numbers.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "When is an expression in programming considered wellformed?",
+          "answer": "An expression in programming is wellformed if it adheres to the syntax rules of the language, ensuring it can be correctly interpreted.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1739879824",
+      "qa_pairs": [
+        {
+          "question": "How is addition performed in Python?",
+          "answer": "Addition in Python is performed using the '+' operator, which sums two numbers together.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How does Python handle operator precedence in mathematical expressions?",
+          "answer": "Python uses operator precedence, similar to algebra, where multiplication and division occur before addition and subtraction.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does the '%' operator do in Python?",
+          "answer": "The '%' operator in Python is used to find the remainder of the division between two numbers.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How can parentheses be used in Python regarding expressions?",
+          "answer": "In Python, parentheses can be used to group expressions, allowing you to control the order of operations.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How is exponentiation performed in Python?",
+          "answer": "Exponentiation in Python is performed using the '**' operator, which raises a number to the power of another number.",
+          "difficulty": 1,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "4008464310",
+      "qa_pairs": [
+        {
+          "question": "What expresses the relationship between two measurements of the same quantity taken at different times by dividing the difference between the changed and initial amounts by the initial amount?",
+          "answer": "A growth rate expresses the relationship between two measurements of the same quantity taken at different times, typically by dividing the difference between the changed and initial amounts by the initial amount.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What is commonly used as the initial amount when calculating growth rates and why?",
+          "answer": "When calculating growth rates, it is common to use the earlier value as the initial amount since it represents the starting point over time.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What alternative method can be used to calculate the same growth rate value when comparing changed and initial amounts?",
+          "answer": "Subtracting one from the ratio of the changed amount to the initial amount yields the same growth rate value, providing an alternative way to express it.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "Do growth rates change when measurements are expressed in different units?",
+          "answer": "Growth rates remain consistent even if the measurements are expressed in different units.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "4008464310",
+      "qa_pairs": [
+        {
+          "question": "By how much did the US Federal Government's budget increase between 2002 and 2012?",
+          "answer": "The US Federal Government's budget increased by 42.6% from $2.37 trillion to $3.38 trillion between 2002 and 2012.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How did the growth in the number of federal employees in the US compare to the US population growth between 2002 and 2012?",
+          "answer": "The number of federal employees in the US only increased by 1.74% between 2002 and 2012, which is slower than the US population growth of 9.21% during the same period.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does a negative growth rate indicate?",
+          "answer": "A growth rate can be negative, indicating a decrease. For example, the number of manufacturing jobs in the US decreased by 22.2% from 2002 to 2012.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is an annual growth rate?",
+          "answer": "An annual growth rate is the rate at which a quantity grows over a single year.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What happens when an annual growth rate is compounded over a period?",
+          "answer": "An annual growth rate compounded over a period, such as 0.035 over 10 years, results in a much larger overall growth rate, like 0.41 over ten years.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "4008464310",
+      "qa_pairs": [
+        {
+          "question": "What is a growth rate used to describe?",
+          "answer": "A growth rate is used to describe the relative size of an initial amount compared to a changed amount after a certain period of time.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How can the equivalent annual growth rate over a period be computed?",
+          "answer": "The equivalent annual growth rate over a period can be computed by applying the growth rate repeatedly using exponentiation.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How do you compute the annual growth rate from total growth over a number of years?",
+          "answer": "To compute the annual growth rate g from total growth over t years, raise the total growth to the power of 1/t and subtract one.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "How can a ten-year growth be expressed as an equivalent annual growth rate?",
+          "answer": "A ten-year growth can be expressed as an equivalent annual growth rate by using an exponent, where t represents the number of years.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does exponential growth involve in terms of a formula?",
+          "answer": "Exponential growth involves applying a growth rate multiple times over a period, reflected in the formula (initial * (1 + g)^t).",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1176507067",
+      "qa_pairs": [
+        {
+          "question": "How are values assigned to names in Python?",
+          "answer": "In Python, values are assigned to names using an assignment statement, which consists of a name followed by an equals sign and an expression.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What happens to a name in Python if the value of an expression changes after the assignment?",
+          "answer": "The value of an expression assigned to a name is the one evaluated at the time of assignment. If the value changes later, the previously assigned name does not automatically update.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What are the rules for naming names in Python?",
+          "answer": "Names in Python must start with a letter but can contain both letters and numbers and cannot contain spaces. Underscores are commonly used to represent spaces.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "Why is it important to choose clear and descriptive names for variables in Python?",
+          "answer": "Choosing clear and descriptive names for variables in Python is important for code readability and understanding.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1176507067",
+      "qa_pairs": [
+        {
+          "question": "How do meaningful variable names enhance code readability?",
+          "answer": "Meaningful variable names enhance code readability by clarifying the purpose of diverse quantities.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is it better to use descriptive names like 'sales_tax' instead of generic names like 'a' or 'b'?",
+          "answer": "Using descriptive names like 'sales_tax' instead of generic names like 'a' or 'b' helps in understanding code logic.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "How can descriptive names illustrate the concept of calculating sales tax more effectively?",
+          "answer": "In the example given, descriptive names can illustrate the concept of calculating sales tax more effectively than non-descriptive names.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "Why are clear naming conventions essential in programming?",
+          "answer": "Clear naming conventions are essential in programming to convey the intent and significance of variables.",
+          "difficulty": 1,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "4042898330",
+      "qa_pairs": [
+        {
+          "question": "What are call expressions used for?",
+          "answer": "Call expressions are used to invoke functions, with the function name followed by expressions in parentheses.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What does the max function do?",
+          "answer": "The max function can take any number of arguments and returns the maximum value among them.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is the difference between basic functions like abs and other built-in functions in Python?",
+          "answer": "Basic functions like abs and round are available by default in Python, whereas most built-in functions are accessed through modules.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How do you access functions from modules in Python?",
+          "answer": "An import statement is used to access functions from modules, such as math or operator.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How can operators and call expressions be used in expressions?",
+          "answer": "Operators and call expressions can be combined in expressions to perform various operations.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "4042898330",
+      "qa_pairs": [
+        {
+          "question": "What is percent difference and how is it calculated?",
+          "answer": "Percent difference is 100 times the absolute value of the difference between two values, divided by their average.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What happens to the percent difference when the difference between two values is larger than their average?",
+          "answer": "In cases where the difference between two values is larger than their average, the percent difference will be greater than 100.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can Jupyter notebooks assist users in remembering the names and effects of functions in a programming language?",
+          "answer": "Jupyter notebooks can help users remember the names and effects of different functions in a programming language.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "What happens when you press the tab key in a Jupyter notebook after typing the beginning of a name?",
+          "answer": "Pressing the tab key in a Jupyter notebook after typing the beginning of a name provides a list of possible name completions.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "How can tab completion in Jupyter notebooks help find available functions in a module?",
+          "answer": "Using tab completion in Jupyter notebooks can help find available functions in a module, such as functions in the math module.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "4042898330",
+      "qa_pairs": [
+        {
+          "question": "What does using a question mark (?) after a function name in Python provide?",
+          "answer": "Using a question mark (?) after a function name in Python provides a description of that function.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can placing a question mark after a function, such as math.log?, assist users?",
+          "answer": "Placing a question mark after a function, such as math.log?, can help users learn more about the specific function's usage and parameters.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "What does the lesson emphasize understanding instead of memorizing?",
+          "answer": "The lesson emphasizes understanding the context of important functions instead of memorizing long lists of functions.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is noted about the math module in Python?",
+          "answer": "The math module in Python includes many functions, but only a few are commonly used in data science.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What is more beneficial than attempting to memorize essential functions?",
+          "answer": "It's more beneficial to learn the use of essential functions in their context rather than attempting to memorize them.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2427013110",
+      "qa_pairs": [
+        {
+          "question": "What is a fundamental way of representing data sets in Python?",
+          "answer": "Tables are a fundamental way of representing data sets in Python.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can a table be viewed in terms of structure?",
+          "answer": "A table can be viewed as either a sequence of named columns describing attributes, or a sequence of rows containing individual information.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does each row in a table correspond to?",
+          "answer": "In a table, each row corresponds to a single individual entry with all its associated information.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What type of data does each column in a table contain?",
+          "answer": "Each column in a table contains data related to a specific attribute of the data set.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does each of the six rows in the example table represent?",
+          "answer": "The example table has six rows, each representing an ice cream cone with attributes: flavor, color, and price.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2427013110",
+      "qa_pairs": [
+        {
+          "question": "What does each column in a table have, and what does it contain?",
+          "answer": "Each column in a table has a label and contains entries of the same kind.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How is a table method used in relation to a table?",
+          "answer": "A table method operates on a table and is used in the form nameoftable.method(arguments).",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does the show method do when displaying rows from a table?",
+          "answer": "The show method displays a specified number of rows from a table, but it will show only up to six rows even if a higher number is requested.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What does the select method do, and how does it affect the original table?",
+          "answer": "The select method creates a new table containing only the columns specified, leaving the original table unchanged.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "How can you select multiple columns in a table using the select method?",
+          "answer": "You can select multiple columns in a table by using the select method and separating column labels with commas.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2427013110",
+      "qa_pairs": [
+        {
+          "question": "What does the drop method do to a table without changing the original?",
+          "answer": "The drop method creates a smaller table by removing specified columns, leaving the original table unchanged.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does sorting rows involve when using the sort method?",
+          "answer": "Sorting rows involves arranging them in ascending order based on values in a specified column, using the sort method.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "How can you sort in descending order using the sort method?",
+          "answer": "The sort method can sort in descending order by using an optional argument named descendingTrue.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What do optional arguments allow you to do with methods like sort?",
+          "answer": "Optional arguments allow you to modify the default behavior of methods like sort without being mandatory to use.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What do both select and drop methods enable you to do?",
+          "answer": "Both select and drop methods enable the creation of smaller tables from a larger one, without affecting the original.",
+          "difficulty": 1,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2427013110",
+      "qa_pairs": [
+        {
+          "question": "What does the where method create when a condition is satisfied?",
+          "answer": "The where method creates a new table consisting only of the rows that satisfy a specified condition.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What two arguments are required by the where method?",
+          "answer": "The where method requires two arguments: the label of the column and the value to look for in that column.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What happens to the where method call when dealing with complex conditions?",
+          "answer": "The where method can be used for complex conditions, but the call will be more complicated.",
+          "difficulty": 3,
+          "category": "application"
+        },
+        {
+          "question": "Why is it important to provide the exact value when using the where method?",
+          "answer": "It is important to provide the exact value when using the where method for it to work correctly.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How does using a different case affect the where method's ability to find matching rows?",
+          "answer": "Using a different case in the value (e.g., 'Chocolate' vs. 'chocolate') affects the where method's ability to find matching rows.",
+          "difficulty": 1,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2427013110",
+      "qa_pairs": [
+        {
+          "question": "What does the NBA table contain for the 2015-2016 season?",
+          "answer": "The NBA table contains data on player salaries for the 2015-2016 season, with each row representing one player.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is the purpose of the 'where' method in table operations?",
+          "answer": "The 'where' method is used to filter tables based on specific conditions and does not alter the original table.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What columns are included in the NBA table?",
+          "answer": "The columns in the NBA table include player name, position, team, and salary.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How are positions coded in the NBA table?",
+          "answer": "Positions in the NBA table are coded as PG for Point Guard, SG for Shooting Guard, PF for Power Forward, SF for Small Forward, and C for Center.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "Which sports league was identified as the highest paying in the world as of March 2016?",
+          "answer": "The NBA is identified as the highest paying professional sports league in the world as of March 2016.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2427013110",
+      "qa_pairs": [
+        {
+          "question": "How can you create a new table specifically for the Golden State Warriors?",
+          "answer": "To create a new table for the Golden State Warriors, you can filter the data to include only the relevant team information.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What is the default number of lines displayed by tables, and how can you adjust it?",
+          "answer": "By default, tables display the first 10 lines, but you can use the show method to display more or fewer lines.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What happens when you use the show method with no argument on a table?",
+          "answer": "Using show with no argument will display the entire table.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How is the nba table initially sorted?",
+          "answer": "The nba table is initially sorted alphabetically by team names.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How can you compare player salaries for 2015-2016 effectively?",
+          "answer": "To compare player salaries for 2015-2016, sorting by salary is useful, with increasing order being the default.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What sorting order can help identify the highest-paid players?",
+          "answer": "Sorting by salary in descending order can help identify the highest-paid players.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2427013110",
+      "qa_pairs": [
+        {
+          "question": "Who was the highest earning NBA player during the 2015-2016 season?",
+          "answer": "Kobe Bryant was the highest earning NBA player during the 2015-2016 season.",
+          "difficulty": 1,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3891774532",
+      "qa_pairs": [
+        {
+          "question": "What does programming in Python allow for in terms of data collection and analysis?",
+          "answer": "Programming in Python allows for enhanced data collection and analysis, leading to potential discoveries through careful reasoning.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why are programs written?",
+          "answer": "Programs are written to instruct computers to perform specific steps in data analysis.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What do computers require from humans to collect and analyze data effectively?",
+          "answer": "Computers require precise instructions from humans to collect and analyze data effectively.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is it important for people to articulate the exact steps for data analysis when programming?",
+          "answer": "People need to articulate the exact steps for data analysis when programming, as computers do not have the ability to study the world independently.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3082398315",
+      "qa_pairs": [
+        {
+          "question": "What types of numbers does Python distinguish between?",
+          "answer": "Python distinguishes between two types of numbers: integers and real numbers.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What are 'int' values in Python?",
+          "answer": "Integers, referred to as 'int' values in Python, can only represent whole numbers without fractional components.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How are real numbers represented in Python?",
+          "answer": "Real numbers in Python, known as 'float' or floating point values, can represent both whole and fractional numbers.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How can you identify the type of number by its display in Python?",
+          "answer": "The type of a number is identified by its display: integers have no decimal point, while floats have a decimal point.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What is the result when a float is combined with an int using an arithmetic operator in Python?",
+          "answer": "When a float is combined with an int using an arithmetic operator, the result is always a float.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3082398315",
+      "qa_pairs": [
+        {
+          "question": "What is the result when two integers are combined, and what happens when one number is divided by another?",
+          "answer": "When two integers are combined, the result is another integer, but dividing any number by another always results in a float.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can float values display very large or very small numbers?",
+          "answer": "Float values can display very large or very small numbers using scientific notation.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What does the type function in Python do with regard to numbers or expressions?",
+          "answer": "The type function in Python can be used to determine the type of any number or expression, and it evaluates to the type of the final value.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How many significant digits do float values in Python represent before precision is lost?",
+          "answer": "Float values in Python represent numbers with up to 15 or 16 significant digits, after which precision is lost.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "How does Python evaluate names with respect to their assigned values, and what will the type function not show?",
+          "answer": "Names in Python are evaluated to their assigned values, so the type function will not show the type of a name.",
+          "difficulty": 3,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3082398315",
+      "qa_pairs": [
+        {
+          "question": "What happens when a computation results in a very large number due to limitations?",
+          "answer": "When a computation results in a very large number, it is represented as infinite due to limitations in numerical representation.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can very small numbers be represented due to computational limitations?",
+          "answer": "Computation of very small numbers can be limited, causing them to be represented as zero.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What happens to numbers with more than 15 significant digits before arithmetic computations?",
+          "answer": "Numbers with more than 15 significant digits may have those extra digits discarded before arithmetic computations.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What can happen when taking the difference between two mathematically equivalent expressions?",
+          "answer": "Taking the difference between two mathematically equivalent expressions can result in a small error due to numerical limitations.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What does squaring the square root of 2 illustrate in numerical computations?",
+          "answer": "Squaring the square root of 2 does not exactly recover 2, illustrating small errors that can occur in numerical computations.",
+          "difficulty": 3,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "3082398315",
+      "qa_pairs": [
+        {
+          "question": "Why may numbers not always be exact in floating-point arithmetic, and how reliable are they across different platforms?",
+          "answer": "In floating-point arithmetic, numbers may not always be exact but are reliable across different platforms.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is floating-point behavior consistent across most programming languages?",
+          "answer": "Floating-point behavior is consistent because it follows a standard method used in most programming languages.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "What effect can scientific notation in computing have on the appearance of significant digits?",
+          "answer": "Scientific notation in computing can cause differences in how significant digits appear.",
+          "difficulty": 3,
+          "category": "concept_check"
+        },
+        {
+          "question": "What ensures consistency in floating-point arithmetic across different computers and programming languages?",
+          "answer": "Floating-point arithmetic is designed to be the same across different computers and programming languages, ensuring consistency.",
+          "difficulty": 2,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "663140214",
+      "qa_pairs": [
+        {
+          "question": "What are string methods and how are they called?",
+          "answer": "String methods are functions that operate on strings and are called by placing a dot after a string followed by the method name.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is the purpose of the 'replace' method in strings and what arguments does it require?",
+          "answer": "The 'replace' method is used to replace all instances of a specified substring within a string and requires two arguments: the substring to be replaced and the replacement string.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "On what type of values can string methods be used?",
+          "answer": "String methods can be used on variables that are bound to string values, not just directly on string literals.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "What happens to the original string when a string method is invoked?",
+          "answer": "Invoking a string method does not alter the original string; instead, it returns a new string with the changes applied.",
+          "difficulty": 2,
+          "category": "concept_check"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "663140214",
+      "qa_pairs": [
+        {
+          "question": "What is a method in Python?",
+          "answer": "In Python, a method is a function that is associated with an object.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Are methods unique to string objects in Python?",
+          "answer": "Methods are not unique to string objects; other types of objects in Python can also have methods.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What is an example of a string value assigned to an object?",
+          "answer": "The string 'ingrain' is an example of a string value assigned to an object.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is understanding how to use methods fundamental in Python?",
+          "answer": "Understanding how to use methods is fundamental because they apply to many different types of objects in Python, not just strings.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "What does the lesson introduce about methods?",
+          "answer": "The lesson introduces methods, highlighting their generality across different object types in Python.",
+          "difficulty": 2,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2697797242",
+      "qa_pairs": [
+        {
+          "question": "What is a string in a computer context?",
+          "answer": "A string is a piece of text represented in a computer, which can include elements like words, sentences, numbers, or truth values.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What happens when two strings are added together?",
+          "answer": "When two strings are added together, they are concatenated to form a new string without any automatic separator like a space.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How do single quotes and double quotes relate to string creation?",
+          "answer": "Both single quotes and double quotes can be used to create strings, and 'hi' and \"hi\" are considered the same string.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What factors determine the meaning of an expression in programming?",
+          "answer": "The meaning of an expression in programming depends on its structure and the types of values being combined, such as in the case of string addition.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can strings be used to represent complex data?",
+          "answer": "Strings can represent complex data, such as the entire contents of a library's books, by storing sequences of characters.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2697797242",
+      "qa_pairs": [
+        {
+          "question": "Why are double quotes often preferred for string literals?",
+          "answer": "Double quotes are often preferred for string literals because they allow the inclusion of apostrophes without causing syntax errors.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does the str function in Python do?",
+          "answer": "The str function in Python converts any value to its string representation.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "How do double quotes around string literals help?",
+          "answer": "Using double quotes around string literals prevents syntactical issues when the string contains apostrophes.",
+          "difficulty": 2,
+          "category": "application"
+        },
+        {
+          "question": "When is the str function useful?",
+          "answer": "The str function is useful when you need to construct strings that include various embedded values.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2089344509",
+      "qa_pairs": [
+        {
+          "question": "What do Boolean values in Python often result from?",
+          "answer": "Boolean values in Python often result from the use of comparison operators, indicating whether a comparison is valid.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What are the comparison operators available in Python?",
+          "answer": "Comparison operators in Python include less than (<), greater than (>), less than or equal (<=), greater than or equal (>=), equal (==), and not equal (!=).",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "When is an expression with multiple comparisons considered True?",
+          "answer": "An expression with multiple comparisons is True only if all individual comparisons evaluate to True.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What will the expression '2 < 3' evaluate to, and what about '2 < 2'?",
+          "answer": "The expression '2 < 3' will evaluate to True, while '2 < 2' will be False because it is not true that 2 is less than 2.",
+          "difficulty": 1,
+          "category": "application"
+        },
+        {
+          "question": "What do the '==' and '!=' operators check in Python?",
+          "answer": "In Python, operators like '==' check if two values are equal, and '!=' checks if they are not equal.",
+          "difficulty": 1,
+          "category": "definition"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "2089344509",
+      "qa_pairs": [
+        {
+          "question": "What is considered less than a larger number in numerical comparisons?",
+          "answer": "In numerical comparisons, a smaller number is considered less than a larger number.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "How is string comparison typically conducted?",
+          "answer": "For strings, comparison is alphabetical, similar to the order in a dictionary.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "How is a shorter string considered in comparison to a longer string?",
+          "answer": "A shorter string is considered less than a longer string if the longer string begins with the shorter string.",
+          "difficulty": 3,
+          "category": "concept_check"
+        },
+        {
+          "question": "How can one verify numerical comparison using different values?",
+          "answer": "To verify numerical comparison, one can substitute different values of x and y and observe the relationship.",
+          "difficulty": 2,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "1320813483",
+      "qa_pairs": [
+        {
+          "question": "What does every value in Python have that can be identified using the builtin type function?",
+          "answer": "Every value in Python has a specific type, which can be identified using the builtin type function.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What does the type function in Python return?",
+          "answer": "The type function in Python returns the type of any expression.",
+          "difficulty": 1,
+          "category": "definition"
+        },
+        {
+          "question": "What are builtin functions indicated as in Python?",
+          "answer": "Builtin functions are one type of data introduced in Python, and they are indicated as a builtinfunctionormethod.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "Why is the distinction between a function and a method not important at this stage?",
+          "answer": "The distinction between a function and a method is not important at this stage of learning Python data types.",
+          "difficulty": 2,
+          "category": "concept_check"
+        },
+        {
+          "question": "What will this chapter explore in Python?",
+          "answer": "This chapter will explore various useful types of data in Python.",
+          "difficulty": 1,
+          "category": "application"
+        }
+      ]
+    }
+  },
+  {
+    "parsedQuestions": {
+      "lesson_id": "885316205",
+      "qa_pairs": [
+        {
+          "question": "What foundational concepts in data science help in understanding and processing data?",
+          "answer": "Computational and inferential thinking are foundational concepts in data science that help in understanding and processing data.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What serves as the primary material for a course at UC Berkeley?",
+          "answer": "The textbook 'Computational and Inferential Thinking: The Foundations of Data Science' serves as the primary material for a course at UC Berkeley.",
+          "difficulty": 2,
+          "category": "definition"
+        },
+        {
+          "question": "Why was the textbook created?",
+          "answer": "This textbook was created to provide an educational framework for developing data science skills.",
+          "difficulty": 1,
+          "category": "concept_check"
+        },
+        {
+          "question": "What allows data scientists to make predictions and conclusions about broader populations from sample data?",
+          "answer": "Inferential thinking allows data scientists to make predictions and conclusions about broader populations from sample data.",
+          "difficulty": 3,
+          "category": "concept_check"
+        },
+        {
+          "question": "What does computational thinking involve?",
+          "answer": "Computational thinking involves utilizing algorithms, automating processes, and managing data to solve problems.",
+          "difficulty": 3,
+          "category": "definition"
+        }
+      ]
+    }
+  }
+]

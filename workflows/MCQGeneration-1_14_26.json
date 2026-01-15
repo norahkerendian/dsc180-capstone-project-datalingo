@@ -1,0 +1,291 @@
+{
+  "name": "MCQGeneration-1/14/26",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/norahkerendian/dsc180a-q1/refs/heads/main/NEW_AIGeneratedData_json/final_generated_level1_12Dec%2026%2C%202025_165633.json?token=GHSAT0AAAAAADL5WWDHEQYCAHCLJQNBNZXU2LIYEUQ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        256,
+        -304
+      ],
+      "id": "883700d9-440a-46bc-acb6-d82f495a3358",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dee42752-1db6-45d5-b514-2c829145a877",
+              "name": "parsedData",
+              "value": "={{ JSON.parse($json.data) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        -304
+      ],
+      "id": "0b9868d6-33e7-434f-abc8-830e5d1439a2",
+      "name": "Edit Fields_level"
+    },
+    {
+      "parameters": {
+        "jsCode": "const lessons = $json.parsedData;\n\nconst output = [];\n\nfor (const lesson of lessons) {\n  const { questions, ...lessonMeta } = lesson;\n\n  for (const q of questions) {\n    output.push({\n      json: {\n        lessonId: lesson.id,\n        question: q\n      }\n    });\n  }\n}\n\nreturn output;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        752,
+        -304
+      ],
+      "id": "5584ebc9-79c7-46b1-98fc-e6170f68b52b",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Transform the following question object into a multiple-choice question.\n\nRules:\n- Preserve the original \"id\", \"difficulty\", and \"category\".\n- Preserve the field \"lessonId\" exactly as provided.\n- Rename the field \"question\" to \"prompt\".\n- Remove the field \"answer\".\n- Create exactly 4 answer choices.\n- One choice must be semantically identical to the original answer.\n- The other 3 choices must be plausible but incorrect.\n- Do NOT use \"All of the above\" or \"None of the above\".\n- The correct answer must appear exactly once.\n- Set \"answerIndex\" to the 0-based index of the correct choice.\n- Add a short \"hint\" that helps without giving away the answer.\n- Output MUST be valid JSON and nothing else.\n\nInput:\n{\n  \"lessonId\": {{ $json.lessonId }},\n  \"question\": {{ JSON.stringify($json.question) }}\n}\n\nOutput schema:\n{\n  \"id\": number,\n  \"prompt\": string,\n  \"choices\": [string, string, string, string] ,\n  \"answerIndex\": number,\n  \"hint\": string,\n  \"difficulty\": number,\n  \"category\": string\n}\n",
+        "batching": {
+          "delayBetweenBatches": 1600
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        960,
+        -304
+      ],
+      "id": "860d5dc8-ab8c-4ec8-986c-a170b332d231",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        960,
+        -96
+      ],
+      "id": "555bf841-a975-4599-ac31-2ac7eacbaf53",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "TDzjcOZKeBZfaFDR",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2ebd5079-b958-4be3-83e9-2ed9f983072f",
+              "name": "lessonID",
+              "value": "={{ $('Code in JavaScript').item.json.lessonId }}",
+              "type": "string"
+            },
+            {
+              "id": "16a922d2-108b-4fa4-b885-ffae3a15849f",
+              "name": "parsedMCQ",
+              "value": "={{\nJSON.parse(\n  $json.text\n    .replace(/```json/gi, '')\n    .replace(/```/g, '')\n    .replace(/,\\s*([\\]}])/g, '$1')\n    .replace(/\\\\n/g, '\\n')\n    .trim()\n)\n}}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1312,
+        -304
+      ],
+      "id": "9674c219-72be-4b36-9c64-bedd4416c187",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst lessons = {};\n\nfor (const { json } of items) {\n  const { lessonID, parsedMCQ } = json;\n\n  if (!lessons[lessonID]) {\n    lessons[lessonID] = {\n      lessonID,\n      mcq_questions: []\n    };\n  }\n\n  lessons[lessonID].mcq_questions.push(parsedMCQ);\n}\n\nreturn Object.values(lessons).map(l => ({ json: l }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        -304
+      ],
+      "id": "3acbedd3-fa4a-400a-8f60-81b49a122a96",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const allItems = $input.all();\nconst dataArray = allItems.map(item => item.json);\nconst jsonString = JSON.stringify(dataArray, null, 2);\n\nreturn [{ json: { fileContent: jsonString } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1728,
+        -304
+      ],
+      "id": "d3581506-46d2-4e6f-9949-f84cfdc583da",
+      "name": "convert array to string"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "norahkerendian",
+          "mode": "list",
+          "cachedResultName": "norahkerendian",
+          "cachedResultUrl": "https://github.com/norahkerendian"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "dsc180a-q1",
+          "mode": "list",
+          "cachedResultName": "dsc180a-q1",
+          "cachedResultUrl": "https://github.com/norahkerendian/dsc180a-q1"
+        },
+        "filePath": "=NEW_AIGeneratedData_n8n/MCQ_generated_level1_{{ $now.format('MMDD_HHmmss') }}.txt",
+        "fileContent": "={{ $json.fileContent }}",
+        "commitMessage": "=added generated MCQs for level 1 {{ $now.format('MMDD_HHmmss') }}"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1936,
+        -304
+      ],
+      "id": "ecee2f69-ba81-42df-a99a-00ebb87db0b7",
+      "name": "Create a file",
+      "webhookId": "47ad548d-5ddf-4b46-8351-623e49538761",
+      "credentials": {
+        "githubApi": {
+          "id": "2YczUvKeuluwnOev",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields_level",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields_level": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "convert array to string",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "convert array to string": {
+      "main": [
+        [
+          {
+            "node": "Create a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "708c2d97-e3de-4df0-8605-bc81a02d8d09",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eabc3db3d978b075d9e47830d4d4aa1053f83a96f06c8c753a0b7438a368ac80"
+  },
+  "id": "l4eLhJ7qTmPUZa1t",
+  "tags": []
+}

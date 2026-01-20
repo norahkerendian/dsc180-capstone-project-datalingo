@@ -1,6 +1,23 @@
-"""
+"""backend.lessons
+
 Lesson content loader and filtering utilities.
-Provides functions to load lesson data and filter by question/lesson ID.
+
+This module is responsible for reading your lesson/question dataset from disk
+and producing *scoped* context strings that are safe to send to the LLM.
+
+Expected JSON shape (high level):
+- The file is a JSON array of lessons.
+- Each lesson is a dict containing fields like:
+    - `id` (int)
+    - `title` (str)
+    - `topic` (str)
+    - `level` (int/str)
+    - `questions` (list of dicts with `id`, `question`, `answer`, ...)
+    - `metadata` (optional dict)
+
+Design note:
+We keep the "data lookup" logic here, so the API layer in :mod:`backend.main`
+stays thin and focused on HTTP.
 """
 
 import json
@@ -9,7 +26,10 @@ from typing import Optional
 from pathlib import Path
 
 
-# Default path to the lessons JSON file
+# Default path to the lessons JSON file.
+#
+# This is intentionally configurable via `LESSONS_DATA_PATH` so you can swap in
+# different datasets without changing code.
 DEFAULT_LESSONS_PATH = os.getenv(
     "LESSONS_DATA_PATH",
     "../NEW_AIGeneratedData_json/final_merged_lessons_with_mcqs_16Jan 16, 2026_153124_randomized_16Jan_161140.json"
@@ -17,10 +37,19 @@ DEFAULT_LESSONS_PATH = os.getenv(
 
 
 def load_lessons_data(path: Optional[str] = None) -> list[dict]:
-    """Load lessons data from JSON file."""
+    """Load lessons data from a JSON file.
+
+    Args:
+        path: Optional override path. If relative, it is resolved relative to
+            the backend folder (the folder containing this file).
+
+    Returns:
+        A list of lesson dictionaries.
+    """
     file_path = Path(path or DEFAULT_LESSONS_PATH)
     
-    # Handle relative paths from the backend directory
+    # Handle relative paths from the backend directory.
+    # This makes it easier to run the server from different working dirs.
     if not file_path.is_absolute():
         file_path = Path(__file__).parent / file_path
     
@@ -70,7 +99,11 @@ def get_question_by_id(lessons: list[dict], question_id: int) -> Optional[dict]:
 def format_lesson_context(lesson: dict) -> str:
     """
     Format a lesson's content for use as LLM context.
-    Returns a concise string representation optimized for token efficiency.
+
+    Returns a concise, plain-text representation optimized for token efficiency.
+    Today this includes:
+    - lesson metadata (title/topic/level)
+    - *all* Q&A pairs under that lesson (used as study material)
     """
     parts = [
         f"# {lesson.get('title', 'Untitled Lesson')}",
@@ -97,7 +130,10 @@ def format_lesson_context(lesson: dict) -> str:
 def get_filtered_context(lessons: list[dict], question_id: int) -> Optional[str]:
     """
     Get the filtered lesson context for a specific question ID.
-    This is the main function to use for chatbot context retrieval.
+
+    This is the primary entrypoint used by `POST /chat`.
+    It finds the lesson that contains the question and returns that lesson's
+    formatted context.
     
     Returns the formatted lesson content or None if question not found.
     """

@@ -18,6 +18,10 @@ export default function QuizCard({ user }: Props) {
   const [userAnswer, setUserAnswer] = useState("");
   const [feedback, setFeedback] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [chatInput, setChatInput] = useState("");
+  const [chatResponse, setChatResponse] = useState<string | null>(null);
+  const [chatError, setChatError] = useState<string | null>(null);
+  const [chatLoading, setChatLoading] = useState(false);
 
   const startTimeRef = useRef<number>(Date.now());
 
@@ -80,6 +84,41 @@ export default function QuizCard({ user }: Props) {
     setLoading(false);
   };
 
+  const sendChat = async () => {
+    if (!q || !chatInput.trim()) return;
+
+    setChatLoading(true);
+    setChatError(null);
+    setChatResponse(null);
+
+    try {
+      const baseUrl =
+        process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
+
+      const res = await fetch(`${baseUrl}/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message: chatInput.trim(),
+          question_id: q.id,
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err?.detail || "Chat request failed.");
+      }
+
+      const data = await res.json();
+      setChatResponse(data?.response || "");
+      setChatInput("");
+    } catch (err: any) {
+      setChatError(err?.message || "Chat request failed.");
+    } finally {
+      setChatLoading(false);
+    }
+  };
+
   if (loading && !q) {
     return <div className="text-gray-500">Loading question.</div>;
   }
@@ -89,8 +128,8 @@ export default function QuizCard({ user }: Props) {
   }
 
   return (
-    <div className="border rounded-lg p-4 space-y-4 text-left">
-      <p className="font-semibold">Practice question</p>
+    <div className="border rounded-lg p-4 space-y-6 text-left">
+      <p className="font-semibold">Current question</p>
       <p className="text-lg">{q.question}</p>
 
       <input
@@ -118,6 +157,32 @@ export default function QuizCard({ user }: Props) {
       </div>
 
       {feedback && <p className="text-sm">{feedback}</p>}
+
+      <div className="border rounded-lg p-4 space-y-3 bg-gray-50">
+        <p className="font-semibold">Ask the tutor about this question</p>
+        <textarea
+          className="border rounded px-3 py-2 w-full min-h-[90px]"
+          placeholder="Type a question about the concept, steps, or hints..."
+          value={chatInput}
+          onChange={(e) => setChatInput(e.target.value)}
+        />
+        <div className="flex gap-2">
+          <button
+            onClick={sendChat}
+            disabled={chatLoading || !chatInput.trim()}
+            className="px-4 py-2 rounded bg-black text-white disabled:opacity-60"
+          >
+            {chatLoading ? "Sending..." : "Ask"}
+          </button>
+        </div>
+
+        {chatError && <p className="text-sm text-red-600">{chatError}</p>}
+        {chatResponse && (
+          <div className="mt-2 rounded border bg-white p-3 text-sm">
+            {chatResponse}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

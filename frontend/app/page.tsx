@@ -19,7 +19,6 @@
 //   return { data, error };
 // }
 
-
 // export default function Home() {
 //   return (
 //     <div className="h-[calc(100vh-56px)] mt-14 grid place-items-center">

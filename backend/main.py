@@ -1,6 +1,22 @@
-"""
-FastAPI backend for the Data Science Chatbot.
-Provides endpoints for chatbot interactions with filtered lesson context.
+"""backend.main
+
+FastAPI application entrypoint.
+
+This service exposes a small HTTP API used by the Next.js frontend to:
+- list lessons and fetch lesson/question details
+- chat with an LLM *constrained* to lesson content
+
+High-level request flow for `POST /chat`:
+1) Client sends a user message plus either `question_id` or `lesson_id`
+2) We build lesson context (see :mod:`backend.lessons`)
+3) We call the OpenAI Chat Completions API (see :mod:`backend.chatbot`)
+4) We return the assistant response and a rough context token estimate
+
+Environment variables (loaded via `python-dotenv` in :mod:`backend.chatbot`):
+- `OPENAI_API_KEY` (required)
+- `OPENAI_MODEL` (optional)
+- `LESSONS_DATA_PATH` (optional)
+- `FRONTEND_URL` (optional; additional CORS origin)
 """
 
 from fastapi import FastAPI, HTTPException
@@ -18,7 +34,10 @@ from lessons import (
 )
 from chatbot import chat_with_context, estimate_tokens
 
-# Load lessons data at startup
+# Load lessons data at import/startup.
+#
+# This is intentionally done once and kept in memory so typical requests do not
+# re-read a large JSON file from disk.
 try:
     LESSONS_DATA = load_lessons_data()
     print(f"✓ Loaded {len(LESSONS_DATA)} lessons")
@@ -47,9 +66,17 @@ app.add_middleware(
 )
 
 
+# -------------------------
 # Request/Response models
+# -------------------------
 class ChatRequest(BaseModel):
-    """Request body for chat endpoint."""
+    """Request body for `POST /chat`.
+
+    Provide exactly one of `question_id` or `lesson_id` to scope the assistant.
+
+    `conversation_history` should be a list of OpenAI-style chat messages like:
+    `{"role": "user"|"assistant", "content": "..."}`.
+    """
     message: str
     question_id: Optional[int] = None  # Filter by specific question
     lesson_id: Optional[int] = None    # Or filter by lesson
@@ -64,7 +91,11 @@ class ChatResponse(BaseModel):
 
 
 class QuestionInfo(BaseModel):
-    """Question details response."""
+    """Question details response.
+
+    Note: questions are nested under lessons in the lessons JSON file.
+    This response "denormalizes" the lesson info for convenience.
+    """
     id: int
     question: str
     answer: str
@@ -130,7 +161,10 @@ async def chat(request: ChatRequest):
     lesson_context = None
     lesson_title = None
     
-    # Get filtered context based on question_id or lesson_id
+    # Build filtered context based on question_id or lesson_id.
+    #
+    # The context is *the* primary control that limits what the model is allowed
+    # to use when answering. We intentionally only pass the scoped lesson.
     if request.question_id:
         lesson_context = get_filtered_context(LESSONS_DATA, request.question_id)
         if lesson_context:
@@ -144,6 +178,8 @@ async def chat(request: ChatRequest):
             lesson_context = format_lesson_context(lesson)
             lesson_title = lesson.get("title")
     
+    # If the client asked for a scoped chat but we can't find the data,
+    # return a 404 so the frontend can show an actionable error.
     if not lesson_context and (request.question_id or request.lesson_id):
         raise HTTPException(
             status_code=404,
@@ -157,7 +193,7 @@ async def chat(request: ChatRequest):
             conversation_history=request.conversation_history,
         )
         
-        # Estimate tokens used for context
+        # Token estimate is a rough approximation used for debugging/UX.
         context_tokens = estimate_tokens(lesson_context) if lesson_context else 0
         
         return ChatResponse(

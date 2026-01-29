@@ -59,10 +59,45 @@
 //     </>
 //   );
 // }
+//////////////////////////////// start of working version //////////////////////////////
+
+// "use client";
+
+// import React, { useEffect, useState } from "react";
+// import TopBar from "./components/TopBar";
+
+// export default function ClientShell({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   const [ready, setReady] = useState(false);
+
+//   useEffect(() => {
+//     setReady(true);
+//   }, []);
+
+//   if (!ready) return null;
+
+//   return (
+//     <>
+//       <TopBar />
+//       {/* Push all page content below the fixed TopBar */}
+//       <main
+//         style={{ paddingTop: "80px" }}   // <-- this is the key change
+//         className="px-4 sm:px-6 lg:px-8"
+//       >
+//         {children}
+//       </main>
+//     </>
+//   );
+// }
+///////////////////////////////////////////// calude v1//////////////////////////////////////////
 
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import TopBar from "./components/TopBar";
 
 export default function ClientShell({
@@ -71,6 +106,10 @@ export default function ClientShell({
   children: React.ReactNode;
 }) {
   const [ready, setReady] = useState(false);
+  const pathname = usePathname();
+  
+  // Don't show TopBar on landing page
+  const isLandingPage = pathname === "/";
 
   useEffect(() => {
     setReady(true);
@@ -80,17 +119,15 @@ export default function ClientShell({
 
   return (
     <>
-      <TopBar />
-      {/* Push all page content below the fixed TopBar */}
+      {!isLandingPage && <TopBar />}
       <main
-        style={{ paddingTop: "80px" }}   // <-- this is the key change
-        className="px-4 sm:px-6 lg:px-8"
+        style={!isLandingPage ? { paddingTop: "80px" } : {}}
+        className={!isLandingPage ? "px-4 sm:px-6 lg:px-8" : ""}
       >
         {children}
       </main>
     </>
   );
 }
-
 
 

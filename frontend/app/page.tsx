@@ -40,7 +40,6 @@
 
 ///////////////////////// Start of Claire's 'changes' version 1 //////////////////////////////////////////////
 
-
 // import Link from "next/link";
 
 // export default function Home() {
@@ -76,7 +75,7 @@ export default function Home() {
           <span className="text-3xl">📊</span>
           <span className="text-2xl font-bold text-green-600">DataLingo</span>
         </div>
-        <Link 
+        <Link
           href="/login"
           className="px-6 py-2.5 border-2 border-green-600 text-green-600 font-bold rounded-xl hover:bg-green-50 transition-all duration-200"
         >
@@ -93,21 +92,22 @@ export default function Home() {
               Learn Python & Data Science,
               <span className="text-green-600"> one lesson at a time</span>
             </h1>
-            
+
             <p className="text-xl text-gray-600 leading-relaxed">
-              Master Python and Data Science through fun, bite-sized lessons and gamified challenges. 
-              Level up your skills with interactive MCQs! 🎮
+              Master Python and Data Science through fun, bite-sized lessons and
+              gamified challenges. Level up your skills with interactive MCQs!
+              🎮
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link 
+              <Link
                 href="/login"
                 className="group bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-lg px-8 py-4 rounded-2xl hover:from-green-600 hover:to-green-700 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 transform text-center"
               >
                 🚀 Start Learning Free
               </Link>
-              
-              <Link 
+
+              <Link
                 href="/login"
                 className="bg-white text-green-600 font-bold text-lg px-8 py-4 rounded-2xl border-2 border-green-200 hover:border-green-300 hover:bg-green-50 transition-all duration-200 text-center"
               >
@@ -141,7 +141,9 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="font-bold text-gray-800">Python Basics</div>
-                  <div className="text-sm text-gray-500">Level 1 - Beginner</div>
+                  <div className="text-sm text-gray-500">
+                    Level 1 - Beginner
+                  </div>
                 </div>
               </div>
 
@@ -151,7 +153,9 @@ export default function Home() {
                     ✓
                   </div>
                   <div className="flex-1">
-                    <div className="font-semibold text-gray-700">Variables & Types</div>
+                    <div className="font-semibold text-gray-700">
+                      Variables & Types
+                    </div>
                     <div className="text-xs text-gray-500">Completed</div>
                   </div>
                   <div className="text-2xl">🏆</div>
@@ -162,7 +166,9 @@ export default function Home() {
                     2
                   </div>
                   <div className="flex-1">
-                    <div className="font-semibold text-gray-700">Lists & Loops</div>
+                    <div className="font-semibold text-gray-700">
+                      Lists & Loops
+                    </div>
                     <div className="text-xs text-gray-500">In Progress</div>
                   </div>
                   <div className="text-2xl">⭐</div>
@@ -185,7 +191,10 @@ export default function Home() {
                   <span className="font-bold text-green-600">3/5 lessons</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full" style={{width: '60%'}}></div>
+                  <div
+                    className="bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full"
+                    style={{ width: "60%" }}
+                  ></div>
                 </div>
               </div>
             </div>
@@ -204,20 +213,30 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8 mt-24">
           <div className="text-center space-y-3 p-6">
             <div className="text-5xl mb-2">🎯</div>
-            <h3 className="text-xl font-bold text-gray-800">Gamified Learning</h3>
-            <p className="text-gray-600">Earn XP, unlock levels, and compete with friends while learning</p>
+            <h3 className="text-xl font-bold text-gray-800">
+              Gamified Learning
+            </h3>
+            <p className="text-gray-600">
+              Earn XP, unlock levels, and compete with friends while learning
+            </p>
           </div>
-          
+
           <div className="text-center space-y-3 p-6">
             <div className="text-5xl mb-2">💡</div>
-            <h3 className="text-xl font-bold text-gray-800">Bite-Sized Lessons</h3>
-            <p className="text-gray-600">Quick 5-minute lessons that fit into your busy schedule</p>
+            <h3 className="text-xl font-bold text-gray-800">
+              Bite-Sized Lessons
+            </h3>
+            <p className="text-gray-600">
+              Quick 5-minute lessons that fit into your busy schedule
+            </p>
           </div>
-          
+
           <div className="text-center space-y-3 p-6">
             <div className="text-5xl mb-2">📈</div>
             <h3 className="text-xl font-bold text-gray-800">Track Progress</h3>
-            <p className="text-gray-600">See your improvement with detailed analytics and achievements</p>
+            <p className="text-gray-600">
+              See your improvement with detailed analytics and achievements
+            </p>
           </div>
         </div>
       </main>

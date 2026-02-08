@@ -33,7 +33,7 @@ export async function GET(req: Request) {
   }
 
   const topics = Array.from(counts.entries()).map(([topic, count]) => ({ topic, count }));
-  topics.sort((a, b) => a.topic.localeCompare(b.topic));
+  // topics.sort((a, b) => a.topic.localeCompare(b.topic));
 
   return NextResponse.json({ topics });
 }

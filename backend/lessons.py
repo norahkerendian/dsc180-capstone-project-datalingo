@@ -24,6 +24,7 @@ import json
 import os
 from typing import Optional, Any
 from pathlib import Path
+from collections import defaultdict
 
 
 # Default path to the lessons JSON file (fallback).
@@ -34,7 +35,7 @@ from pathlib import Path
 # `load_lessons_data()`.
 DEFAULT_LESSONS_PATH_FALLBACK = (
     "../NEW_AIGeneratedData_json/"
-    "final_merged_lessons_with_mcqs_16Jan 16, 2026_153124_randomized_16Jan_161140.json"
+    "FOR_USE_ordered_sifted_final_merged_lessons_with_mcqs_16Jan 25, 2026_153124_randomized_16Jan_161140.json"
 )
 
 
@@ -253,3 +254,72 @@ def get_filtered_context(lessons: list[dict], question_id: int) -> Optional[str]
         return f"{lesson_text}\n\n{format_mcq_for_display(mcq)}"
 
     return lesson_text
+
+
+def build_topic_context_cache(lessons: list[dict]) -> dict[tuple[Optional[int], str], str]:
+    """Precompute a cached context string per (level, topic).
+
+    This is used to scope the LLM once at the *topic* level (not per question).
+    It ensures the model only receives content from the selected topic.
+
+    Keyed by (level, topic). Level may be None if missing in the dataset.
+    """
+
+    grouped: dict[tuple[Optional[int], str], list[dict]] = defaultdict(list)
+    for lesson in lessons:
+        level = _coerce_int(lesson.get("level"))
+        topic = lesson.get("topic")
+        if not isinstance(topic, str) or not topic.strip():
+            continue
+        grouped[(level, topic.strip())].append(lesson)
+
+    cache: dict[tuple[Optional[int], str], str] = {}
+    for (level, topic), topic_lessons in grouped.items():
+        parts: list[str] = [f"# Topic: {topic}"]
+        if level is not None:
+            parts.append(f"Level: {level}")
+
+        # Keep ordering stable/deterministic.
+        topic_lessons_sorted = sorted(
+            topic_lessons,
+            key=lambda l: (
+                _coerce_int(l.get("id")) or 0,
+                str(l.get("title") or ""),
+            ),
+        )
+
+        for lesson in topic_lessons_sorted:
+            parts.append("\n---\n")
+            parts.append(format_lesson_context(lesson))
+
+        cache[(level, topic)] = "\n".join(parts).strip()
+
+    return cache
+
+
+def get_topic_context(
+    topic_cache: dict[tuple[Optional[int], str], str],
+    *,
+    topic: str,
+    level: Optional[int] = None,
+) -> Optional[str]:
+    """Fetch a cached topic context by exact (level, topic) match.
+
+    If level is None or doesn't match, falls back to any-level match for the
+    same topic.
+    """
+
+    if not isinstance(topic, str) or not topic.strip():
+        return None
+
+    topic = topic.strip()
+
+    if (level, topic) in topic_cache:
+        return topic_cache[(level, topic)]
+
+    # Fallback: accept the first matching topic regardless of level.
+    for (lvl, t), ctx in topic_cache.items():
+        if t == topic:
+            return ctx
+
+    return None

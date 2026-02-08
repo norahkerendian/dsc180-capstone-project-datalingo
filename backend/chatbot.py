@@ -19,6 +19,8 @@ Conversation history format:
 import os
 from typing import Optional
 from pathlib import Path
+import hashlib
+from typing import Any
 
 from openai import OpenAI
 from dotenv import load_dotenv
@@ -104,19 +106,54 @@ def get_model() -> str:
     return os.getenv("OPENAI_MODEL", "gpt-5-mini")
 
 
+def _topic_prompt_cache_key(topic_key: str) -> str:
+    """Generate a short, stable prompt cache key for a topic.
+
+    The OpenAI Responses API supports server-side prompt caching keyed by a
+    string. We hash to keep keys short and safe.
+    """
+
+    digest = hashlib.sha1(topic_key.encode("utf-8")).hexdigest()[:24]
+    return f"topic_ctx_{digest}"
+
+
 # System prompt for the chatbot
-SYSTEM_PROMPT = """You are a helpful Data Science tutor assistant. Your role is to help students understand concepts from their coursework.
+SYSTEM_PROMPT = """You are a Data Science tutor assistant. Your goal is to help students understand concepts from their coursework and guide them to answers without solving questions for them.
 
-Guidelines:
-- Answer questions based ONLY on the provided lesson content
-- Be concise but thorough in your explanations
-- Do NOT provide the answer
-- If asked something outside the lesson scope, politely explain that you can only help with the current lesson topic
-- Use examples when helpful to clarify concepts
-- Encourage the student and provide positive reinforcement
-- If the student seems confused, try explaining the concept differently
+Source rules (strict):
+- Use ONLY the lesson or topic content provided in the conversation.
+- Do not use outside knowledge.
+- If the question cannot be answered using the provided content, say:
+  "I don't know based on the current lesson context."
 
-If no lesson context is provided, let the student know you need more information about which lesson they're studying."""
+Quiz and answer restrictions:
+- Never provide the answer to quizzes or MCQs.
+- Never reveal, guess, or imply which option is correct.
+- Never restate the correct option as an answer.
+- Do not eliminate options in a way that reveals the answer.
+
+Tutoring behavior:
+- Provide concise hints, definitions, or reasoning steps.
+- Help students think through the problem rather than solving it.
+- Ask a short guiding question if the student seems stuck.
+- Keep explanations short and directly related to the lesson topic.
+
+Scope control:
+- Avoid unrelated analogies or off-topic examples unless they appear in the lesson content.
+- Avoid chit-chat or filler content.
+- Stay focused on learning goals.
+
+Missing context handling:
+- If no lesson/topic content is provided, say:
+  "Please provide the current lesson or topic so I can help."
+
+Tone and style:
+- Be clear, supportive, and concise.
+- Prioritize clarity over length.
+"""
+
+# Used to invalidate existing topic sessions when prompt rules change.
+PROMPT_VERSION = hashlib.sha1(SYSTEM_PROMPT.encode("utf-8")).hexdigest()[:12]
 
 
 def chat_with_context(
@@ -168,7 +205,7 @@ def chat_with_context(
     response = client.chat.completions.create(
         model=model,
         messages=messages,
-        temperature=1,
+        temperature=0.2,
         # max_completion_tokens=500,
     )
 
@@ -177,6 +214,135 @@ def chat_with_context(
         raise ValueError("OpenAI returned no choices in the response.")
 
     return _extract_assistant_text(response.choices[0].message)
+
+
+def _extract_usage(response: Any) -> dict[str, Optional[int]]:
+    """Best-effort usage extraction across OpenAI APIs.
+
+    Chat Completions typically returns usage with:
+    - prompt_tokens / completion_tokens / total_tokens
+
+    Responses API typically returns usage with:
+    - input_tokens / output_tokens / total_tokens
+    """
+
+    usage = getattr(response, "usage", None)
+    if not usage:
+        return {
+            "input_tokens": None,
+            "output_tokens": None,
+            "total_tokens": None,
+        }
+
+    # Responses API style
+    input_tokens = getattr(usage, "input_tokens", None)
+    output_tokens = getattr(usage, "output_tokens", None)
+    total_tokens = getattr(usage, "total_tokens", None)
+
+    # Chat Completions style
+    prompt_tokens = getattr(usage, "prompt_tokens", None)
+    completion_tokens = getattr(usage, "completion_tokens", None)
+
+    def _int_or_none(x):
+        return int(x) if isinstance(x, int) else None
+
+    if input_tokens is None and prompt_tokens is not None:
+        input_tokens = prompt_tokens
+    if output_tokens is None and completion_tokens is not None:
+        output_tokens = completion_tokens
+
+    return {
+        "input_tokens": _int_or_none(input_tokens),
+        "output_tokens": _int_or_none(output_tokens),
+        "total_tokens": _int_or_none(total_tokens),
+    }
+
+
+def chat_with_context_with_usage(
+    user_message: str,
+    lesson_context: Optional[str] = None,
+    conversation_history: Optional[list[dict]] = None,
+) -> tuple[str, dict[str, Optional[int]]]:
+    """Like chat_with_context, but also returns a usage dict."""
+
+    client = get_openai_client()
+    model = get_model()
+
+    messages = []
+    system_content = SYSTEM_PROMPT
+    if lesson_context:
+        system_content += f"\n\n--- LESSON CONTENT ---\n{lesson_context}\n--- END LESSON CONTENT ---"
+    messages.append({"role": "system", "content": system_content})
+    if conversation_history:
+        messages.extend(conversation_history)
+    messages.append({"role": "user", "content": user_message})
+
+    response = client.chat.completions.create(
+        model=model,
+        messages=messages,
+        temperature=0.2,
+    )
+
+    if not getattr(response, "choices", None):
+        raise ValueError("OpenAI returned no choices in the response.")
+
+    return _extract_assistant_text(response.choices[0].message), _extract_usage(response)
+
+
+def start_topic_session(*, topic_context: str, topic_key: str) -> str:
+    """Initialize a stateful topic session and return the first response id.
+
+    We use the Responses API so we can continue the conversation using
+    `previous_response_id` without re-sending the full topic context.
+
+    Note: This performs a minimal "bootstrap" call to obtain a response id.
+    """
+
+    client = get_openai_client()
+    model = get_model()
+
+    instructions = SYSTEM_PROMPT
+    instructions += (
+        "\n\n--- TOPIC CONTENT ---\n"
+        f"{topic_context}\n"
+        "--- END TOPIC CONTENT ---"
+    )
+
+    # Minimal input to create the initial server-side conversation state.
+    response = client.responses.create(
+        model=model,
+        instructions=instructions,
+        input="Session initialized.",
+        store=True,
+        prompt_cache_key=_topic_prompt_cache_key(topic_key),
+    )
+
+    return response.id
+
+
+def chat_with_topic_session(
+    *,
+    previous_response_id: str,
+    user_message: str,
+) -> tuple[str, str, dict[str, Optional[int]]]:
+    """Continue a topic session using the Responses API.
+
+    Returns:
+        (assistant_text, new_previous_response_id)
+    """
+
+    client = get_openai_client()
+    model = get_model()
+
+    response = client.responses.create(
+        model=model,
+        previous_response_id=previous_response_id,
+        input=user_message,
+        store=True,
+    )
+
+    assistant_text = getattr(response, "output_text", "") or ""
+    return assistant_text, response.id, _extract_usage(response)
 
 
 def estimate_tokens(text: str) -> int:

@@ -515,7 +515,8 @@ export default function QuizPage() {
           topic={lessonInfo?.topic ?? null}
           level={lessonInfo?.level ?? null}
           questionText={question?.question ?? null}
-          choiceTexts={choices.map((c) => c.choice_text)}
+          choices={choices}
+          wrongChoiceId={wrongChoiceId}
         />
       </div>
     </div>

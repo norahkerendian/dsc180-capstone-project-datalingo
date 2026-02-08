@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
+type Choice = { id: number; choice_text: string };
+
 type ChatMessage = {
   role: "user" | "assistant";
   content: string;
@@ -30,14 +32,16 @@ type Props = {
   topic?: string | null;
   level?: number | null;
   questionText?: string | null;
-  choiceTexts?: string[];
+  choices?: Choice[];
+  wrongChoiceId?: number | null;
 };
 
 export default function TutorChatWidget({
   topic,
   level,
   questionText,
-  choiceTexts = [],
+  choices = [],
+  wrongChoiceId = null,
 }: Props) {
   const baseUrl = useMemo(() => {
     const raw = (
@@ -121,13 +125,13 @@ export default function TutorChatWidget({
     if (questionText && questionText.trim()) {
       parts.push(`Current quiz question: ${questionText.trim()}`);
     }
-    if (choiceTexts.length > 0) {
+    if (choices.length > 0) {
       parts.push(
         "Choices:\n" +
-          choiceTexts
-            .map((t, i) => {
+          choices
+            .map((c, i) => {
               const label = String.fromCharCode("A".charCodeAt(0) + i);
-              return `${label}. ${t}`;
+              return `${label}. ${c.choice_text}`;
             })
             .join("\n"),
       );
@@ -137,14 +141,13 @@ export default function TutorChatWidget({
     return parts.join("\n\n");
   }
 
-  async function send() {
+  async function sendMessage(studentText: string) {
     if (!topic || !topic.trim()) {
       setError("Tutor not ready (missing topic).");
       return;
     }
-    if (!input.trim()) return;
+    if (!studentText.trim()) return;
 
-    const studentText = input;
     setInput("");
     setError(null);
     setLoading(true);
@@ -186,6 +189,16 @@ export default function TutorChatWidget({
     } finally {
       setLoading(false);
     }
+  }
+
+  async function send() {
+    if (!input.trim()) return;
+    await sendMessage(input);
+  }
+
+  async function sendQuickAction(text: string) {
+    if (!text.trim()) return;
+    await sendMessage(text);
   }
 
   if (!open) {
@@ -263,6 +276,63 @@ export default function TutorChatWidget({
       </div>
 
       <div className="border-t border-gray-100 p-3">
+        {/* Quick Action Buttons */}
+        {questionText && choices.length > 0 && (
+          <div className="mb-2 flex flex-wrap gap-1.5">
+            <button
+              onClick={() =>
+                void sendQuickAction(
+                  "Can you explain the context of each answer choice without telling me which one is correct?",
+                )
+              }
+              disabled={loading}
+              className="rounded-lg bg-blue-50 px-2.5 py-1.5 text-xs font-medium text-blue-700 hover:bg-blue-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              title="Explain all answer choices"
+            >
+              💡 Explain Each Choice
+            </button>
+
+            {wrongChoiceId !== null &&
+              (() => {
+                const wrongIndex = choices.findIndex(
+                  (c) => c.id === wrongChoiceId,
+                );
+                const wrongLetter =
+                  wrongIndex >= 0
+                    ? String.fromCharCode("A".charCodeAt(0) + wrongIndex)
+                    : "that option";
+                return (
+                  <button
+                    onClick={() =>
+                      void sendQuickAction(
+                        `Can you explain why ${wrongLetter} is wrong?`,
+                      )
+                    }
+                    disabled={loading}
+                    className="rounded-lg bg-orange-50 px-2.5 py-1.5 text-xs font-medium text-orange-700 hover:bg-orange-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    title="Explain why your wrong answer is incorrect"
+                  >
+                    ❌ Why Was I Wrong?
+                  </button>
+                );
+              })()}
+
+            <button
+              onClick={() =>
+                void sendQuickAction(
+                  "Can you give me a hint about the key concept being tested in this question?",
+                )
+              }
+              disabled={loading}
+              className="rounded-lg bg-purple-50 px-2.5 py-1.5 text-xs font-medium text-purple-700 hover:bg-purple-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              title="Get a conceptual hint"
+            >
+              🎯 Give Me a Hint
+            </button>
+          </div>
+        )}
+
+        {/* Input Field */}
         <div className="flex gap-2">
           <input
             value={input}

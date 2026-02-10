@@ -1,255 +1,87 @@
-# DataLingo - Gamified Python & Data Science Learning Platform
+# Frontend
 
-A fun, Duolingo-inspired web application for learning Python and Data Science through bite-sized lessons and gamified challenges.
+## App overview
 
-![DataLingo Landing Page](https://via.placeholder.com/800x400?text=DataLingo+Landing+Page)
+We built the frontend as a Next.js application that renders lessons and quizzes and provides a tutor chat interface backed by the API.
 
-## 🚀 Features
+## Tech stack
 
-- 📊 Interactive learning dashboard
-- 🎮 Gamified MCQ quizzes
-- 🏆 Progress tracking with XP and achievements
-- 🔥 Streak counter to maintain learning momentum
-- 🐍 Python basics to advanced data science concepts
-- 🎨 Beautiful, responsive UI inspired by Duolingo
+Our frontend stack includes:
 
-## 📋 Prerequisites
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS
+- Supabase JS client
+- react-markdown
 
-Before you begin, ensure you have the following installed on your machine:
+## Folder structure
 
-- **Node.js** (v18.0.0 or higher) - [Download here](https://nodejs.org/)
-- **npm** (comes with Node.js) or **yarn**
-- **Git** - [Download here](https://git-scm.com/)
-- **Supabase Account** (for authentication and database) - [Sign up here](https://supabase.com/)
+We organize the frontend around routes, shared components, and utilities:
 
-## 🛠️ Installation & Setup
+- [frontend/app/](frontend/app/) — routes, pages, and UI composition.
+- [frontend/components/](frontend/components/) — shared UI components.
+- [frontend/lib/](frontend/lib/) — API helpers, types, and utilities.
+- [frontend/public/](frontend/public/) — static assets.
+- [frontend/package.json](frontend/package.json) — scripts and dependencies.
 
-### 1. Clone the Repository
+## Installation and setup
 
-```bash
-git clone <your-repository-url>
-cd capstone-frontend
-```
-
-### 2. Install Dependencies
+We install dependencies from the frontend folder:
 
 ```bash
+cd frontend
 npm install
 ```
 
-This will install all required packages including:
-- Next.js 16.0.1
-- React 19
-- Tailwind CSS 4.1.16
-- @tailwindcss/postcss
-- Supabase client
-- TypeScript
+## Environment variables
 
-### 3. Set Up Environment Variables
-
-Create a `.env.local` file in the root directory:
+We keep environment variables in `.env.local` for local development:
 
 ```bash
 touch .env.local
 ```
 
-Add your Supabase credentials (get these from your Supabase project dashboard):
+Required for Supabase client:
 
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 ```
 
-**To get your Supabase credentials:**
-1. Go to [Supabase Dashboard](https://app.supabase.com/)
-2. Create a new project or select an existing one
-3. Go to Settings > API
-4. Copy your `Project URL` and `anon/public` key
+Optional for backend API:
 
-### 4. Verify Tailwind CSS Setup
-
-The project uses Tailwind CSS v4. Ensure your configuration files are correct:
-
-**`postcss.config.js`:**
-```javascript
-const config = {
-  plugins: {
-    "@tailwindcss/postcss": {},
-  },
-};
-
-export default config;
+```
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
 ```
 
-**`tailwind.config.ts`:**
-```typescript
-import type { Config } from "tailwindcss";
+## Running the development server
 
-const config: Config = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./public/**/*.{js,ts,jsx,tsx,mdx}"
-  ],
-  theme: { extend: {} },
-  plugins: []
-};
-
-export default config;
-```
-
-**`app/globals.css`** (first line should be):
-```css
-@import "tailwindcss";
-```
-
-### 5. Set Up Supabase Database (Optional but Recommended)
-
-If you're using the authentication features, set up your Supabase database:
-
-1. In your Supabase dashboard, go to the SQL Editor
-2. Create necessary tables for user progress, lessons, quizzes, etc.
-3. Set up Row Level Security (RLS) policies for data protection
-
-## 🎯 Running the Project
-
-### Development Mode
-
-Start the development server:
+We start the dev server with:
 
 ```bash
 npm run dev
 ```
 
-The application will be available at [http://localhost:3000](http://localhost:3000)
+The app runs at `http://localhost:3000` by default.
 
-### Production Build
+## Production build
 
-To create an optimized production build:
+We build and start the production server with:
 
 ```bash
 npm run build
-npm start
+npm run start
 ```
 
-### Linting
+## How the frontend connects to the backend
 
-Run the linter to check for code issues:
+We read the backend base URL from `NEXT_PUBLIC_BACKEND_URL` when set. Otherwise we default to `http://localhost:8000`. The tutor chat uses `/chat` and `/chat/session`.
 
-```bash
-npm run lint
-```
+## Troubleshooting
 
-## 📁 Project Structure
+We usually check the following first:
 
-```
-capstone-frontend/
-├── app/
-│   ├── api/              # API routes
-│   ├── components/       # Reusable React components
-│   │   └── TopBar.tsx    # Navigation bar
-│   ├── curriculum/       # Curriculum/lessons pages
-│   ├── data/            # Data management
-│   ├── lessons/         # Individual lesson pages
-│   ├── levels/          # Level selection page
-│   ├── login/           # Authentication pages
-│   │   └── page.tsx     # Login/signup page
-│   ├── quiz/            # Quiz pages
-│   ├── ClientShell.tsx  # Client-side wrapper component
-│   ├── globals.css      # Global styles
-│   ├── layout.tsx       # Root layout
-│   └── page.tsx         # Landing page
-├── lib/
-│   └── supabaseClient.ts # Supabase configuration
-├── public/              # Static assets
-├── .env.local          # Environment variables (create this)
-├── next.config.ts      # Next.js configuration
-├── package.json        # Project dependencies
-├── postcss.config.js   # PostCSS configuration
-├── tailwind.config.ts  # Tailwind CSS configuration
-└── tsconfig.json       # TypeScript configuration
-```
-
-## 🔧 Key Technologies
-
-- **Framework:** Next.js 16.0.1 (React 19)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **Authentication:** Supabase Auth
-- **Database:** Supabase PostgreSQL
-- **Deployment:** Vercel (recommended)
-
-## 🎨 Design System
-
-The application uses a bright, gamified design inspired by Duolingo:
-
-- **Primary Color:** Green (#22c55e)
-- **Secondary Colors:** Blue, Purple, Yellow
-- **Font:** Geist Sans & Geist Mono
-- **Design Philosophy:** Fun, engaging, and motivating
-
-## 🐛 Troubleshooting
-
-### Issue: Tailwind styles not applying
-
-**Solution:**
-1. Stop the dev server (Ctrl+C)
-2. Delete the `.next` folder: `rm -rf .next`
-3. Run `npm run dev` again
-
-### Issue: Build errors related to PostCSS/Tailwind
-
-**Solution:**
-1. Ensure `@tailwindcss/postcss` is installed: `npm install -D @tailwindcss/postcss`
-2. Check that `postcss.config.js` uses `"@tailwindcss/postcss": {}`
-3. Verify `globals.css` starts with `@import "tailwindcss";`
-
-### Issue: Supabase authentication not working
-
-**Solution:**
-1. Verify your `.env.local` file has correct credentials
-2. Check that the Supabase client is properly configured in `lib/supabaseClient.ts`
-3. Ensure your Supabase project is active and not paused
-
-### Issue: TopBar showing on landing/login pages
-
-**Solution:**
-Check that `ClientShell.tsx` properly hides the TopBar on `/` and `/login` routes
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Go to [Vercel](https://vercel.com/)
-3. Import your repository
-4. Add environment variables in Vercel dashboard
-5. Deploy!
-
-Vercel will automatically detect Next.js and configure the build settings.
-
-## 📝 Development Notes
-
-- The landing page (`/`) and login page (`/login`) do not show the TopBar
-- All other pages include the TopBar with user stats and navigation
-- Authentication is handled through Supabase
-- User progress and lesson data are stored in Supabase
-
-## 🤝 Contributing
-
-This is a capstone project. If you'd like to contribute or have suggestions, please reach out to the development team.
-
-## 📄 License
-
-This project is part of a capstone course project.
-
-## 👥 Team
-
-Developed by the DataLingo Team as part of a Data Science Capstone project.
-
----
-
-**Happy Learning! 🎓🚀**
-
-For questions or issues, please open an issue in the repository or contact the development team.
+- Missing Supabase env vars: we set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` and restart the dev server.
+- Backend not reachable: we verify the API is running and `NEXT_PUBLIC_BACKEND_URL` points to it.
+- Stale env vars: we stop and restart `npm run dev` after changes to `.env.local`.

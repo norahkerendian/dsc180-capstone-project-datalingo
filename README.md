@@ -223,3 +223,70 @@ When something goes wrong, we check these common points:
 - If the backend fails to start, we verify that `OPENAI_API_KEY` is set and the lesson JSON path exists.
 - If the frontend cannot reach the backend, we set `NEXT_PUBLIC_BACKEND_URL` and ensure the backend is running.
 - If lesson data is missing, we update `LESSONS_DATA_PATH` or replace the default dataset file.
+
+## n8n Setup: how to run the n8n workflow (step-by-step)
+
+[🎥 Watch Walkthrough on Google Drive (if preferred)](https://drive.google.com/file/d/1amVpqxj1I_QIy7wngkudHENViCQR6Xqf/view?usp=sharing)
+
+This project uses n8n for workflows and some AI nodes. The instructions below assume you will use the hosted n8n at https://n8n.io/ and the AI nodes available there.
+
+1. Create an n8n account
+
+   - Visit: https://n8n.io/
+   - Sign up for an account. At the time of writing, new accounts can get free AI credits, follow the on-screen prompts to accept these credits.
+
+2. Download the notebook file from this repo
+
+   - Go to this repository and download `workflows/FINAL_Level1_Question_Generation_Workflow.json`.
+
+3. Create a new workflow in n8n
+
+   - In n8n, click "Create" or the "New Workflow" area on the left side to start a fresh workflow.
+   - ![on_screen.png](./images/on_screen.png "main_screen")
+   - To add the `FINAL_Level1_Question_Generation_Workflow.json` file to a node or attach it, you can drag/drop or upload as needed. (If you use n8n's file nodes, follow their UI prompts.)
+   - ![drop_down.png](./images/drop_down.png "dropdown")
+   - At the very end, you will see a workflow being displayed.
+
+4. Modify the HTTP Request node
+
+   - In the workflow there is a node named `HTTP Request` (the second node in the provided workflow).
+   - Click that node and find the URL field where it fetches the input JSON.
+   - Replace the existing URL with the RAW link to the repository JSON you want to use. Example steps to get the raw link:
+     1. Visit: https://github.com/norahkerendian/dsc180a-q1/tree/main/data_scraping/levels
+     2. Click `level_1.json`.
+     3. Click the `RAW` button. That opens the raw JSON in a new tab. Copy the URL from that page.
+     4. Paste that RAW URL into the `HTTP Request` node's URL field.
+
+5. Accept AI credits in n8n and enable AI nodes
+
+   - On the workflow editing screen you may see the AI nodes or an AI panel at the bottom. Click those AI nodes and follow the prompts to accept your free credits (look for the prompt that grants the trial 100 credits or similar).
+   - If AI nodes require configuration (API keys, etc.), follow n8n's instructions to wire them up. In many cases the hosted n8n account includes an in-UI onboarding flow for AI credits.
+
+6. Execute the workflow nodes
+
+   - Click the first node at the very left of the workflow and use "Execute Node" to test it.
+   - Inspect the node output in the right-hand panel. If it fetched the JSON correctly, you'll see the sample data.
+   - Execute nodes in sequence (or click the last node to run the workflow end-to-end if n8n supports it). The last node in the workflow is the one that writes the final output.
+   - After a successful run, the workflow should create new generated files. If the workflow is configured to write into the repository, the outputs end up inside `NEW_AIGeneratedData_n8n/` (note: writing directly to the GitHub repo from n8n requires a configured Git/GitHub node with appropriate credentials). If you do not have GitHub push configured, the output will be visible in your n8n execution log and may be downloadable from the node output.
+
+7. Inspect the outputs
+   - Open `NEW_AIGeneratedData_n8n/` in this repo (or download the outputs from n8n's node output) to view the newly generated items.
+   - Each node typically includes the prompt or the code used to generate outputs, click any node to view its prompt and debug if results are unexpected.
+
+8. Convert to JSON Format
+   
+   - Open `scripts/convert_to_json_NEW.py` in this repo and change the file name variable to the name of the txt file just saved to `NEW_AIGeneratedData_n8n/`.
+   - Open your terminal and run the command `python convert_to_json_NEW.py`. This will convert the txt file to a JSON file saved in `NEW_AIGeneratedData_json/`.
+
+## Common issues and fixes
+
+- If the `HTTP Request` node returns 404: verify you copied the RAW URL (it typically begins with `https://raw.githubusercontent.com/` when opened via the RAW button).
+- If AI node hits credit limits: double-check your n8n AI credits and ensure you accepted any trial credits during sign-up.
+- If you expect files to appear in GitHub but they do not: confirm the workflow has a Git/GitHub node configured with write permissions; otherwise the workflow only stores the output in n8n.
+
+## Simple troubleshooting checklist
+
+1. Confirm the `HTTP Request` URL points to a valid raw JSON file.
+2. Ensure AI nodes are enabled and you have credits.
+3. Execute the first node and validate outputs step-by-step.
+4. If the last node should push to GitHub, confirm the Git node is configured with a repo access token and correct branch.

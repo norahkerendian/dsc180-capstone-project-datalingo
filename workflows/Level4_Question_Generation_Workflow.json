@@ -1,0 +1,564 @@
+{
+  "name": "Level4_Question_Generation_Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        528,
+        144
+      ],
+      "id": "d05da3d2-5ad1-4277-a9c5-46fa303d1b11",
+      "name": "OpenAI Chat Model - Answers1",
+      "credentials": {
+        "openAiApi": {
+          "id": "TDzjcOZKeBZfaFDR",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dee42752-1db6-45d5-b514-2c829145a877",
+              "name": "parsedData",
+              "value": "={{ JSON.parse($json.data) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -400,
+        -80
+      ],
+      "id": "52ae5ec3-a229-4e33-b4a4-c4af9abfaa08",
+      "name": "Edit Fields8"
+    },
+    {
+      "parameters": {
+        "jsCode": "// parsedData should be an array of lessons from your JSON\nconst lessons = $json.parsedData;\nconst source = lessons;\n\nreturn source.map(item => ({\n  json: item,\n}));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -176,
+        -80
+      ],
+      "id": "04e2d916-e553-423e-96a6-482d654b6542",
+      "name": "mapping2"
+    },
+    {
+      "parameters": {
+        "jsCode": "const chunkSize = 900;\n\nfunction clean(str) {\n  return str\n    .replace(/\\r?\\n+/g, ' ')\n    .replace(/\\s+/g, ' ')\n    .replace(/\\[.*?\\]\\(.*?\\)/g, '')\n    .replace(/[#*_`>~=-]/g, '')\n    .trim();\n}\n\nconst inputItems = $input.all();\nlet out = [];\n\nfor (const item of inputItems) {\n  const lesson = item.json;\n  const text = clean(lesson.content_md || '');\n\n  for (let i = 0; i < text.length; i += chunkSize) {\n    out.push({\n      json: {\n        ...lesson,\n        text_chunk: text.slice(i, i + chunkSize),\n        chunk_index: Math.floor(i / chunkSize),\n      },\n    });\n  }\n}\n\nreturn out;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        48,
+        -80
+      ],
+      "id": "9cfbea1a-0725-48e2-98ef-52b512f4d00c",
+      "name": "chunking2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a data-science tutor and expert Python instructor.\nYour task is to read the lesson text and generate ONLY answer explanations that accurately summarize key concepts from the lesson. These answers will later be used to create quiz questions, so they must be clear, correct, and beginner-friendly.\n\nYou MUST respond with a single valid JSON object and nothing else.\n\nSchema:\n\n{\n  \"lesson_id\": \"{{ $json.lesson_id }}\",\n  \"answers\": [\n    {\n      \"answer\": \"<string>\",\n      \"difficulty\": 1 | 2 | 3,\n      \"category\": \"concept_check\" | \"definition\" | \"application\"\n    }\n  ]\n}\n\n\nRules:\n\nUse ONLY facts from lesson_text.\n\nProduce 4–6 answers.\n\nEach answer must be a concise, accurate explanation.\n\nDo NOT write questions.\n\nDo NOT include anything outside the JSON.\n\nLesson Content:\n\"{{ $json.lesson_text }}\"",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        528,
+        -80
+      ],
+      "id": "27c01618-02c1-4fc8-b468-5793937113a5",
+      "name": "LLM Chain - Answer Generation2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a data-science tutor.\nYou must NOT rewrite, summarize, modify, or replace the answers.\nYou must NOT introduce any concepts that do not already appear in the input.\nYou must STRICTLY produce JSON following the schema below.\n\nYou MUST treat all input values as literal truth.\nIf something is missing or unclear, do NOT invent content. Simply use what is present.\n\nOutput a single JSON object with this schema:\n\n{\n  \"lesson_id\": \"{{ $json.parsedAnswers.lesson_id }}\",\n  \"qa_pairs\": [\n    {\n      \"question\": \"<string ending with '?'>\",\n      \"answer\": \"<string (exact copy of the input answer)>\",\n      \"difficulty\": 1 | 2 | 3,\n      \"category\": \"concept_check\" | \"definition\" | \"application\"\n    }\n  ]\n}\n\n\nRules:\n\nlesson_id must be copied EXACTLY as received.\n\nFor each input answer, generate exactly ONE question.\n\nThe answer in each qa_pair MUST be copied verbatim.\n\ndifficulty and category must be copied verbatim.\n\nThe question must be based ONLY on the answer. \n\nGenerate the SAME number of qa_pairs as answers.\n\nYour response MUST be valid JSON with no Markdown, no code fences, no explanations.\n\nIf the input includes 4 answers, output 4 qa_pairs.\n\nInput:\n\n{{ JSON.stringify($json.parsedAnswers) }}",
+        "batching": {
+          "delayBetweenBatches": 2500
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1312,
+        -80
+      ],
+      "id": "d5f14235-c379-44a5-9ecd-a32b241febc8",
+      "name": "LLM Chain - Question Generation2",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e76f7ff8-f16f-4b3d-91d8-97c04d1d5b24",
+              "name": "parsedAnswers",
+              "value": "={{ \n  JSON.parse(\n    $json.text\n      .replace(/```json/gi, '')\n      .replace(/```/g, '')\n      .trim()\n  ) \n}}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        880,
+        -80
+      ],
+      "id": "9c24bc10-bdd5-46ad-bc69-cd477c221e06",
+      "name": "Edit Fields9"
+    },
+    {
+      "parameters": {
+        "jsCode": "// const items = $input.all();\n\n// const lessons = {};\n\n// for (const item of items) {\n//   const j = item.json;\n\n//   const lessonId = Number(j.lesson_id);\n//   if (!lessonId) continue;\n\n//   // Initialize lesson if not seen\n//   if (!lessons[lessonId]) {\n//     lessons[lessonId] = {\n//       id: lessonId,\n//       slug: j.lesson_slug,\n//       title: j.lesson_title,\n//       content_md: j.lesson_text || \"\",\n//       topic: j.topic,\n//       level: j.level,\n//       metadata: j.metadata || {},\n//       questions: []\n//     };\n//   }\n\n//   // Add questions\n//   const qaPairs = j.parsedQuestions?.qa_pairs || [];\n//   for (const qa of qaPairs) {\n//     lessons[lessonId].questions.push({\n//       id: lessons[lessonId].questions.length + 1,\n//       question: qa.question,\n//       answer: qa.answer,\n//       difficulty: qa.difficulty,\n//       category: qa.category\n//     });\n//   }\n// }\n\n// // Return one item per lesson\n// return Object.values(lessons).map(lesson => ({\n//   json: lesson\n// }));\n\nconst items = $input.all();\nconst lessons = {};\n\nfor (const item of items) {\n  const j = item.json;\n  const lessonId = Number(j.lesson_id);\n  if (!lessonId) continue;\n\n  // Initialize lesson\n  if (!lessons[lessonId]) {\n    lessons[lessonId] = {\n      id: lessonId,\n      slug: j.lesson_slug,\n      title: j.lesson_title,\n      topic: j.topic,\n      level: j.level,\n      metadata: j.metadata || {},\n      _chunks: [],          // temporary\n      questions: []\n    };\n  }\n\n  // Collect lesson text chunks\n  if (j.lesson_text) {\n    lessons[lessonId]._chunks.push({\n      index: j.chunk_index ?? 0,\n      text: j.lesson_text\n    });\n  }\n\n  // Collect questions\n  const qaPairs = j.parsedQuestions?.qa_pairs || [];\n  for (const qa of qaPairs) {\n    lessons[lessonId].questions.push({\n      id: lessons[lessonId].questions.length + 1,\n      question: qa.question,\n      answer: qa.answer,\n      difficulty: qa.difficulty,\n      category: qa.category\n    });\n  }\n}\n\n// Finalize lessons\nreturn Object.values(lessons).map(lesson => {\n  const content_md = lesson._chunks\n    .sort((a, b) => a.index - b.index)\n    .map(c => c.text)\n    .join(\"\\n\\n\");\n\n  delete lesson._chunks;\n\n  return {\n    json: {\n      ...lesson,\n      content_md\n    }\n  };\n});\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        -80
+      ],
+      "id": "126cb48d-1773-4dc6-9fdc-59d766a951f2",
+      "name": "Flatten Lesson Bundle2",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e76f7ff8-f16f-4b3d-91d8-97c04d1d5b24",
+              "name": "parsedQuestions",
+              "value": "={{ JSON.parse($json.text.replace(/```json/gi, '').replace(/```/g, '').trim()) }}",
+              "type": "object"
+            },
+            {
+              "id": "59dc71e0-a398-46b0-8ece-0d42e5255890",
+              "name": "lesson_id",
+              "value": "={{ $node[\"llm_input\"].json.lesson_id }}",
+              "type": "string"
+            },
+            {
+              "id": "05a8b2b4-bdb8-4a52-863c-d7bdedcb9960",
+              "name": "lesson_slug",
+              "value": "={{ $node[\"llm_input\"].json.lesson_slug }}",
+              "type": "string"
+            },
+            {
+              "id": "1bbab06d-55da-4aa0-9f8a-76412ac4cf6e",
+              "name": "lesson_title",
+              "value": "={{ $node[\"llm_input\"].json.lesson_title }}",
+              "type": "string"
+            },
+            {
+              "id": "d8b0daa6-7da2-4c42-9a1f-83fb3cd264ca",
+              "name": "topic",
+              "value": "={{ $node[\"llm_input\"].json.topic }}",
+              "type": "string"
+            },
+            {
+              "id": "fc96a137-b2bc-421b-8fc0-6f119ad5651f",
+              "name": "level",
+              "value": "={{ $node[\"llm_input\"].json.level }}",
+              "type": "number"
+            },
+            {
+              "id": "17e8e068-4c4a-463a-ae5e-dda11b885b05",
+              "name": "metadata",
+              "value": "={{ $node[\"chunking2\"].json.metadata }}",
+              "type": "object"
+            },
+            {
+              "id": "c44f6e1c-7775-401a-86fb-6dc5258e37f2",
+              "name": "lesson_text",
+              "value": "={{ $node[\"llm_input\"].json.lesson_text }}",
+              "type": "string"
+            },
+            {
+              "id": "789bb320-e789-4bab-97ea-8fc82e46ee5a",
+              "name": "chunk_index",
+              "value": "={{ $node[\"llm_input\"].json.chunk_id }}\n",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1664,
+        -80
+      ],
+      "id": "4fa30867-70fa-44d3-8327-6c8c747906f3",
+      "name": "Edit Fields10"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "norahkerendian",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "dsc180-capstone-project",
+          "mode": "list",
+          "cachedResultName": "dsc180-capstone-project",
+          "cachedResultUrl": "https://github.com/norahkerendian/dsc180-capstone-project"
+        },
+        "filePath": "=NEW_AIGeneratedData_n8n/final_generated_level4_{{ $now.format('MMDD_HHmmss') }}.txt",
+        "fileContent": "={{ $json.fileContent }}",
+        "commitMessage": "=added finalized generated questions for level 4 {{ $now.format('MMDD_HHmmss') }}"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        2400,
+        -80
+      ],
+      "id": "687203c7-433b-4de9-92b6-8104fb0edc97",
+      "name": "Save to Git Repo2",
+      "webhookId": "419f0e5d-a6d5-49b1-b958-3b845a0bbbd7",
+      "alwaysOutputData": false,
+      "executeOnce": false,
+      "credentials": {
+        "githubApi": {
+          "id": "2YczUvKeuluwnOev",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const allItems = $input.all();\nconst dataArray = allItems.map(item => item.json);\nconst jsonString = JSON.stringify(dataArray, null, 2);\n\nreturn [{ json: { fileContent: jsonString } }];"
+      },
+      "id": "32ebe481-fea1-4fc7-a9a4-9d4559c7f006",
+      "name": "Convert Array to String2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2176,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1312,
+        128
+      ],
+      "id": "41ed621e-475e-4b0e-9361-6a7fb9362467",
+      "name": "OpenAI Chat Model - Questions",
+      "credentials": {
+        "openAiApi": {
+          "id": "TDzjcOZKeBZfaFDR",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1088,
+        -80
+      ],
+      "id": "c5cd8ded-d722-487c-81fb-59033a274eff",
+      "name": "Wait",
+      "webhookId": "605440b5-2192-4973-a1e3-f8afefffd7a0"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5f2fbad8-b9a2-4d53-b19f-7e2c579e64e7",
+              "name": "lesson_id",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            },
+            {
+              "id": "lesson_slug",
+              "name": "lesson_slug",
+              "value": "={{ $json.slug }}",
+              "type": "string"
+            },
+            {
+              "id": "lesson_title",
+              "name": "lesson_title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "topic",
+              "name": "topic",
+              "value": "={{ $json.topic || $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "level",
+              "name": "level",
+              "value": "={{ $json.level }}",
+              "type": "number"
+            },
+            {
+              "id": "lesson_text",
+              "name": "lesson_text",
+              "value": "={{ $json.text_chunk }}",
+              "type": "string"
+            },
+            {
+              "id": "0c3999ed-6dbf-4ed5-b2eb-e865e9587c59",
+              "name": "chunk_id",
+              "value": "={{ $json.chunk_index }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        272,
+        -80
+      ],
+      "id": "37b30c9f-84cb-4358-8175-6704c6bed0cb",
+      "name": "llm_input"
+    },
+    {
+      "parameters": {
+        "content": "## level 4\n\n\n",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -624,
+        -192
+      ],
+      "id": "8dc3dd5c-0eda-410d-a35b-c2cf0d1e3883",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/norahkerendian/dsc180-capstone-project/refs/heads/main/data_scraping/levels/level_4.json?token=GHSAT0AAAAAADL5WWDHSXV66SEFQMNJ2MWA2MTUZAQ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -624,
+        -80
+      ],
+      "id": "577a56d2-3aae-4b44-b19a-0f85a54ad2c0",
+      "name": "HTTP Request – level_4.json"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenAI Chat Model - Answers1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Chain - Answer Generation2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields8": {
+      "main": [
+        [
+          {
+            "node": "mapping2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "mapping2": {
+      "main": [
+        [
+          {
+            "node": "chunking2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chunking2": {
+      "main": [
+        [
+          {
+            "node": "llm_input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Chain - Answer Generation2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM Chain - Question Generation2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields9": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flatten Lesson Bundle2": {
+      "main": [
+        [
+          {
+            "node": "Convert Array to String2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields10": {
+      "main": [
+        [
+          {
+            "node": "Flatten Lesson Bundle2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert Array to String2": {
+      "main": [
+        [
+          {
+            "node": "Save to Git Repo2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model - Questions": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM Chain - Question Generation2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Question Generation2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "llm_input": {
+      "main": [
+        [
+          {
+            "node": "LLM Chain - Answer Generation2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request – level_4.json": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "2b24adf8-9efd-42b8-be61-88aac742498b",
+  "meta": {
+    "instanceId": "eabc3db3d978b075d9e47830d4d4aa1053f83a96f06c8c753a0b7438a368ac80"
+  },
+  "id": "ZbxYWpubpk7dRfXV",
+  "tags": []
+}

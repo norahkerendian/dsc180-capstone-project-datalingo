@@ -1,0 +1,2684 @@
+[
+  {
+    "id": 553397701,
+    "slug": "172training_and_testingipynb",
+    "title": "Training and Testing",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "17/2/Training_and_Testing.ipynb",
+      "word_count": 918,
+      "estimated_minutes": 5
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "How can we evaluate the effectiveness of a nearest neighbor classifier?",
+        "answer": "To evaluate the effectiveness of a nearest neighbor classifier, we need to determine how often our classification predictions are correct.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "How can we assess accuracy in a training set?",
+        "answer": "In a training set, we can directly compare our classification predictions with the known true classes to assess accuracy.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 3,
+        "question": "What is the purpose of a classifier?",
+        "answer": "The purpose of a classifier is to make predictions on data not included in the training set, for which the true class is unknown.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 4,
+        "question": "What is one method to verify the accuracy of a classifier's prediction for new patients?",
+        "answer": "One method to verify the accuracy of a classifier's prediction for new patients is to wait for further medical test results and compare them with the prediction.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 5,
+        "question": "What is the process of evaluating a classifier on new patients to estimate its accuracy called?",
+        "answer": "Testing is the process of evaluating a classifier on new patients whose true classes are known to estimate its accuracy on unseen examples.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 6,
+        "question": "Why can using the training set to test a classifier lead to overly optimistic accuracy estimates?",
+        "answer": "Using the training set to test a classifier can lead to overly optimistic accuracy estimates because it can be biased towards understanding the training data too well.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 7,
+        "question": "What is the purpose of a classifier test in relation to predicting classes of new patients?",
+        "answer": "The purpose of a classifier test is to estimate its accuracy in predicting the class of all new patients based on known outcomes.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 8,
+        "question": "Why should we avoid testing the classifier only on the training set?",
+        "answer": "We must avoid testing the classifier only on the training set, as it doesn't accurately reflect how the classifier will perform on new, unseen patients.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 9,
+        "question": "What does the 1-nearest neighbor classification involve?",
+        "answer": "The 1-nearest neighbor classification involves looking for the nearest point in the training set to the point being classified.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 10,
+        "question": "What happens if a point being classified is already in the training set?",
+        "answer": "If a point being classified is already in the training set, its nearest neighbor is itself, resulting in correct classification.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 11,
+        "question": "Why does using the training set to test a 1-nearest neighbor classifier result in 100% accuracy?",
+        "answer": "Using the training set to test a 1-nearest neighbor classifier results in 100% accuracy because each point is classified as its own color.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 12,
+        "question": "What limitation of the 1-nearest neighbor classifier does a new point highlight?",
+        "answer": "A new point not in the training set might be misclassified, highlighting a limitation of the 1-nearest neighbor classifier despite its apparent high accuracy.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 13,
+        "question": "Why does using the training set to test a classifier lead to overly optimistic results?",
+        "answer": "Using the training set to test a classifier leads to overly optimistic results because the classifier will perform better on the training set than on new data.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 14,
+        "question": "Why is the training set not considered a random sample from the population?",
+        "answer": "The training set is not a random sample from the population; it tends to have better performance results for the classifier than the population as a whole.",
+        "difficulty": 3,
+        "category": "definition"
+      },
+      {
+        "id": 15,
+        "question": "Why is random sampling necessary when estimating the true performance of a classifier?",
+        "answer": "Random sampling is necessary to estimate the true performance of a classifier on a population.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 16,
+        "question": "What is the purpose of bootstrap resampling in the context of testing a classifier?",
+        "answer": "Bootstrap resampling is used as an analogy to simulate generating new random samples when testing a classifier.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 17,
+        "question": "What is important to consider when properly evaluating a classifier?",
+        "answer": "To properly evaluate a classifier, it is important to create separate samples, such as a test set, that are independent of the training data.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 18,
+        "question": "What is the training set used for?",
+        "answer": "The training set is used for exploration to build the classifier.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 19,
+        "question": "What is the purpose of the testing set?",
+        "answer": "The testing set is used to evaluate how well the classifier performs by seeing how often it classifies correctly.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 20,
+        "question": "What is done after building a classifier from the training set?",
+        "answer": "A classifier built from the training set is then tested on a separate testing set.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 21,
+        "question": "What is the hope for a classifier's performance on the testing set?",
+        "answer": "We hope the classifier will perform similarly on the testing set and the underlying population.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 22,
+        "question": "What process is involved in selecting training and testing sets?",
+        "answer": "Selecting training and testing sets involves shuffling data and splitting it into two parts.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 23,
+        "question": "How was the 'ckd' dataset with 158 individuals split for training and testing?",
+        "answer": "For the dataset 'ckd' with 158 individuals, 79 were used for training and 79 for testing by splitting randomly.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 24,
+        "question": "What does the classifier do to separate different classes in the data?",
+        "answer": "The classifier creates regions and decision boundaries to separate different classes in the data.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 25,
+        "question": "What does it indicate when test data points fall into the wrong classification region?",
+        "answer": "Some test data points may fall into the wrong classification region, indicating that the classifier makes some errors.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 26,
+        "question": "How did the classifier perform on the test set?",
+        "answer": "The classifier performed well on the test set, despite making some mistakes.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 27,
+        "question": "What is expected if the original sample was randomly drawn from the population?",
+        "answer": "If the original sample was randomly drawn from the population, the classifier is expected to perform similarly well on the entire population.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 28,
+        "question": "How is the test set chosen to evaluate the classifier's performance?",
+        "answer": "The test set is randomly chosen from the original sample to evaluate the classifier's performance.",
+        "difficulty": 1,
+        "category": "definition"
+      }
+    ],
+    "content_md": "Training and Testing How good is our nearest neighbor classifier? To answer this we'll need to find out how frequently our classifications are correct. If a patient has chronic kidney disease, how likely is our classifier to pick that up? If the patient is in our training set, we can find out immediately. We already know what class the patient is in. So we can just compare our prediction and the patient's true class. But the point of the classifier is to make predictions for new patients not in our training set. We don't know what class these patients are in but we can make a prediction based on our classifier. How to find out whether the prediction is correct? One way is to wait for further medical tests on the patient and then check whether or not our prediction agrees with the test results. With that approach, by the time we can say how likely our prediction is to be accurate, it is n\n\no longer useful for helping the patient. Instead, we will try our classifier on some patients whose true classes are known. Then, we will compute the proportion of the time our classifier was correct. This proportion will serve as an estimate of the proportion of all new patients whose class our classifier will accurately predict. This is called testing.  Overly Optimistic \"Testing\" The training set offers a very tempting set of patients on whom to test out our classifier, because we know the class of each patient in the training set. But let's be careful ... there will be pitfalls ahead if we take this path. An example will show us why. Suppose we use a 1nearest neighbor classifier to predict whether a patient has chronic kidney disease, based on glucose and white blood cell count. Earlier, we said that we expect to get some classifications wrong, because there's some intermingling of b\n\nlue and gold points in the lowerleft. But what about the points in the training set, that is, the points already on the scatter? Will we ever misclassify them? The answer is no. Remember that 1nearest neighbor classification looks for the point in the training set that is nearest to the point being classified. Well, if the point being classified is already in the training set, then its nearest neighbor in the training set is itself! And therefore it will be classified as its own color, which will be correct because each point in the training set is already correctly colored. In other words, if we use our training set to \"test\" our 1nearest neighbor classifier, the classifier will pass the test 100% of the time. Mission accomplished. What a great classifier! No, not so much. A new point in the lowerleft might easily be misclassified, as we noted earlier. \"100% accuracy\" was a nice dream w\n\nhile it lasted. The lesson of this example is not to use the training set to test a classifier that is based on it.  Generating a Test Set In earlier chapters, we saw that random sampling could be used to estimate the proportion of individuals in a population that met some criterion. Unfortunately, we have just seen that the training set is not like a random sample from the population of all patients, in one important respect: Our classifier guesses correctly for a higher proportion of individuals in the training set than it does for individuals in the population. When we computed confidence intervals for numerical parameters, we wanted to have many new random samples from a population, but we only had access to a single sample. We solved that problem by taking bootstrap resamples from our sample. We will use an analogous idea to test our classifier. We will create two samples out of the\n\n original training set, use one of the samples as our training set, and the other one for testing. So we will have three groups of individuals:  a training set on which we can do any amount of exploration to build our classifier;  a separate testing set on which to try out our classifier and see what fraction of times it classifies correctly;  the underlying population of individuals for whom we don't know the true classes; the hope is that our classifier will succeed about as well for these individuals as it did for our testing set. How to generate the training and testing sets? You've guessed it \u2013 we'll select at random. There are 158 individuals in ckd. Let's use a random half of them for training and the other half for testing. To do this, we'll shuffle all the rows, take the first 79 as the training set, and the remaining 79 for testing. Now let's construct our classifier based on t\n\nhe points in the training sample: We get the following classification regions and decision boundary: Place the test data on this graph and you can see at once that while the classifier got almost all the points right, there are some mistakes. For example, some blue points of the test set fall in the gold region of the classifier. Some errors notwithstanding, it looks like the classifier does fairly well on the test set. Assuming that the original sample was drawn randomly from the underlying population, the hope is that the classifier will perform with similar accuracy on the overall population, since the test set was chosen randomly from the original sample."
+  },
+  {
+    "id": 802804819,
+    "slug": "181more_likely_than_not_binary_classifieripynb",
+    "title": "A \"More Likely Than Not\" Binary Classifier",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "18/1/More_Likely_than_Not_Binary_Classifier.ipynb",
+      "word_count": 1364,
+      "estimated_minutes": 7
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does a 'more likely than not' binary classifier aim to do?",
+        "answer": "A 'more likely than not' binary classifier aims to classify data into one of two categories based on the probability of occurrence, selecting the category that is more probable.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 2,
+        "question": "How do we classify a student as either Second Year or Third Year based on probability distribution?",
+        "answer": "To classify a student as either Second Year or Third Year, we consider the overall probability distribution of students, where 60% are Second Years and 40% are Third Years.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 3,
+        "question": "What percentage of Second Year and Third Year students have declared their major?",
+        "answer": "In the context of the class composition, 50% of Second Year students and 80% of Third Year students have declared their major.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 4,
+        "question": "What is the key principle of the classifier when selecting the category of a student at random?",
+        "answer": "The key principle of the classifier is choosing the category ('Second Year' or 'Third Year') based on the higher probability when selecting a student at random.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 5,
+        "question": "Why is understanding the probabilities of the categories crucial in a binary classification problem?",
+        "answer": "In a binary classification problem, understanding the probabilities of the categories involved is crucial for making informed decisions.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 6,
+        "question": "What factor is the initial classification based on regarding the proportion of students in different years?",
+        "answer": "The initial classification is based on the proportion of students in each year, with Second Year students being more prevalent than Third Year students.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 7,
+        "question": "How can knowing whether a student has declared a major impact their classification?",
+        "answer": "Knowledge of whether a student has declared a major can impact the classification, as major declaration rates differ between Second Year and Third Year students.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 8,
+        "question": "What might a simple classifier initially ignore if the base proportions are already known?",
+        "answer": "A simple classifier might initially ignore additional features if the base proportions are known, such as the number of Second Years versus Third Years.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 9,
+        "question": "How can updating a classifier with new information lead to more accurate predictions?",
+        "answer": "Updating a classifier with new information, like major declaration, can lead to more accurate predictions by considering additional relevant data.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 10,
+        "question": "What does incorporating additional student information, like major declaration, do to predictions?",
+        "answer": "Incorporating additional information about students, such as whether they have declared a major, can refine predictions beyond initial simple classifications.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 11,
+        "question": "How many rows are in the student table, and how are the years and majors distributed?",
+        "answer": "The student table contains 100 rows, representing students whose years and majors are proportionally distributed according to the given data.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 12,
+        "question": "How are the 100 students divided between Second Years and Third Years?",
+        "answer": "Among the 100 students, 60 are Second Years and 40 are Third Years.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 13,
+        "question": "How is the distribution within the Second Years divided between Major categories?",
+        "answer": "Within the Second Years, there is an equal distribution with 50% in each Major category.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 14,
+        "question": "What is the distribution of Majors among Third Years?",
+        "answer": "Among Third Years, 20% are Undeclared and 80% are Declared.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 15,
+        "question": "How are the students in the table assumed to reflect class proportions for random selection?",
+        "answer": "The students in the table are assumed to represent the class proportions accurately, allowing random selection from the 100 students.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 16,
+        "question": "What happens when a student declares a major?",
+        "answer": "When a student declares a major, the possible outcomes decrease, allowing more accurate predictions.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 17,
+        "question": "How many students have declared a major, and how many of them are Third Years?",
+        "answer": "There are 62 students who have declared a major, with 32 being Third Years.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 18,
+        "question": "What is the chance of correctly classifying a student as a Third Year once they have declared a major?",
+        "answer": "The chance of correctly classifying a student as a Third Year once they have declared a major is approximately 0.516.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 19,
+        "question": "Why is there a higher likelihood of accurate classification given that a student has declared a major?",
+        "answer": "Given that a student has declared a major, over half of those students are Third Years, leading to a higher likelihood of accurate classification.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 20,
+        "question": "How is the probability of being correct calculated for declared students in terms of Third Years?",
+        "answer": "The probability of being correct is calculated as the proportion of Third Years out of all declared students.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 21,
+        "question": "What does the calculation of proportions depend on?",
+        "answer": "The calculation of proportions is independent of the total count and relies only on the relative proportions in different categories.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 22,
+        "question": "What is a tree diagram used for?",
+        "answer": "A tree diagram is used to visualize the proportions of students in distinct groups, called branches.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 23,
+        "question": "What does the branch 'Third Year, Declared' in the tree diagram represent?",
+        "answer": "The branch 'Third Year, Declared' in the tree diagram represents 0.32 of the students, corresponding to 32 students in the pivot table.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 24,
+        "question": "What does the 'Second Year, Declared' cell represent in a pivot table?",
+        "answer": "In a pivot table, the 'Second Year, Declared' cell represents 0.3 of the students, which equals 30 students.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 25,
+        "question": "What does the concept of a 'Declared' branch refer to?",
+        "answer": "The concept of a 'Declared' branch refers to students belonging either to the top branch or the third from the top branch.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 26,
+        "question": "How do you find the probability of a student being a Third Year, given that they are Declared?",
+        "answer": "To find the probability of a student being a Third Year, given that they are Declared, calculate the proportion of Third Year students in the 'Declared' branches relative to the total proportion in those branches.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 27,
+        "question": "What is Bayes' Rule used for?",
+        "answer": "Bayes' Rule is used to update probabilities based on new data, particularly solving 'inverse probability' problems.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 28,
+        "question": "What is the method for calculating probabilities within a reduced space?",
+        "answer": "The method for calculating probabilities within a reduced space involves comparing the specific event's likelihood to the total likelihood of the reduced space.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 29,
+        "question": "What are prior probabilities in the context of a student's year category before considering additional information?",
+        "answer": "Prior probabilities are the initial chances of a student being in a specific year before any additional information, such as major declaration status, is considered.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 30,
+        "question": "What are likelihoods in relation to a student's major declaration status and year category?",
+        "answer": "Likelihoods are the probabilities of a student having a specific major declaration status based on their year category.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 31,
+        "question": "How are posterior probabilities defined after considering additional information about a student?",
+        "answer": "Posterior probabilities are the revised probabilities of a student being in a specific year category after considering additional information like their major declaration status.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 32,
+        "question": "What is the prior probability of a student being a Second Year or a Third Year before considering their major declaration status?",
+        "answer": "The prior probability of a student being a Second Year is 60%, while for a Third Year it is 40%, before considering their major declaration status.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 33,
+        "question": "What is the likelihood of a student having Declared status given they are a Second Year?",
+        "answer": "The likelihood of a student having Declared status, given that they are a Second Year, is 0.5.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 34,
+        "question": "How do you calculate the posterior probability P(Third Year | Declared)?",
+        "answer": "The formula for calculating the posterior probability P(Third Year | Declared) involves multiplying the prior probability of Third Year by the likelihood of Declared given Third Year, and dividing by the total probability of Declared.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 35,
+        "question": "What remains the same in the denominator for posterior probability calculations?",
+        "answer": "The denominator in the posterior probability calculations remains the same, which is the total probability of the new information, i.e., the total probability of Declared.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 36,
+        "question": "What does the process of calculating posterior probabilities involve?",
+        "answer": "The process of calculating posterior probabilities involves using prior probabilities and likelihoods to update your beliefs based on new information.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 37,
+        "question": "How is the posterior probability P(Second Year | Declared) calculated?",
+        "answer": "The posterior probability P(Second Year | Declared) is calculated by multiplying the prior for Second Year by the likelihood of Declared given Second Year, then dividing by the total probability of Declared.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 38,
+        "question": "How are posterior probabilities used in classification?",
+        "answer": "Posterior probabilities are used in classification to determine the most likely category given new data or evidence.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 39,
+        "question": "What does Bayes' method express about the posterior probability?",
+        "answer": "Bayes' method expresses the idea that the posterior probability is proportional to the product of the prior probability and the likelihood.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 40,
+        "question": "What does the proportionality relationship in Bayes' method entail when calculating the posterior?",
+        "answer": "The proportionality relationship in Bayes' method means that when calculating the posterior, you multiply the prior by the likelihood.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 41,
+        "question": "How can using visual aids like tree diagrams help in practical applications compared to relying solely on formulas?",
+        "answer": "In practical applications, like the student example, using visual aids like tree diagrams can simplify understanding over relying solely on formulas.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 42,
+        "question": "How does the equation \\( \\text{posterior} \\propto \\text{prior} \\times \\text{likelihood} \\) relate to Bayes' method?",
+        "answer": "The equation \\( \\text{posterior} \\propto \\text{prior} \\times \\text{likelihood} \\) summarizes how Bayes' method updates beliefs based on new evidence.",
+        "difficulty": 2,
+        "category": "concept_check"
+      }
+    ],
+    "content_md": "A \"More Likely Than Not\" Binary Classifier Let's try to use data to classify a point into one of two categories, choosing the category that we think is more likely than not. To do this, we not only need the data but also a clear description of how chances are involved. We will start out in a simple artifical setting just to develop the main technique, and then move to a more intriguing example. Suppose there is a university class with the following composition:  60% of the students are Second Years and the remaining 40% are Third Years  50% of the Second Years have declared their major  80% of the Third Years have declared their major Now suppose I pick a student at random from the class. Can you classify the student as Second Year or Third Year, using our \"more likely than not\" criterion? You can, because the student is picked at random and so you know that the chance that the student i\n\ns a Second Year is 60%. That's greater than the 40% chance of being a Third Year, so you would classify the student as Second Year. The information about the majors is irrelevant, as we already know the proportions of Second and Third Years in the class. We have a pretty simple classifier! But now suppose I give you some additional information about the student who was picked: The student has declared a major. Would this knowledge change your classification?  Updating the Prediction Based on New Information Now that we know the student has declared a major, it becomes important to look at the relation between year and major declaration. It's still true that more students are Second Years than Third Years. But it's also true that among the Third Years, a much higher percent have declared their major than among the Second Years. Our classifier has to take both of these observations into ac\n\ncount. To visualize this, we will use a table students that consists of one row for each of 100 students whose years and majors have the same proportions as given in the data. To check that the proportions are correct, let's use pivot to crossclassify each student according to the two variables. The total count is 100 students, of whom 60 are Second Years and 40 are Third Years. Among the Second Years, 50% are in each of the Major categories. Among the 40 Third Years, 20% are Undeclared and 80% Declared. So this population of 100 students has the same proportions as the class in our problem, and we can assume that our student has been picked at random from among all 100 students. We have to pick which row the student is most likely to be in. When we knew nothing more about the student, he or she could be in any of the four cells, and therefore were more likely to be in the top row (Secon\n\nd Year) because that contains more students. But now we know that the student has declared a major, so the space of possible outcomes has decreased: now the student can only be in one of the two Declared cells. There are 62 students in those cells, and 32 out of the 62 are Third Years. That's more than half, even though not by much. So, in the light of the new information about the student's major, we have to update our prediction and now classify the student as a Third Year. What is the chance that our classification is correct? We will be right for all the 32 Third Years who are Declared, and wrong for the 30 Second Years who are Declared. The chance that we are correct is therefore about 0.516. In other words, the chance that we are correct is the proportion of Third Years among the students who have Declared.  Tree Diagram The proportion that we have just calculated was based on a cl\n\nass of 100 students. But there's no reason the class couldn't have had 200 students, for example, as long as all the proportions in the cells were correct. Then our calculation would just have been 64/(60 + 64) which is 0.516 as before. So the calculation depends only on the proportions in the different categories, not on the counts. The proportions can be visualized in a tree diagram, shown directly below the pivot table for ease of comparison. ! Like the pivot table, this diagram partitions the students into four distinct groups known as \"branches\". Notice that the \"Third Year, Declared\" branch contains the proportion 0.4 x 0.8  0.32 of the students, corresponding to the 32 students in the \"Third Year, Declared\" cell of the pivot table. The \"Second Year, Declared\" branch contains 0.6 x 0.5  0.3 of the students, corresponding to the 30 in the \"Second Year, Declared\" cell of the pivot ta\n\nble. We know that the student who was picked belongs to a \"Declared\" branch; that is, the student is either in the top branch or the third from top. Those two branches now form our reduced space of possibilities, and all chances have to be calculated relative to the total chance of this reduced space. So, given that the student is Declared, the chance of them being a Third Year can be calculated directly from the tree. The answer is the proportion in the \"Third Year, Declared\" branch relative to the total proportion in the two \"Declared\" branches. That is, the answer is the proportion of Third Years among students who are Declared, as before.  Bayes' Rule The method that we have just used is due to the Reverend  (17011761). His method solved what was called an \"inverse probability\" problem: given new data, how can you update chances you had found earlier? Though Bayes lived three centuri\n\nes ago, his method is  in machine learning. We will state the rule in the context of our population of students. First, some terminology: Prior probabilities. Before we knew the chosen student's major declaration status, the chance that the student was a Second Year was 60% and the chance that the student was a Third Year was 40%. These are the prior probabilities of the two categories. Likelihoods. These are the chances of the Major status, given the category of student; thus they can be read off the tree diagram. For example, the likelihood of Declared status given that the student is a Second Year is 0.5. Posterior probabilities. These are the chances of the two Year categories, after we have taken into account information about the Major declaration status. We computed one of these: The posterior probability that the student is a Third Year, given that the student has Declared, is de\n\nnoted $P(\\text{Third Year} \\Big\\vert \\text{Declared})$ and is calculated as follows. $$ \\begin{align} P(\\text{Third Year} \\Big\\vert \\text{Declared})  & \\frac{ 0.4 \\times 0.8}{0.6 \\times 0.5 + 0.4 \\times 0.8} \\\\ \\\\ & \\frac{\\text{(prior probability of Third Year)} \\times \\text{(likelihood of Declared given Third Year)}} {\\text{total probability of Declared}} \\end{align} $$ The other posterior probability is $$ \\begin{align} P(\\text{Second Year} \\Big\\vert \\text{Declared})  & \\frac{ 0.6 \\times 0.5}{0.6 \\times 0.5 + 0.4 \\times 0.8} \\\\ \\\\ & \\frac{\\text{(prior probability of Second Year)} \\times \\text{(likelihood of Declared given Second Year)}} {\\text{total probability of Declared}} \\end{align} $$ That's about 0.484, which is less than half, consistent with our classification of Third Year. Notice that both the posterior probabilities have the same denominator: the chance of the new informatio\n\nn, which is that the student has Declared. Because of this, Bayes' method is sometimes summarized as a statement about proportionality: $$ \\text{posterior}  \\propto  \\text{prior} \\times \\text{likelihood} $$ Formulas are great for efficiently describing calculations. But in settings like our example about students, it is simpler not to think in terms of formulas. Just use the tree diagram."
+  },
+  {
+    "id": 1104957995,
+    "slug": "174implementing_the_classifieripynb",
+    "title": "Implementing the Classifier",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "17/4/Implementing_the_Classifier.ipynb",
+      "word_count": 1673,
+      "estimated_minutes": 9
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "Can a $k$-nearest neighbor classifier use multiple attributes for predictions to improve accuracy compared to using only pairs of attributes?",
+        "answer": "A $k$-nearest neighbor classifier can use multiple attributes for predictions to improve accuracy compared to using only pairs of attributes.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "What does the banknote authentication problem involve?",
+        "answer": "The problem of banknote authentication involves predicting whether a banknote is counterfeit or legitimate based on features extracted from its photograph.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 3,
+        "question": "What is used to represent each banknote in a dataset for banknote authentication?",
+        "answer": "In banknote authentication, a data set is used where each banknote is represented by numerical values derived from its image, along with a class label indicating if it's counterfeit.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 4,
+        "question": "Why might using several attributes provide better prediction outcomes in classifier models like the $k$-nearest neighbor?",
+        "answer": "Using several attributes rather than just two can provide better prediction outcomes in classifier models like the $k$-nearest neighbor.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 5,
+        "question": "What does the scatterplot show about the measurements' usefulness in predicting counterfeit banknotes?",
+        "answer": "The scatterplot shows clusters that help in predicting whether a banknote is counterfeit, indicating these measurements are useful.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 6,
+        "question": "Why is it difficult to determine if a banknote is legitimate using just two numbers shown in the scatterplot?",
+        "answer": "There is overlap between clusters in the scatterplot, making it difficult to always accurately determine if a banknote is legitimate using just these two numbers.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 7,
+        "question": "What can affect the accuracy of a k-nearest neighbor classifier when predicting a banknote's legitimacy?",
+        "answer": "A k-nearest neighbor classifier can be used to predict the legitimacy of a banknote, but it may not always be accurate due to overlapping data points.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 8,
+        "question": "What factor related to the value of k affects a k-nearest neighbor classifier's accuracy?",
+        "answer": "The decision boundary of a k-nearest neighbor classifier may vary based on the value of k, which influences the classifier's accuracy.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 9,
+        "question": "How can data patterns influence the outcome of a k-nearest neighbor classifier?",
+        "answer": "The patterns in the data can affect the outcome of a k-nearest neighbor classifier, leading to potential misclassifications in certain regions.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 10,
+        "question": "What is the k-nearest neighbors classifier capable of discovering in data?",
+        "answer": "The k-nearest neighbors classifier is capable of discovering complex patterns in data, even those not anticipated or explicitly programmed.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 11,
+        "question": "How can multiple attributes in machine learning be utilized to enhance predictions?",
+        "answer": "In machine learning, multiple attributes can be utilized to enhance predictions; if there are more attributes, higher-dimensional plots can be used.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 12,
+        "question": "What can a 3-dimensional scatterplot represent when dealing with more than two attributes?",
+        "answer": "When dealing with more than two attributes, a 3-dimensional scatterplot can represent the data and the k-nearest neighbors classifier can work with 3-dimensional distances.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 13,
+        "question": "What can machine learning find that humans might not expect or program manually?",
+        "answer": "Machine learning can find patterns that humans might not expect or manually program into the system.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 14,
+        "question": "Can the k-nearest neighbors classifier be used in high-dimensional spaces defined by any number of attributes?",
+        "answer": "The k-nearest neighbors classifier can be used in a space defined by any number of attributes, even in high-dimensional spaces.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 15,
+        "question": "What does the k-nearest neighbors algorithm require in high-dimensional spaces?",
+        "answer": "In high-dimensional spaces, the k-nearest neighbors algorithm requires the ability to compute distances between points.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 16,
+        "question": "Does visualizing data points in more than three dimensions affect the ability of algorithms to process high-dimensional data?",
+        "answer": "Visualizing data points in more than three dimensions is challenging, but this does not affect the ability of algorithms to process high-dimensional data.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 17,
+        "question": "How can using more attributes in classification affect the accuracy of the k-nearest neighbors classifier?",
+        "answer": "Using more attributes in classification can reduce overlap and improve the accuracy of the k-nearest neighbors classifier.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 18,
+        "question": "What is the potential benefit of using more attributes in a classifier?",
+        "answer": "Using more attributes in a classifier can provide new information and potentially improve the classifier's accuracy.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 19,
+        "question": "What is the effect of increasing the number of attributes in a classifier?",
+        "answer": "Increasing the number of attributes in a classifier can lead to improved classification accuracy but requires collecting more information.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 20,
+        "question": "What is the k-nearest neighbor classification used for?",
+        "answer": "k-nearest neighbor classification is used to predict yes/no questions based on attribute values, given a training set with known outcomes.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 21,
+        "question": "How can each attribute in a classifier contribute to predictions?",
+        "answer": "Each attribute in a classifier could provide additional insight that contributes to more accurate predictions.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 22,
+        "question": "What are the costs and benefits of using more attributes in classification?",
+        "answer": "Using more attributes in classification incurs additional costs due to the need for more data collection, but the accuracy benefits may justify the expense.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 23,
+        "question": "What is required when using k-nearest neighbor classification?",
+        "answer": "When using k-nearest neighbor classification, a training set with known attribute values and correct predictions is required.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 24,
+        "question": "How does k-nearest neighbor classification predict future outcomes?",
+        "answer": "K-nearest neighbor classification predicts future outcomes by measuring attribute values and using the closest examples from the training set.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 25,
+        "question": "What is the distance formula in 2-dimensional space?",
+        "answer": "The distance formula in 2-dimensional space is the square root of the sum of the squares of the differences between corresponding coordinates.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 26,
+        "question": "How is the distance between two points computed in 3-dimensional space?",
+        "answer": "In 3-dimensional space, the distance between two points is computed by taking the square root of the squared differences across all three coordinates.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 27,
+        "question": "How is the distance between points calculated in n-dimensional space?",
+        "answer": "In n-dimensional space, the distance between points is calculated by summing the squares of the differences for each coordinate and taking the square root.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 28,
+        "question": "What does the function distance calculate by subtracting the coordinates, squaring the differences, summing them up, and taking the square root?",
+        "answer": "The function distance calculates the distance between two points by subtracting the coordinates, squaring the differences, summing them up, and taking the square root.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 29,
+        "question": "Why is the distance function considered versatile in handling points in any number of dimensions?",
+        "answer": "The distance function is versatile and can handle points in any number of dimensions without needing code changes.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 30,
+        "question": "How can calculating distances between feature vectors in a wine dataset help identify differences among classes?",
+        "answer": "To differentiate between classes in a wine dataset based on chemical composition, calculating distances between feature vectors can help identify differences among classes.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 31,
+        "question": "In the wine dataset, how is each wine classified based on its chemical properties?",
+        "answer": "In the context of the wine dataset, each wine is classified into one of three cultivars based on its chemical properties.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 32,
+        "question": "How can the distance function be applied to the wine dataset to help distinguish between different cultivars?",
+        "answer": "The function can be applied directly to the wine dataset to find distances between wines to help distinguish between different cultivars.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 33,
+        "question": "What does it indicate when Class 1 wines' points are visually almost entirely separate from Class 0 in the visualization?",
+        "answer": "Class 1 wines' points are visually almost entirely separate from Class 0 in the visualization, indicating that the wines in the same class have smaller distances between them compared to wines from different classes.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 34,
+        "question": "How can visual separation of data points in two classes assist in understanding class differences?",
+        "answer": "Visual separation of data points in two classes can help to understand class differences and may make classification easier, as seen with the clearer separation between the blue and gold points.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 35,
+        "question": "What might result from visualizing two attributes that do not show clear separation between classes?",
+        "answer": "In some cases, the visualization of two attributes may not show clear separation between classes, resulting in a more murky picture for classification.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 36,
+        "question": "What is the classifier designed to find in order to classify a point?",
+        "answer": "The classifier is designed to find the $k$ nearest neighbors of a point from the training set in order to classify it.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 37,
+        "question": "How can a classifier be implemented to determine the class of a point?",
+        "answer": "A classifier can be implemented by checking the proximity of a point to its $k$ nearest neighbors from the training set, which helps in determining the class of the point.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 38,
+        "question": "How does the k-nearest neighbors (k-NN) algorithm predict the class of a data point?",
+        "answer": "The k-nearest neighbors (k-NN) algorithm predicts the class of a data point by finding the k closest points from the training set and taking a majority vote of their classes.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 39,
+        "question": "How is the distance between data points used in k-NN?",
+        "answer": "In k-NN, the distance between data points is computed to identify which ones are closest to the point needing classification.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 40,
+        "question": "What is the first step when implementing k-NN for a dataset?",
+        "answer": "When implementing k-NN for a dataset, the first step is to compute and sort distances from each training point to the target point.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 41,
+        "question": "How is a point in a dataset considered in relation to itself with k-NN?",
+        "answer": "In datasets where a point is part of the data, it is considered its own nearest neighbor.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 42,
+        "question": "What method does k-NN use to predict the class of a new data point?",
+        "answer": "The majority voting method in k-NN uses the most common class among the k nearest neighbors to predict the class of the new data point.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 43,
+        "question": "What indicates that the nearest neighbor of a data point in a dataset is itself?",
+        "answer": "The nearest neighbor of a data point in a dataset is itself, indicated by a 0 in the Distance column.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 44,
+        "question": "What does it mean to take a 'majority vote' of the nearest neighbors?",
+        "answer": "Taking a 'majority vote' of the nearest neighbors means assigning the same class to a data point as the class most represented among its nearest neighbors.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 45,
+        "question": "How can finding the 5 nearest neighbors in a k-nearest neighbors algorithm help classify a data point?",
+        "answer": "In a k-nearest neighbors algorithm, finding the 5 nearest neighbors can help classify a data point based on the classes of those neighbors.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 46,
+        "question": "What could be a consequence of testing with data points that are similar or identical to those in the training set?",
+        "answer": "If a data point is similar or identical to one in the training set, the classifier might easily identify its class, but testing with such data could lead to overoptimistic results.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 47,
+        "question": "How can classifying data points by their nearest neighbors help in identifying patterns?",
+        "answer": "Classifying data points by checking their nearest neighbors can help identify clumping patterns within a particular class dimension.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 48,
+        "question": "How will the dataset be divided to evaluate the model's performance?",
+        "answer": "The dataset will be divided into a training set and a test set to evaluate the model's performance.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 49,
+        "question": "When is model accuracy measured?",
+        "answer": "Model accuracy is measured using the test set after training the model on the training set.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 50,
+        "question": "How is a classifier's performance evaluated?",
+        "answer": "A classifier's performance is evaluated by how accurately it predicts the test set labels.",
+        "difficulty": 3,
+        "category": "application"
+      }
+    ],
+    "content_md": "Implementing the Classifier We are now ready to implement a $k$nearest neighbor classifier based on multiple attributes. We have used only two attributes so far, for ease of visualization. But usually predictions will be based on many attributes. Here is an example that shows how multiple attributes can be better than pairs.  Banknote authentication This time we'll look at predicting whether a banknote (e.g., a \\$20 bill) is counterfeit or legitimate. Researchers have put together a data set for us, based on photographs of many individual banknotes: some counterfeit, some legitimate. They computed a few numbers from each image, using techniques that we won't worry about for this course. So, for each banknote, we know a few numbers that were computed from a photograph of it as well as its class (whether it is counterfeit or not). Let's load it into a table and take a look. Let's look at w\n\nhether the first two numbers tell us anything about whether the banknote is counterfeit or not. Here's a scatterplot: Pretty interesting! Those two measurements do seem helpful for predicting whether the banknote is counterfeit or not. However, in this example you can now see that there is some overlap between the blue cluster and the gold cluster. This indicates that there will be some images where it's hard to tell whether the banknote is legitimate based on just these two numbers. Still, you could use a $k$nearest neighbor classifier to predict the legitimacy of a banknote. Take a minute and think it through: Suppose we used $k11$ (say). What parts of the plot would the classifier get right, and what parts would it make errors on? What would the decision boundary look like? The patterns that show up in the data can get pretty wild. For instance, here's what we'd get if used a differen\n\nt pair of measurements from the images: There does seem to be a pattern, but it's a pretty complex one. Nonetheless, the $k$nearest neighbors classifier can still be used and will effectively \"discover\" patterns out of this. This illustrates how powerful machine learning can be: it can effectively take advantage of even patterns that we would not have anticipated, or that we would have thought to \"program into\" the computer.  Multiple attributes So far I've been assuming that we have exactly 2 attributes that we can use to help us make our prediction. What if we have more than 2? For instance, what if we have 3 attributes? Here's the cool part: you can use the same ideas for this case, too. All you have to do is make a 3dimensional scatterplot, instead of a 2dimensional plot. You can still use the $k$nearest neighbors classifier, but now computing distances in 3 dimensions instead of jus\n\nt 2. It just works. Very cool! In fact, there's nothing special about 2 or 3. If you have 4 attributes, you can use the $k$nearest neighbors classifier in 4 dimensions. 5 attributes? Work in 5dimensional space. And no need to stop there! This all works for arbitrarily many attributes; you just work in a very high dimensional space. It gets wickedimpossible to visualize, but that's OK. The computer algorithm generalizes very nicely: all you need is the ability to compute the distance, and that's not hard. Mindblowing stuff! For instance, let's see what happens if we try to predict whether a banknote is counterfeit or not using 3 of the measurements, instead of just 2. Here's what you get: Awesome! With just 2 attributes, there was some overlap between the two clusters (which means that the classifier was bound to make some mistakes for pointers in the overlap). But when we use these 3 att\n\nributes, the two clusters have almost no overlap. In other words, a classifier that uses these 3 attributes will be more accurate than one that only uses the 2 attributes. This is a general phenomenom in classification. Each attribute can potentially give you new information, so more attributes sometimes helps you build a better classifier. Of course, the cost is that now we have to gather more information to measure the value of each attribute, but this cost may be well worth it if it significantly improves the accuracy of our classifier. To sum up: you now know how to use $k$nearest neighbor classification to predict the answer to a yes/no question, based on the values of some attributes, assuming you have a training set with examples where the correct prediction is known. The general roadmap is this: 1. identify some attributes that you think might help you predict the answer to the q\n\nuestion. 2. Gather a training set of examples where you know the values of the attributes as well as the correct prediction. 3. To make predictions in the future, measure the value of the attributes and then use $k$nearest neighbor classification to predict the answer to the question.  Distance in Multiple Dimensions We know how to compute distance in 2dimensional space. If we have a point at coordinates $(x0,y0)$ and another at $(x1,y1)$, the distance between them is $$D  \\sqrt{(x0x1)^2 + (y0y1)^2}.$$ In 3dimensional space, the points are $(x0, y0, z0)$ and $(x1, y1, z1)$, and the formula for the distance between them is $$ D  \\sqrt{(x0x1)^2 + (y0y1)^2 + (z0z1)^2} $$ In $n$dimensional space, things are a bit harder to visualize, but I think you can see how the formula generalized: we sum up the squares of the differences between each individual coordinate, and then take the square root \n\nof that. In the last section, we defined the function distance which returned the distance between two points. We used it in twodimensions, but the great news is that the function doesn't care how many dimensions there are! It just subtracts the two arrays of coordinates (no matter how long the arrays are), squares the differences and adds up, and then takes the square root. To work in multiple dimensions, we don't have to change the code at all. Let's use this on a . The table wine contains the chemical composition of 178 different Italian wines. The classes are the grape species, called cultivars. There are three classes but let's just see whether we can tell Class 1 apart from the other two. The first two wines are both in Class 1. To find the distance between them, we first need a table of just the attributes: The last wine in the table is of Class 0. Its distance from the first wine\n\n is: That's quite a bit bigger! Let's do some visualization to see if Class 1 really looks different from Class 0. The blue points (Class 1) are almost entirely separate from the gold ones. That is one indication of why the distance between two Class 1 wines would be smaller than the distance between wines of two different classes. We can see a similar phenomenon with a different pair of attributes too: But for some pairs the picture is more murky. Let's see if we can implement a classifier based on all of the attributes. After that, we'll see how accurate it is.  A Plan for the Implementation It's time to write some code to implement the classifier. The input is a point that we want to classify. The classifier works by finding the $k$ nearest neighbors of point from the training set. So, our approach will go like this: 1. Find the closest $k$ neighbors of point, i.e., the $k$ wines from\n\n the training set that are most similar to point. 2. Look at the classes of those $k$ neighbors, and take the majority vote to find the mostcommon class of wine. Use that as our predicted class for point. So that will guide the structure of our Python code.  Implementation Step 1 To implement the first step for the kidney disease data, we had to compute the distance from each patient in the training set to point, sort them by distance, and take the $k$ closest patients in the training set. That's what we did in the previous section with the point corresponding to Alice. Let's generalize that code. We'll redefine distance here, just for convenience. Let's see how this works on our wine data. We'll just take the first wine and find its five nearest neighbors among all the wines. Remember that since this wine is part of the dataset, it is its own nearest neighbor. So we should expect to see\n\n it at the top of the list, followed by four others. First let's extract its attributes: And now let's find its 5 nearest neighbors. Bingo! The first row is the nearest neighbor, which is itself \u2013 there's a 0 in the Distance column as expected. All five nearest neighbors are of Class 1, which is consistent with our earlier observation that Class 1 wines appear to be clumped together in some dimensions.  Implementation Steps 2 and 3 Next we need to take a \"majority vote\" of the nearest neighbors and assign our point the same class as the majority. If we change specialwine to be the last one in the dataset, is our classifier able to tell that it's in Class 0? Yes! The classifier gets this one right too. But we don't yet know how it does with all the other wines, and in any case we know that testing on wines that are already part of the training set might be overoptimistic. In the final sec\n\ntion of this chapter, we will separate the wines into a training and test set and then measure the accuracy of our classifier on the test set."
+  },
+  {
+    "id": 1231487839,
+    "slug": "173rows_of_tablesipynb",
+    "title": "Rows of Tables",
+    "topic": "Data",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "17/3/Rows_of_Tables.ipynb",
+      "word_count": 1274,
+      "estimated_minutes": 7
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does each row in a data table correspond to?",
+        "answer": "In data tables, each row corresponds to an individual entity or data point, holding all the relevant information for that instance.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "What are the characteristics of row objects in a table?",
+        "answer": "Rows in a table have their own specific data type called row objects, which include both the data values and the column labels.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 3,
+        "question": "How do you access a specific row in a table?",
+        "answer": "To access a row in a table, you use the Table method 'row', providing it with the index of the desired row.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 4,
+        "question": "Where does Python indexing start when accessing rows in a table?",
+        "answer": "Python indexing starts at 0, so the first row in a table is accessed with index 0.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 5,
+        "question": "What is the data structure of a row's elements in a table?",
+        "answer": "A row's elements are not arrays, but each maintains its own data structure with both the data values and their column headings.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 6,
+        "question": "What type of rows can be converted into arrays?",
+        "answer": "Rows with elements that are all numerical or all strings can be converted into arrays.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 7,
+        "question": "Why is converting rows to arrays useful?",
+        "answer": "Converting rows to arrays is useful because it allows access to NumPy functions and arithmetic operations.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 8,
+        "question": "How can you access a particular element in a row?",
+        "answer": "To access a particular element in a row, you can use the item method and the element's index.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 9,
+        "question": "What type of rows cannot be converted into arrays?",
+        "answer": "Rows that contain mixed data types, such as both strings and numbers, cannot be converted into arrays.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 10,
+        "question": "How was a scatter plot used in the lesson related to CKD?",
+        "answer": "In the lesson, a scatter plot is used to classify patients as 'CKD' or 'not CKD' based on Hemoglobin and Glucose levels.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 11,
+        "question": "What do Alice's coordinates indicate about her hemoglobin and glucose values?",
+        "answer": "Alice's point in the dataset has coordinates with a hemoglobin value of 0 and a glucose value of 1.1, indicating that her hemoglobin is at the average and glucose is 1.1 standard deviations above average.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 12,
+        "question": "Which function do we use to convert rows of numerical values to arrays?",
+        "answer": "To convert rows of numerical values to arrays, we use the function np.array, which simplifies data manipulation as we can apply array operations on the data.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 13,
+        "question": "What is the purpose of the function np.array?",
+        "answer": "The function np.array is used for converting sequential objects like rows containing numerical values into arrays.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 14,
+        "question": "What do you need to calculate the distance between two points in a dataset with multiple attributes?",
+        "answer": "To calculate the distance between two points in a dataset with multiple attributes, all we require are the attribute values of those points.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 15,
+        "question": "Why are array operations useful in numerical datasets?",
+        "answer": "Array operations are useful because they allow for efficient manipulation and calculation of data in numerical datasets.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 16,
+        "question": "What is the formula to compute the distance between two points in a 2-dimensional space?",
+        "answer": "To compute the distance between two points in a 2-dimensional space, the formula used is derived from the Pythagorean theorem. It is the square root of the sum of the squared differences of their coordinates: $$ D = \\sqrt{(x0-x1)^2 + (y0-y1)^2} $$.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 17,
+        "question": "How is the distance formula for two points in a plane related to the Pythagorean theorem?",
+        "answer": "The distance formula for two points in a plane is an application of the Pythagorean theorem. It calculates the length of the hypotenuse of a right triangle formed by the differences in x and y coordinates of the points.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 18,
+        "question": "Why might it be useful to write a function to compute distances in programming?",
+        "answer": "In programming, when working with multiple points, writing a function to compute distances can automate the process and handle large datasets efficiently.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 19,
+        "question": "How are array operations used to find distances in data analysis?",
+        "answer": "We use array operations to find distances between a reference point and multiple other points efficiently in data analysis.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 20,
+        "question": "How does the concept of computing distance extend to higher dimensions?",
+        "answer": "The concept of computing distance in higher dimensions extends naturally from the 2-dimensional distance formula by adding more terms for each additional dimension.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 21,
+        "question": "What does the apply method do when run on each element of a table column?",
+        "answer": "The apply method can be used to run a function on each element of a table column, returning an array of results.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 22,
+        "question": "What happens if you use apply without specifying a column label?",
+        "answer": "If you use apply without specifying a column label, the function is applied to the entire row of the table.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 23,
+        "question": "What does apply return when used on a column?",
+        "answer": "When apply is used on a column, it evaluates to an array with function results for each column element.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 24,
+        "question": "What role does the distance function play in constructing a classifier?",
+        "answer": "The distance function is a fundamental building block in constructing a classifier.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 25,
+        "question": "What do the coordinates (x, y) represent in the context of this lesson?",
+        "answer": "Coordinates (x, y) represent Hemoglobin and Glucose levels in the context of this lesson.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 26,
+        "question": "How can you find the most unusual attribute for a patient?",
+        "answer": "To find the most unusual attribute for a patient, compare how far each attribute is from the average, using the maximum of the absolute values.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 27,
+        "question": "How can you determine which attribute is most unusual for a patient?",
+        "answer": "You can determine which attribute is most unusual for a patient by converting their data row into an array and using array operations to calculate distances from the average.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 28,
+        "question": "What determines which attribute is most unusual for hemoglobin and glucose levels?",
+        "answer": "The maximum of the absolute values for hemoglobin and glucose level deviations determines which attribute is most unusual.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 29,
+        "question": "How can you calculate the maximum absolute deviation for each row in a table?",
+        "answer": "Using the 'apply' function, you can calculate the maximum absolute deviation for each row in a table to identify the most unusual attributes.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 30,
+        "question": "How do you classify Alice using a k-nearest neighbor classifier?",
+        "answer": "To classify Alice using a k-nearest neighbor classifier, you must identify her k nearest neighbors.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 31,
+        "question": "How do you find the distance between Alice and another point?",
+        "answer": "To find the distance between Alice and another point, use a function that calculates the distance between two points with coordinates in arrays. This function can be applied to each row of data.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 32,
+        "question": "What is involved in Step 1 for calculating distances in the data?",
+        "answer": "Step 1 involves creating a function that calculates the distance between Alice and each point in the training sample and then applying this function to augment the data table with the calculated distances.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 33,
+        "question": "How should you sort the data in Step 2?",
+        "answer": "In Step 2, to sort the data, arrange the data table in increasing order based on the distance from Alice.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 34,
+        "question": "What does Step 3 entail in the context of sorting the data?",
+        "answer": "Step 3 involves selecting the top 5 rows of the sorted table to identify the points closest to Alice.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 35,
+        "question": "What does the 'distancefromalice' function do?",
+        "answer": "The function 'distancefromalice' takes a row as its argument and returns the distance between that row and Alice, aiding in comparing Alice's position with other points.",
+        "difficulty": 3,
+        "category": "definition"
+      },
+      {
+        "id": 36,
+        "question": "How does the k-nearest neighbor classifier predict a data point's class?",
+        "answer": "The k-nearest neighbor classifier predicts a data point's class based on the majority class of its k nearest neighbors.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 37,
+        "question": "Why is Alice classified as having chronic kidney disease in the k-nearest neighbors example?",
+        "answer": "In the k-nearest neighbors example, Alice is classified as having chronic kidney disease because the majority of her five nearest neighbors are classified as such.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 38,
+        "question": "How can the choice of k affect the outcome in a k-nearest neighbors classifier?",
+        "answer": "The choice of k in a k-nearest neighbors classifier can significantly affect the outcome, as it determines how many nearest neighbors are considered in making a prediction.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 39,
+        "question": "How can a k-nearest neighbors classifier be adjusted?",
+        "answer": "A k-nearest neighbors classifier can be adjusted by changing the value of k, which is a positive integer.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 40,
+        "question": "In the context of this lesson, what do blue and gold points represent?",
+        "answer": "In the context of this lesson, blue points represented neighbors with chronic kidney disease, and gold points did not.",
+        "difficulty": 1,
+        "category": "application"
+      }
+    ],
+    "content_md": "Rows of Tables Now that we have a qualitative understanding of nearest neighbor classification, it's time to implement our classifier. Until this chapter, we have worked mostly with single columns of tables. But now we have to see whether one individual is \"close\" to another. Data for individuals are contained in rows of tables. So let's start by taking a closer look at rows. Here is the original table ckd containing data on patients who were tested for chronic kidney disease. The data corresponding to the first patient is in row 0 of the table, consistent with Python's indexing system. The Table method row accesses the row by taking the index of the row as its argument: Rows have their very own data type: they are row objects. Notice how the display shows not only the values in the row but also the labels of the corresponding columns. Rows are in general not arrays, as their elements ca\n\nn be of different types. For example, some of the elements of the row above are strings (like 'abnormal') and some are numerical. So the row can't be converted into an array. However, rows share some characteristics with arrays. You can use item to access a particular element of a row. For example, to access the Albumin level of Patient 0, we can look at the labels in the printout of the row above to find that it's item 3:  Converting Rows to Arrays (When Possible) Rows whose elements are all numerical (or all strings) can be converted to arrays. Converting a row to an array gives us access to arithmetic operations and other nice NumPy functions, so it is often useful. Recall that in the previous section we tried to classify the patients as 'CKD' or 'not CKD', based on two attributes Hemoglobin and Glucose, both measured in standard units. Here is a scatter plot of the two attributes, al\n\nong with a red point corresponding to Alice, a new patient. Her value of hemoglobin is 0 (that is, at the average) and glucose 1.1 (that is, 1.1 SDs above average). To find the distance between Alice's point and any of the other points, we only need the values of the attributes: Each row consists of the coordinates of one point in our training sample. Because the rows now consist only of numerical values, it is possible to convert them to arrays. For this, we use the function np.array, which converts any kind of sequential object, like a row, to an array. (Our old friend makearray is for creating arrays, not for converting other kinds of sequences to arrays.) This is very handy because we can now use array operations on the data in each row.  Distance Between Points When There are Two Attributes The main calculation we need to do is to find the distance between Alice's point and any othe\n\nr point. For this, the first thing we need is a way to compute the distance between any pair of points. How do we do this? In 2dimensional space, it's pretty easy. If we have a point at coordinates $(x0,y0)$ and another at $(x1,y1)$, the distance between them is $$ D  \\sqrt{(x0x1)^2 + (y0y1)^2} $$ (Where did this come from? It comes from the Pythogorean theorem: we have a right triangle with side lengths $x0x1$ and $y0y1$, and we want to find the length of the hypotenuse.) In the next section we'll see that this formula has a straightforward extension when there are more than two attributes. For now, let's use the formula and array operations to find the distance between Alice and the patient in Row 3. We're going to need the distance between Alice and a bunch of points, so let's write a function called distance that computes the distance between any pair of points. The function will tak\n\ne two arrays, each containing the $(x, y)$ coordinates of a point. (Remember, those are really the Hemoglobin and Glucose levels of a patient.) We have begun to build our classifier: the distance function is the first building block. Now let's work on the next piece.  Using apply on an Entire Row Recall that if you want to apply a function to each element of a column of a table, one way to do that is by the call tablename.apply(functionname, columnlabel). This evaluates to an array consisting of the values of the function when we call it on each element of the column. So each entry of the array is based on the corresponding row of the table. If you use apply without specifying a column label, then the entire row is passed to the function. Let's see how this works on a very small table t containing the information about the first five patients in the training sample. Just as an example, s\n\nuppose that for each patient we want to know how unusual their most unusual attribute is. Concretely, if a patient's hemoglobin level is further from the average than her glucose level, we want to know how far it is from the average. If her glucose level is further from the average than her hemoglobin level, we want to know how far that is from the average instead. That's the same as taking the maximum of the absolute values of the two quantities. To do this for a particular row, we can convert the row to an array and use array operations. And now we can apply maxabs to each row of the table t: This way of using apply will help us create the next building block of our classifier.  Alice's $k$ Nearest Neighbors If we want to classify Alice using a knearest neighbor classifier, we have to identify her $k$ nearest neighbors. What are the steps in this process? Suppose $k  5$. Then the steps\n\n are:  Step 1. Find the distance between Alice and each point in the training sample.  Step 2. Sort the data table in increasing order of the distances.  Step 3. Take the top 5 rows of the sorted table. Steps 2 and 3 seem straightforward, provided we have the distances. So let's focus on Step 1. Here's Alice: What we need is a function that finds the distance between Alice and another point whose coordinates are contained in a row. The function distance returns the distance between any two points whose coordinates are in arrays. We can use that to define distancefromalice, which takes a row as its argument and returns the distance between that row and Alice. Now we can apply the function distancefromalice to each row of ckdattributes, and augment the table ckd with the distances. Step 1 is complete! For Step 2, let's sort the table in increasing order of distance: Step 3: The top 5 rows \n\ncorrespond to Alice's 5 nearest neighbors; you can replace 5 by any other positive integer. Three of Alice's five nearest neighbors are blue points and two are gold. So a 5nearest neighbor classifier would classify Alice as blue: it would predict that Alice has chronic kidney disease. The graph below zooms in on Alice and her five nearest neighbors. The two gold ones just inside the circle directly below the red point. The classifier says Alice is more like the three blue ones around her. We are well on our way to implementing our knearest neighbor classifier. In the next two sections we will put it together and assess its accuracy."
+  },
+  {
+    "id": 2057317731,
+    "slug": "176multiple_regressionipynb",
+    "title": "Multiple Regression",
+    "topic": "Regression",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "17/6/Multiple_Regression.ipynb",
+      "word_count": 1148,
+      "estimated_minutes": 6
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What statistical method is used to predict a quantitative variable using multiple attributes?",
+        "answer": "Multiple regression is a statistical method used to predict a quantitative variable using multiple attributes.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 2,
+        "question": "What are we predicting in the context of multiple regression?",
+        "answer": "In the context of multiple regression, we are predicting a numerical outcome, such as house sale prices.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 3,
+        "question": "What does the dataset in this lesson focus on predicting?",
+        "answer": "The dataset used in this lesson includes house prices and various attributes from Ames, Iowa, and focuses on predicting the sale price from these attributes.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 4,
+        "question": "What does a histogram of sale prices from the dataset indicate?",
+        "answer": "A histogram of sale prices from the dataset shows high variability and a long tail to the right, indicating a few houses with very high prices.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 5,
+        "question": "Why is no single attribute sufficient to predict the sale price accurately?",
+        "answer": "It's important to understand that no single attribute is sufficient on its own to predict the sale price accurately.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 6,
+        "question": "What is the correlation value when considering individual attributes like the area of the first floor with sale price?",
+        "answer": "Individual attributes like the area of the first floor have a correlation with sale price, but none exceed a correlation value of 0.7.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 7,
+        "question": "How can combining attributes affect the correlation with sale price?",
+        "answer": "Combining attributes, such as summing the first and second floor areas, can yield a higher correlation with sale price than individual attributes.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 8,
+        "question": "What method can improve the prediction of sale price using multiple attributes?",
+        "answer": "Using multiple attributes can improve the prediction of sale price, which suggests the need for methods like multiple linear regression.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 9,
+        "question": "What is multiple linear regression used for?",
+        "answer": "Multiple linear regression is a technique used to predict a numerical output from multiple numerical input attributes.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 10,
+        "question": "What does the slope for each attribute represent in multiple regression?",
+        "answer": "In multiple regression, the slope for each attribute represents the contribution of that attribute to the prediction of the target variable.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 11,
+        "question": "How is predicting the sale price performed in multiple regression?",
+        "answer": "Predicting the sale price in multiple regression involves multiplying each attribute value by its corresponding slope and then summing the results.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 12,
+        "question": "What is a key step in regression analysis for evaluating model performance?",
+        "answer": "A key step in regression analysis is splitting the data into training and test sets to evaluate model performance.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 13,
+        "question": "How are slopes in a regression model typically determined?",
+        "answer": "Slopes in a regression model are typically determined through statistical methods like least squares regression to ensure accurate predictions rather than being chosen at random.",
+        "difficulty": 3,
+        "category": "definition"
+      },
+      {
+        "id": 14,
+        "question": "What is the root mean squared error (RMSE) used for in regression analysis?",
+        "answer": "The root mean squared error (RMSE) is used to measure the difference between predicted and actual values in regression analysis.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 15,
+        "question": "What does the minimize function find when predicting house prices?",
+        "answer": "The minimize function finds the slopes that result in the lowest RMSE when predicting house prices.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 16,
+        "question": "In multiple regression, what does each slope represent?",
+        "answer": "In multiple regression, each slope represents how much a unit change in a particular attribute affects the predicted outcome.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 17,
+        "question": "What does the minimize function require to determine the dimension of the input array?",
+        "answer": "The minimize function requires an initial guess of the slopes to determine the dimension of the input array.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 18,
+        "question": "How can specifying that the rmsetrain function is smooth affect the optimization process?",
+        "answer": "Specifying that the rmsetrain function is smooth can speed up the optimization process.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 19,
+        "question": "What does an RMSE of around $30,000 indicate about the predicted sale prices relative to the actual sale prices on the training set?",
+        "answer": "The RMSE, or Root Mean Square Error, of around $30,000 indicates that the predicted sale prices are on average off by $30,000 from the actual sale prices on the training set.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 20,
+        "question": "What does a similar error in RMSE on the test set suggest about the prediction model's ability to generalize to new data?",
+        "answer": "A similar error in the RMSE on the test set suggests that the prediction model will generalize well to new data similar to the training set.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 21,
+        "question": "What would the scatter plot of predicted vs. actual values look like for perfect predictions?",
+        "answer": "Perfect predictions would result in a scatter plot of predicted vs. actual values being a straight line with a slope of 1.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 22,
+        "question": "What does a residual plot compare in multiple regression analysis?",
+        "answer": "In multiple regression analysis, a residual plot compares the residuals, which are the differences between the observed and predicted values, to the actual predicted values.",
+        "difficulty": 3,
+        "category": "definition"
+      },
+      {
+        "id": 23,
+        "question": "What should be interpreted in regression results besides prediction accuracy?",
+        "answer": "When analyzing regression results, it is important to interpret the predictor outcomes, not just focus on prediction accuracy.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 24,
+        "question": "How can systematic underestimation in regression be identified?",
+        "answer": "Systematic underestimation in regression can be identified by observing positive residual values in prediction graphs.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 25,
+        "question": "What should you study after basic regression for advanced understanding?",
+        "answer": "After basic regression studies, it is beneficial to delve deeper into linear modeling and regression for advanced understanding.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 26,
+        "question": "What is the nearest neighbors approach for regression?",
+        "answer": "The nearest neighbors approach for regression involves using the prices of similar houses to predict a house's sale price.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 27,
+        "question": "How can computation speed be improved in nearest neighbors regression?",
+        "answer": "To improve computation speed in nearest neighbors regression, it is useful to select attributes with the highest correlation to the target variable.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 28,
+        "question": "What column is excluded from distance computation in predictions?",
+        "answer": "The 'SalePrice' column is excluded from distance computation in predictions.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 29,
+        "question": "How can the price be predicted using nearest neighbors?",
+        "answer": "Averaging the prices of nearest neighbors can be used to predict the price.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 30,
+        "question": "What metric is used to evaluate the performance of predictions?",
+        "answer": "Root mean squared error (RMSE) is used to evaluate the performance of predictions.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 31,
+        "question": "Why is RMSE useful when comparing different prediction methods?",
+        "answer": "RMSE allows for a fair comparison of different prediction methods on the same data.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 32,
+        "question": "What may vary with different data sets in prediction techniques?",
+        "answer": "The accuracy of prediction techniques may vary with different data sets.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 33,
+        "question": "Why might the performance variation in a model be due to random sampling of training and test sets instead of the technique used?",
+        "answer": "The performance variation in a model might be due to random sampling of training and test sets, not necessarily the technique used.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 34,
+        "question": "How can residual plots help visualize how well a model's predictions match actual values?",
+        "answer": "Residual plots can help visualize how well a model's predictions match actual values, showing the differences between predicted and actual values.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 35,
+        "question": "What does it indicate if there are fewer residuals close to zero in a residual plot?",
+        "answer": "In a residual plot, fewer residuals close to zero indicate that fewer predictions were made with very high accuracy.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 36,
+        "question": "What might it mean if a model underestimates the most expensive houses but sometimes makes accurate predictions?",
+        "answer": "A model that underestimates the most expensive houses might have a bias, but it may not be systematic if predictions are sometimes accurate.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 37,
+        "question": "How can bias in predictions vary, and what does it mean if it is not systematic?",
+        "answer": "Bias in predictions can vary, and it might not always be systematic, meaning some errors might not follow a consistent pattern.",
+        "difficulty": 2,
+        "category": "definition"
+      }
+    ],
+    "content_md": "Multiple Regression Now that we have explored ways to use multiple attributes to predict a categorical variable, let us return to predicting a quantitative variable. Predicting a numerical quantity is called regression, and a commonly used method to use multiple attributes for regression is called multiple linear regression.  Home Prices The following dataset of house prices and attributes was collected over several years for the city of Ames, Iowa. A . We will focus only a subset of the columns. We will try to predict the sale price column from the other columns. A histogram of sale prices shows a large amount of variability and a distribution that is clearly not normal. A long tail to the right contains a few houses that had very high prices. The short left tail does not contain any houses that sold for less than $35,000.  Correlation No single attribute is sufficient to predict the sa\n\nle price. For example, the area of first floor, measured in square feet, correlates with sale price but only explains some of its variability. In fact, none of the individual attributes have a correlation with sale price that is above 0.7 (except for the sale price itself). However, combining attributes can provide higher correlation. In particular, if we sum the first floor and second floor areas, the result has a higher correlation than any single attribute alone. This high correlation indicates that we should try to use more than one attribute to predict the sale price. In a dataset with multiple observed attributes and a single numerical value to be predicted (the sale price in this case), multiple linear regression can be an effective technique.  Multiple Linear Regression In multiple linear regression, a numerical output is predicted from numerical input attributes by multiplying e\n\nach attribute value by a different slope, then summing the results. In this example, the slope for the 1st Flr SF would represent the dollars per square foot of area on the first floor of the house that should be used in our prediction. Before we begin prediction, we split our data randomly into a training and test set of equal size. The slopes in multiple regression is an array that has one slope value for each attribute in an example. Predicting the sale price involves multiplying each attribute by the slope and summing the result. The result is an estimated sale price, which can be compared to the actual sale price to assess whether the slopes provide accurate predictions. Since the exampleslopes above were chosen at random, we should not expect them to provide accurate predictions at all.  Least Squares Regression The next step in performing multiple regression is to define the least\n\n squares objective. We perform the prediction for each row in the training set, and then compute the root mean squared error (RMSE) of the predictions from the actual prices. Finally, we use the minimize function to find the slopes with the lowest RMSE. Since the function we want to minimize, rmsetrain, takes an array instead of a number, we must pass the arrayTrue argument to minimize. When this argument is used, minimize also requires an initial guess of the slopes so that it knows the dimension of the input array. Finally, to speed up optimization, we indicate that rmsetrain is a smooth function using the smoothTrue attribute. Computation of the best slopes may take several minutes.  Interpreting Multiple Regression Let's interpret these results. The best slopes give us a method for estimating the price of a house from its attributes. A square foot of area on the first floor is worth \n\nabout \\$75 (the first slope), while one on the second floor is worth about \\$70 (the second slope). The final negative value describes the market: prices in later years were lower on average. The RMSE of around \\$30,000 means that our best linear prediction of the sale price based on all of the attributes is off by around \\$30,000 on the training set, on average. We find a similar error when predicting prices on the test set, which indicates that our prediction method will generalize to other samples from the same population. If the predictions were perfect, then a scatter plot of the predicted and actual values would be a straight line with slope 1. We see that most dots fall near that line, but there is some error in the predictions. A residual plot for multiple regression typically compares the errors (residuals) to the actual values of the predicted variable. We see in the residual p\n\nlot below that we have systematically underestimated the value of expensive houses, shown by the many positive residual values on the right side of the graph. As with simple linear regression, interpreting the result of a predictor is at least as important as making predictions. There are many lessons about interpreting multiple regression that are not included in this textbook. A natural next step after completing this text would be to study linear modeling and regression in further depth.  Nearest Neighbors for Regression Another approach to predicting the sale price of a house is to use the price of similar houses. This nearest neighbor approach is very similar to our classifier. To speed up computation, we will only use the attributes that had the highest correlation with the sale price in our original analysis. The computation of closest neighbors is identical to a nearestneighbor c\n\nlassifier. In this case, we will exclude the 'SalePrice' rather than the 'Class' column from the distance computation. The five nearest neighbors of the first test row are shown below. One simple method for predicting the price is to average the prices of the nearest neighbors. Finally, we can inspect whether our prediction is close to the true sale price for our one test example. Looks reasonable!  Evaluation To evaluate the performance of this approach for the whole test set, we apply predictnn to each test example, then compute the root mean squared error of the predictions. Computation of the predictions may take several minutes. For these data, the errors of the two techniques are quite similar! For different data sets, one technique might outperform another. By computing the RMSE of both techniques on the same data, we can compare methods fairly. One note of caution: the difference\n\n in performance might not be due to the technique at all; it might be due to the random variation due to sampling the training and test sets in the first place. Finally, we can draw a residual plot for these predictions. We still underestimate the prices of the most expensive houses, but the bias does not appear to be as systematic. However, fewer residuals are very close to zero, indicating that fewer prices were predicted with very high accuracy."
+  },
+  {
+    "id": 2182317983,
+    "slug": "182making_decisionsipynb",
+    "title": "Making Decisions",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "18/2/Making_Decisions.ipynb",
+      "word_count": 1512,
+      "estimated_minutes": 8
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does Bayes' Rule help with when dealing with incomplete information?",
+        "answer": "Bayes' Rule helps make decisions using incomplete information by incorporating new information as it becomes available.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "What is crucial to keep in mind when using Bayes' Rule?",
+        "answer": "When using Bayes' Rule, it is crucial to keep assumptions in mind, as they impact the decisions made based on the rule.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 3,
+        "question": "What is the aim of medical tests in terms of result accuracy?",
+        "answer": "Medical tests aim to provide accurate Positive and Negative results but are not 100% error-free.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 4,
+        "question": "What occurs in medical testing when a false positive happens?",
+        "answer": "In medical testing, a false positive occurs when a test indicates a disease is present in a disease-free patient.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 5,
+        "question": "What is a false negative in the context of medical tests?",
+        "answer": "A false negative is when a medical test fails to identify a disease present in a patient, indicating they are disease-free.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 6,
+        "question": "What happens when a false positive occurs?",
+        "answer": "A false positive occurs when a test indicates the presence of a disease in a person who does not have it; this can lead to anxiety and unnecessary treatment.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 7,
+        "question": "What are the consequences of a false negative?",
+        "answer": "A false negative occurs when a test fails to indicate the presence of a disease in a person who does have it; this can result in more serious consequences if the patient does not receive needed treatment.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 8,
+        "question": "Why are false positive rates and false negative rates important when interpreting test results for rare diseases?",
+        "answer": "If a disease is rare, affecting only a small proportion of the population, a test's false positive rate and false negative rate play important roles in interpreting test results accurately.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 9,
+        "question": "What does a false positive rate of 5 in 1000 indicate?",
+        "answer": "The false positive rate of the test in question is 5 in 1000, indicating that out of every 1000 tests conducted, 5 healthy individuals will be incorrectly identified as having the disease.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 10,
+        "question": "What does a false negative rate of 1 in 100 mean?",
+        "answer": "The false negative rate of the test is 1 in 100, meaning that out of every 100 tests conducted on individuals with the disease, 1 person will incorrectly receive a negative result.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 11,
+        "question": "What is Bayes' Rule used for?",
+        "answer": "Bayes' Rule is used to update the probability estimate for a hypothesis as additional evidence is acquired.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 12,
+        "question": "Why might a Positive result not mean the subject has the disease when using Bayes' Rule?",
+        "answer": "Even if a test is pretty accurate, a Positive result does not necessarily mean the subject has the disease when using Bayes' Rule.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 13,
+        "question": "What does Bayes' Rule emphasize concerning conclusions and probabilities?",
+        "answer": "Bayes' Rule can lead to counterintuitive conclusions, emphasizing the importance of proper interpretation of probabilities.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 14,
+        "question": "Why was 'No disease' concluded despite a positive test?",
+        "answer": "A classification of 'No disease' was concluded despite a positive test due to the low probability of disease despite a positive test outcome.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 15,
+        "question": "If the disease prevalence is 0.004 in a population of 100,000 people, how many people are expected to have the disease?",
+        "answer": "In a population of 100,000 people, if the disease prevalence is 0.004, then approximately 400 people should have the disease.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 16,
+        "question": "What percentage of people with the disease receive a positive test result in the described scenario?",
+        "answer": "In the scenario described, 99% of people with the disease receive a positive test result.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 17,
+        "question": "Based on a 99% accuracy rate for detecting the disease, how many people with the disease are expected to test positive out of 100,000?",
+        "answer": "Out of 100,000 people, 396 with the disease are expected to test positive based on a 99% accuracy rate for detecting the disease.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 18,
+        "question": "Why is the proportion of actual disease cases among people who test positive less than 1/2?",
+        "answer": "More people who test positive do not have the disease than those who do, explaining why the proportion of actual disease cases among positives is less than 1/2.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 19,
+        "question": "What does a large fraction (0.99) of a tiny fraction (0.004) of the population represent?",
+        "answer": "The proportion of true Positives is a large fraction (0.99) of a tiny fraction (0.004) of the population.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 20,
+        "question": "What occurs when people without the disease test Positive?",
+        "answer": "False Positives occur when people without the disease test Positive.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 21,
+        "question": "What does a tiny fraction (0.005) of a large fraction (0.996) of the population represent?",
+        "answer": "The proportion of false Positives is a tiny fraction (0.005) of a large fraction (0.996) of the population.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 22,
+        "question": "Why is the number of false Positives among those who test Positive greater than the number of true Positives?",
+        "answer": "Among those who test Positive, the number of false Positives is greater than the number of true Positives due to the low disease prevalence.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 23,
+        "question": "Why is it more likely that a randomly chosen person testing Positive does not have the disease?",
+        "answer": "It is more likely that a randomly chosen person testing Positive does not have the disease due to the higher number of false Positives.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 24,
+        "question": "Why does the initial assumption of randomness in testing not align with reality?",
+        "answer": "The initial assumption of randomness in testing does not align with reality because people are usually tested based on a suspicion of having the disease, not randomly.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 25,
+        "question": "What are some reasons why individuals usually get tested for a disease in reality?",
+        "answer": "In reality, individuals usually get tested for a disease based on specific reasons, such as personal belief or a doctor's recommendation, rather than random selection.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 26,
+        "question": "How might the calculation based on random testing differ from one driven by reasons like suspicion of disease?",
+        "answer": "The calculation based on random testing may lead to different results than those where testing is driven by reasons like suspicion of disease.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 27,
+        "question": "What should a more accurate probability calculation for disease testing consider?",
+        "answer": "A more accurate probability calculation for disease testing should consider that people are tested for specific reasons rather than random sampling from the population.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 28,
+        "question": "What does subjective probability refer to?",
+        "answer": "Subjective probability refers to a chance or likelihood that is based on personal judgment or opinion, rather than on a strict mathematical calculation or historical frequency.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 29,
+        "question": "What is a subjective prior probability in the context of probability?",
+        "answer": "In the context of probability, a subjective prior probability is an initial estimate of the likelihood of an event, based on personal judgment before any evidence is taken into account.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 30,
+        "question": "In what situations are subjective probabilities often used?",
+        "answer": "Subjective probabilities are often used in situations where there is no clear data or past frequency to base a probability on, such as predicting election outcomes or natural disasters.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 31,
+        "question": "What do some researchers argue about probabilities and subjective probabilities?",
+        "answer": "Some researchers argue that probabilities should only represent relative frequencies, but subjective probabilities are common and often necessary in uncertain situations.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 32,
+        "question": "What do calculations involving subjective probabilities include?",
+        "answer": "Calculations involving subjective probabilities include the subjective element itself, meaning they are influenced by personal judgment rather than just objective data.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 33,
+        "question": "What is Bayes' Rule used for?",
+        "answer": "Bayes' Rule is used to update the probability estimate for a condition based on new evidence.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 34,
+        "question": "What is the prior probability in the context of estimating disease probability?",
+        "answer": "The prior probability is the initial estimate of the probability of having a disease before any additional evidence is considered.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 35,
+        "question": "What effect does a positive test result have on the posterior probability that a patient has a disease?",
+        "answer": "A positive test result dramatically increases the posterior probability that a patient has the disease.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 36,
+        "question": "How does using a test on an artificial population help in the context of Bayes' Rule?",
+        "answer": "Using a test on an artificial population helps confirm the results obtained from Bayes' Rule.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 37,
+        "question": "What does posterior probability incorporate to give a revised likelihood estimate?",
+        "answer": "Posterior probability incorporates both the prior probability and the new evidence to give a revised likelihood estimate.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 38,
+        "question": "Among a population of 100,000 people, what percentage have the disease and receive a positive test result?",
+        "answer": "Among a population of 100,000 people, 5% have the disease. Of those with the disease, 99% receive a positive test result.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 39,
+        "question": "How many true positives are there in this population?",
+        "answer": "In this population, there are 4950 true positives, meaning people who have the disease and test positive.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 40,
+        "question": "How many false positives are there in this population?",
+        "answer": "There are 475 false positives, which are people who do not have the disease but test positive.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 41,
+        "question": "How can the proportion of true positives among all positive test results be confirmed?",
+        "answer": "The proportion of true positives among all positive test results can be confirmed using simulation with the appropriate population proportions.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 42,
+        "question": "What method allows us to analyze test results' accuracy and calculate the proportion of true positives?",
+        "answer": "By taking a simple random sample from this population, we can analyze the test results' accuracy and calculate the proportion of true positives.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 43,
+        "question": "What is the approximate proportion of true Positives among the Positives as calculated by Bayes' Rule?",
+        "answer": "The proportion of true Positives among the Positives is approximately 0.912 as calculated by Bayes' Rule.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 44,
+        "question": "What are true Positives in the context of a diagnostic test?",
+        "answer": "True Positives refer to the cases where the condition is present and correctly identified by the test.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 45,
+        "question": "How can Bayes' Rule be used to calculate the proportion of true Positives?",
+        "answer": "Bayes' Rule can calculate the proportion of true Positives by using prior probabilities and likelihoods.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 46,
+        "question": "What effect does changing the prior disease probability have on the posterior probabilities in a population function?",
+        "answer": "Changing the prior disease probability affects the posterior probabilities in a population function.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 47,
+        "question": "How can running the simulation multiple times help in estimating the proportion of true Positives among Positives?",
+        "answer": "Running the simulation multiple times can give a stable estimate for the proportion of true Positives among Positives.",
+        "difficulty": 2,
+        "category": "application"
+      }
+    ],
+    "content_md": "Making Decisions A primary use of Bayes' Rule is to make decisions based on incomplete information, incorporating new information as it comes in. This section points out the importance of keeping your assumptions in mind as you make decisions. Many medical tests for diseases return Positive or Negative results. A Positive result means that according to the test, the patient has the disease. A Negative result means the test concludes that the patient doesn't have the disease. Medical tests are carefully designed to be very accurate. But few tests are accurate 100% of the time. Almost all tests make errors of two kinds:  A false positive is an error in which the test concludes Positive but the patient doesn't have the disease.  A false negative is an error in which the test concludes Negative but the patient does have the disease. These errors can affect people's decisions. False positives\n\n can cause anxiety and unnecessary treatment (which in some cases is expensive or dangerous). False negatives can have even more serious consequences if the patient doesn't receive treatment because of their Negative test result.  A Test for a Rare Disease Suppose there is a large population and a disease that strikes a tiny proportion of the population. The tree diagram below summarizes information about such a disease and about a medical test for it. ! Overall, only 4 in 1000 of the population has the disease. The test is quite accurate: it has a very small false positive rate of 5 in 1000, and a somewhat larger (though still small) false negative rate of 1 in 100. Individuals might or might not know whether they have the disease; typically, people get tested to find out whether they have it. So suppose a person is picked at random from the population and tested. If the test result is \n\nPositive, how would you classify them: Disease, or No disease? We can answer this by applying Bayes' Rule and using our \"more likely than not\" classifier. Given that the person has tested Positive, the chance that he or she has the disease is the proportion in the top branch, relative to the total proportion in the Test Positive branches. Given that the person has tested Positive, the chance that he or she has the disease is about 44%. So we will classify them as: No disease. This is a strange conclusion. We have a pretty accurate test, and a person who has tested Positive, and our classification is ... that they don't have the disease? That doesn't seem to make any sense. When faced with a disturbing answer, the first thing to do is to check the calculations. The arithmetic above is correct. Let's see if we can get the same answer in a different way. The function population returns a ta\n\nble of outcomes for 100,000 patients, with columns that show the True Condition and Test Result. The test is the same as the one described in the tree. But the proportion who have the disease is an argument to the function. We will call population with 0.004 as the argument, and then pivot to crossclassify each of the 100,000 people. The cells of the table have the right counts. For example, according to the description of the population, 4 in 1000 people have the disease. There are 100,000 people in the table, so 400 should have the disease. That's what the table shows: 4 + 396  400. Of these 400, 99% get a Positive test result: 0.99 x 400  396. Among the Positives, the proportion that have the disease is: That's the answer we got by using Bayes' Rule. The counts in the Positives column show why it is less than 1/2. Among the Positives, more people don't have the disease than do have th\n\ne disease. The reason is that a huge fraction of the population doesn't have the disease in the first place. The tiny fraction of those that falsely test Positive are still greater in number than the people who correctly test Positive. This is easier to visualize in the tree diagram: !  The proportion of true Positives is a large fraction (0.99) of a tiny fraction (0.004) of the population.  The proportion of false Positives is a tiny fraction (0.005) of a large fraction (0.996) of the population. These two proportions are comparable; the second is a little larger. So, given that the randomly chosen person tested positive, we were right to classify them as more likely than not to not have the disease.  A Subjective Prior Being right isn't always satisfying. Classifying a Positive patient as not having the disease still seems somehow wrong, for such an accurate test. Since the calculation\n\ns are right, let's take a look at the basis of our probability calculation: the assumption of randomness. Our assumption was that a randomly chosen person was tested and got a Positive result. But this doesn't happen in reality. People go in to get tested because they think they might have the disease, or because their doctor thinks they might have the disease. People getting tested are not randomly chosen members of the population. That is why our intuition about people getting tested was not fitting well with the answer that we got. We were imagining a realistic situation of a patient going in to get tested because there was some reason for them to do so, whereas the calculation was based on a randomly chosen person being tested. So let's redo our calculation under the more realistic assumption that the patient is getting tested because the doctor thinks there's a chance the patient ha\n\ns the disease. Here it's important to note that \"the doctor thinks there's a chance\" means that the chance is the doctor's opinion, not the proportion in the population. It is called a subjective probability. In our context of whether or not the patient has the disease, it is also a subective prior probability. Some researchers insist that all probabilities must be relative frequencies, but subjective probabilities abound. The chance that a candidate wins the next election, the chance that a big earthquake will hit the Bay Area in the next decade, the chance that a particular country wins the next soccer World Cup: none of these are based on relative frequencies or long run frequencies. Each one contains a subjective element. All calculations involving them thus have a subjective element too. Suppose the doctor's subjective opinion is that there is a 5% chance that the patient has the di\n\nsease. Then just the prior probabilities in the tree diagram will change: ! Given that the patient tests Positive, the chance that he or she has the disease is given by Bayes' Rule. The effect of changing the prior is stunning. Even though the doctor has a pretty low prior probability (5%) that the patient has the disease, once the patient tests Positive the posterior probability of having the disease shoots up to more than 91%. If the patient tests Positive, it would be reasonable for the doctor to proceed as though the patient has the disease.  Confirming the Answer Though the doctor's opinion is subjective, we can generate an artificial population in which 5% of the people have the disease and are tested using the same test. Then we can count people in different categories to see if the counts are consistent with the answer we got by using Bayes' Rule. We can use population(0.05) and \n\npivot to construct the corresponding population and look at the counts in the four cells. In this artificially created population of 100,000 people, 5000 people (5%) have the disease, and 99% of them test Positive, leading to 4950 true Positives. Compare this with 475 false Positives: among the Positives, the proportion that have the disease is the same as what we got by Bayes' Rule. Because we can generate a population that has the right proportions, we can also use simulation to confirm that our answer is reasonable. The table pop05 contains a population of 100,000 people generated with the doctor's prior disease probability of 5% and the error rates of the test. We take a simple random sample of size 10,000 from the population, and extract the table positive consisting only of those in the sample that had Positive test results. Among these Positive results, what proportion were true P\n\nositives? That's the proportion of Positives that had the disease: Run the two cells a few times and you will see that the proportion of true Positives among the Positives hovers around the value of 0.912 that we calculated by Bayes' Rule. You can also use the population function with a different argument to change the prior disease probability and see how the posterior probabilities are affected."
+  },
+  {
+    "id": 2887376552,
+    "slug": "18updating_predictionsmd",
+    "title": "Updating Predictions",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "18/Updating_Predictions.md",
+      "word_count": 158,
+      "estimated_minutes": 1
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "How can training data be used to classify a point into one of two categories?",
+        "answer": "Using training data helps classify a point into one of two categories based on the most common class among the nearest training points.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "What can be done if the true class of a new point is found?",
+        "answer": "If the true class of a new point is found, it can be added to the training set, thus updating the training set.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 3,
+        "question": "Why is it beneficial to update the training set with new points?",
+        "answer": "Updating the training set with new points allows us to update our classifier for better future predictions.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 4,
+        "question": "What is a powerful tool in machine learning for updating predictions using new data?",
+        "answer": "The process of updating predictions using new data is a powerful tool in machine learning that can be generalized to complex settings.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 5,
+        "question": "What does this chapter demonstrate about new data and predictions in machine learning?",
+        "answer": "This chapter demonstrates simple scenarios where new data leads to updating predictions, applicable in more complex machine learning situations.",
+        "difficulty": 3,
+        "category": "application"
+      }
+    ],
+    "content_md": "Updating Predictions We know how to use training data to classify a point into one of two categories. Our classification is just a prediction of the class, based on the most common class among the training points that are nearest our new point. Suppose that we eventually find out the true class of our new point. Then we will know whether we got the classification right. Also, we will have a new point that we can add to our training set, because we know its class. This updates our training set. So, naturally, we will want to update our classifier based on the new training set. This chapter looks at some simple scenarios where new data leads us to update our predictions. While the examples in the chapter are simple in terms of calculation, the method of updating can be generalized to work in complex settings and is one of the most powerful tools used for machine learning."
+  },
+  {
+    "id": 3562500572,
+    "slug": "17classificationmd",
+    "title": "Classification",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "17/Classification.md",
+      "word_count": 862,
+      "estimated_minutes": 5
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does machine learning involve in terms of techniques for drawing inferences or making predictions?",
+        "answer": "Machine learning involves techniques for finding patterns in data to draw inferences or make predictions.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 2,
+        "question": "What type of machine learning is focused on predicting from past examples?",
+        "answer": "Classification is a type of machine learning focused on predicting from past examples.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 3,
+        "question": "How does classification make predictions?",
+        "answer": "Classification makes predictions by learning from examples where the correct prediction is known.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 4,
+        "question": "What is an example application of classification in predictive tasks?",
+        "answer": "An example application of classification is predicting whether an order is fraudulent based on its details.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 5,
+        "question": "How do businesses use past data to predict future outcomes such as detecting fraudulent orders?",
+        "answer": "Businesses collect and analyze past data to identify patterns that help predict future outcomes, such as detecting fraudulent orders or successful matchmaking.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 6,
+        "question": "What does predictive modeling involve in the context of historical data?",
+        "answer": "Predictive modeling involves using historical data to predict future events, like determining the likelihood of a credit card transaction being fraudulent.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 7,
+        "question": "How do online dating platforms use data to predict compatibility?",
+        "answer": "Online dating platforms use data from previous matches to suggest potential matches to new users, aiming to predict compatibility.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 8,
+        "question": "How do medical professionals use data to predict the presence of a disease like cancer?",
+        "answer": "Medical professionals use data from lab tests and past diagnoses to predict whether a patient has a disease like cancer.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 9,
+        "question": "Why is comprehensive data analysis important for effective prediction?",
+        "answer": "Effective prediction requires comprehensive data analysis to understand patterns and trends within historical data sets.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 10,
+        "question": "How do medical researchers use historical data in relation to cancer diagnosis?",
+        "answer": "Medical researchers use historical data to infer characteristics that may indicate the presence of cancer. This helps in diagnosing future patients by identifying patterns associated with cancer or non-cancer cases.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 11,
+        "question": "How can predictive modeling aid political campaigns?",
+        "answer": "Predictive modeling can assist political campaigns in identifying likely voters based on data from public and commercial sources combined with survey results.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 12,
+        "question": "How do politicians use data analysis in their campaign strategies?",
+        "answer": "Politicians use data analysis to target fundraising and voter turnout strategies effectively by predicting who is likely to vote for them.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 13,
+        "question": "What types of data can be used to predict behaviors like voting preferences?",
+        "answer": "Data about home ownership, neighborhood wealth, interests, hobbies, and shopping habits can be used to predict certain behaviors, like voting preferences, by identifying relevant patterns.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 14,
+        "question": "How can survey data be used in creating predictive models?",
+        "answer": "Survey data where responses are known can be utilized to create models that predict future outcomes, such as voting behavior, by finding correlations and patterns in the data.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 15,
+        "question": "What is binary classification in a classification task?",
+        "answer": "Binary classification is a type of classification task where there are only two possible outcomes for each prediction.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 16,
+        "question": "In classification tasks, what is each instance where a prediction is made called?",
+        "answer": "In classification tasks, each instance where a prediction is made is called an observation.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 17,
+        "question": "What are some known attributes of each observation in a classification task?",
+        "answer": "Each observation in a classification task has multiple known attributes, such as the total value of an order or a voter's annual salary.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 18,
+        "question": "What is the class of an observation in a classification task?",
+        "answer": "The class of an observation in a classification task is the answer to the prediction question we are interested in, like whether an order is fraudulent or if a voter supports a candidate.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 19,
+        "question": "In a classification task, what do observations represent?",
+        "answer": "Observations in a classification task represent individual cases, such as orders on Amazon, and are used to make yes/no predictions.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 20,
+        "question": "What does a classification problem involve predicting?",
+        "answer": "A classification problem involves predicting whether an observation, like an order, belongs to one class or another, such as determining if an order is fraudulent or not.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 21,
+        "question": "In a classification problem, what are classes?",
+        "answer": "In a classification problem, classes are labels that define the category of an observation, such as 'fraudulent' (1) or 'not fraudulent' (0) for an order.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 22,
+        "question": "What is training data in the context of classification?",
+        "answer": "Training data is a set of preclassified observations that a classification algorithm uses to learn patterns and develop a classifier.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 23,
+        "question": "What is a classifier in the context of machine learning?",
+        "answer": "A classifier is an algorithm that predicts the class of new observations based on patterns learned from the training data.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 24,
+        "question": "What does data science involve for tasks like classification?",
+        "answer": "Data science involves analyzing data to find patterns, which are essential for tasks like classification.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 25,
+        "question": "Can classifiers be useful even if they are not perfectly accurate?",
+        "answer": "Classifiers can be useful even if their accuracy is not perfect.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 26,
+        "question": "Why are occasional classifier errors acceptable on an online dating site?",
+        "answer": "An online dating site example illustrates that users expect multiple tries to find a good match, so occasional classifier errors are acceptable.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 27,
+        "question": "Is it necessary for classifiers to be perfect in minimizing errors?",
+        "answer": "It is important for classifiers to minimize errors, but they do not need to be perfect.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 28,
+        "question": "What do customers generally expect about recommendations in terms of classifier accuracy?",
+        "answer": "Customers generally expect a certain level of imperfection in recommendations, allowing some flexibility in classifier accuracy.",
+        "difficulty": 2,
+        "category": "definition"
+      }
+    ],
+    "content_md": "Classification  is the primary author of this chapter. Machine learning is a class of techniques for automatically finding patterns in data and using it to draw inferences or make predictions. You have already seen linear regression, which is one kind of machine learning. This chapter introduces a new one: classification. Classification is about learning how to make predictions from past examples. We are given some examples where we have been told what the correct prediction was, and we want to learn from those examples how to make good predictions in the future. Here are a few applications where classification is used in practice:  For each order Amazon receives, Amazon would like to predict: is this order fraudulent? They have some information about each order (e.g., its total value, whether the order is being shipped to an address this customer has used before, whether the shipping ad\n\ndress is the same as the credit card holder's billing address). They have lots of data on past orders, and they know which of those past orders were fraudulent and which weren't. They want to learn patterns that will help them predict, as new orders arrive, whether those new orders are fraudulent.  Online dating sites would like to predict: are these two people compatible? Will they hit it off? They have lots of data on which matches they've suggested to their customers in the past, and they have some idea which ones were successful. As new customers sign up, they'd like to make predictions about who might be a good match for them.  Doctors would like to know: does this patient have cancer? Based on the measurements from some lab test, they'd like to be able to predict whether the particular patient has cancer. They have lots of data on past patients, including their lab measurements and\n\n whether they ultimately developed cancer, and from that, they'd like to try to infer what measurements tend to be characteristic of cancer (or noncancer) so they can diagnose future patients accurately.  Politicians would like to predict: are you going to vote for them? This will help them focus fundraising efforts on people who are likely to support them, and focus getoutthevote efforts on voters who will vote for them. Public databases and commercial databases have a lot of information about most people: e.g., whether they own a home or rent; whether they live in a rich neighborhood or poor neighborhood; their interests and hobbies; their shopping habits; and so on. And political campaigns have surveyed some voters and found out who they plan to vote for, so they have some examples where the correct answer is known. From this data, the campaigns would like to find patterns that will h\n\nelp them make predictions about all other potential voters. All of these are classification tasks. Notice that in each of these examples, the prediction is a yes/no question  we call this binary classification, because there are only two possible predictions. In a classification task, each individual or situation where we'd like to make a prediction is called an observation. We ordinarily have many observations. Each observation has multiple attributes, which are known (for example, the total value of the order on Amazon, or the voter's annual salary). Also, each observation has a class, which is the answer to the question we care about (for example, fraudulent or not, or voting for you or not). When Amazon is predicting whether orders are fraudulent, each order corresponds to a single observation. Each observation has several attributes: the total value of the order, whether the order i\n\ns being shipped to an address this customer has used before, and so on. The class of the observation is either 0 or 1, where 0 means that the order is not fraudulent and 1 means that the order is fraudulent. When a customer makes a new order, we do not observe whether it is fraudulent, but we do observe its attributes, and we will try to predict its class using those attributes. Classification requires data. It involves looking for patterns, and to find patterns, you need data. That's where the data science comes in. In particular, we're going to assume that we have access to training data: a bunch of observations, where we know the class of each observation. The collection of these preclassified observations is also called a training set. A classification algorithm is going to analyze the training set, and then come up with a classifier: an algorithm for predicting the class of future o\n\nbservations. Classifiers do not need to be perfect to be useful. They can be useful even if their accuracy is less than 100%. For instance, if the online dating site occasionally makes a bad recommendation, that's OK; their customers already expect to have to meet many people before they'll find someone they hit it off with. Of course, you don't want the classifier to make too many errors &mdash; but it doesn't have to get the right answer every single time."
+  },
+  {
+    "id": 3917166621,
+    "slug": "18updating_predictionsipynb",
+    "title": "Updating Predictions",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "18/Updating_Predictions.ipynb",
+      "word_count": 158,
+      "estimated_minutes": 1
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does updating predictions involve?",
+        "answer": "Updating predictions involves adjusting our classifier after learning the true class of a new data point, incorporating the new point into the training set.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "What is a classification in the context of data science?",
+        "answer": "A classification is a prediction of a class based on the most common class among the nearest training points to a new data point.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 3,
+        "question": "What can be done when the true class of a new point is known?",
+        "answer": "When the true class of a new point is known, it can be added to the training set, allowing for more accurate predictions by updating the classifier.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 4,
+        "question": "Why is updating predictions with new data considered a powerful machine learning tool?",
+        "answer": "Updating predictions with new data is a powerful machine learning tool that can be applied to complex scenarios beyond simple examples.",
+        "difficulty": 3,
+        "category": "concept_check"
+      }
+    ],
+    "content_md": "Updating Predictions We know how to use training data to classify a point into one of two categories. Our classification is just a prediction of the class, based on the most common class among the training points that are nearest our new point. Suppose that we eventually find out the true class of our new point. Then we will know whether we got the classification right. Also, we will have a new point that we can add to our training set, because we know its class. This updates our training set. So, naturally, we will want to update our classifier based on the new training set. This chapter looks at some simple scenarios where new data leads us to update our predictions. While the examples in the chapter are simple in terms of calculation, the method of updating can be generalized to work in complex settings and is one of the most powerful tools used for machine learning."
+  },
+  {
+    "id": 3993201186,
+    "slug": "171nearest_neighborsipynb",
+    "title": "Nearest Neighbors",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "17/1/Nearest_Neighbors.ipynb",
+      "word_count": 1669,
+      "estimated_minutes": 9
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the nearest neighbor method of classification?",
+        "answer": "The nearest neighbor method of classification is a way to classify data points based on the closest samples in the feature space.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "What does a data set used to diagnose chronic kidney disease contain?",
+        "answer": "A data set used to diagnose chronic kidney disease contains rows representing individual patients with known diagnoses and various measurements.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 3,
+        "question": "What is the goal of using the chronic kidney disease data set?",
+        "answer": "The goal of using the chronic kidney disease data set is to identify which measurements are most useful in diagnosing the disease.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 4,
+        "question": "What types of variables does the data set include?",
+        "answer": "The data set includes both categorical variables, such as words like 'abnormal', and quantitative variables.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 5,
+        "question": "Why is using standard units beneficial when comparing variables?",
+        "answer": "Using standard units allows for easier comparison of variables with different scales.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 6,
+        "question": "What do the blue and gold dots represent in the provided scatter plot?",
+        "answer": "In the provided scatter plot, blue dots represent patients with CKD (Chronic Kidney Disease), and gold dots represent patients without CKD.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 7,
+        "question": "Why is standardizing variables useful in visualizing their relationships?",
+        "answer": "Standardizing variables helps in visualizing relationships between them regardless of their original scales.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 8,
+        "question": "How can scatter plots aid in understanding conditions like CKD?",
+        "answer": "Scatter plots can be useful in identifying patterns and potential predictors for conditions like CKD.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 9,
+        "question": "How can patterns in medical test results indicate the presence of CKD?",
+        "answer": "Patterns in medical test results, such as hemoglobin and blood glucose levels, can suggest the presence of CKD.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 10,
+        "question": "What method does nearest neighbor classification use to make predictions based on similar patterns?",
+        "answer": "Nearest neighbor classification uses the closest data point to make predictions based on similar patterns.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 11,
+        "question": "How is a data point classified in nearest neighbor classification?",
+        "answer": "In nearest neighbor classification, a data point is classified based on the majority label of its nearest neighbors.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 12,
+        "question": "What variables might be used in a scatterplot for nearest neighbor classification?",
+        "answer": "Nearest neighbor classification involves plotting a data point in a scatterplot using coordinates such as hemoglobin and glucose levels.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 13,
+        "question": "How does the nearest neighbor algorithm make predictions?",
+        "answer": "The nearest neighbor algorithm makes predictions by comparing unknown data points to known data points on a plot to identify similar patterns.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 14,
+        "question": "What does the nearest neighbor algorithm use to predict the classification of a point?",
+        "answer": "The nearest neighbor algorithm predicts the classification of a point based on the closest point in the training set with a known diagnosis.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 15,
+        "question": "What does the function showclosest do in a scatterplot?",
+        "answer": "The function showclosest visually connects a point to its nearest neighbor in a scatterplot.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 16,
+        "question": "What can be inferred if two data points are close in a scatterplot?",
+        "answer": "If two data points are close in a scatterplot, it is likely that their corresponding measurements are similar.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 17,
+        "question": "Who is considered a patient's nearest neighbor in the context of predicting a diagnosis?",
+        "answer": "In the context of predicting a diagnosis, a patient's nearest neighbor in the dataset is a patient whose measurements are most similar to theirs.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 18,
+        "question": "What is the intuition behind using nearest neighbor for classification?",
+        "answer": "The intuition behind using nearest neighbor for classification is that similar measurements lead to similar predictions.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 19,
+        "question": "How does the nearest neighbor classifier work?",
+        "answer": "The nearest neighbor classifier works by finding the point in the training set that is closest to a new point. The new point is then classified based on the label of this nearest point.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 20,
+        "question": "How is a new point classified in the nearest neighbor classifier if the closest point is labeled 'CKD'?",
+        "answer": "In the nearest neighbor classifier, if the closest point to a new point is labeled 'CKD', the new point is classified as 'CKD'. If the nearest point is labeled as 'not CKD', the new point is classified as 'not CKD'.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 21,
+        "question": "How can the nearest neighbor classifier be visualized?",
+        "answer": "The nearest neighbor classifier can be visualized using a scatterplot, where points tend to be classified based on their proximity to labeled data points; for example, those in the lower right of the plot might be classified as 'not CKD'.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 22,
+        "question": "What is the decision boundary in a nearest neighbor classifier?",
+        "answer": "The decision boundary in a nearest neighbor classifier is a visual line or map that separates data points of different classifications, helping to understand how classification decisions are made.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 23,
+        "question": "What is a decision boundary in the context of data classification?",
+        "answer": "A decision boundary is a line or surface that separates data points into different classes, where one class would be predicted on one side of the boundary and another class on the opposite side.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 24,
+        "question": "How do different classifiers affect the decision boundaries used in data classification?",
+        "answer": "Different classifiers can have different decision boundaries, which reflect the criteria each uses to classify data points.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 25,
+        "question": "In nearest neighbor classification, how is the class of a point determined?",
+        "answer": "In a nearest neighbor classification, the class of a point is determined by the class of the nearest point or points from the training set.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 26,
+        "question": "What impact does changing the coordinates of Alice's point have on nearest neighbor classification?",
+        "answer": "If the coordinates of Alice's point change, like adjusting the height or y-coordinate, the nearest neighbor might change, influencing the classification of the point.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 27,
+        "question": "How does the nearest neighbor classifier determine the classification of a point?",
+        "answer": "The nearest neighbor classifier determines the classification of a point by finding the closest point in the training set and adopting its category.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 28,
+        "question": "Why are red points near the decision boundary more challenging to classify accurately by eye in a nearest neighbor classifier?",
+        "answer": "In a nearest neighbor classifier, red points near the decision boundary are more challenging to classify accurately by eye.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 29,
+        "question": "What is the decision boundary in classification?",
+        "answer": "The decision boundary is the line where the classifier changes from assigning one class to another, such as from 'CKD' to 'not CKD'.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 30,
+        "question": "How does the k-nearest neighbors algorithm classify data points?",
+        "answer": "The k-nearest neighbors algorithm can classify data points by considering the 'k' closest points in the training set and using majority voting for the final class.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 31,
+        "question": "Can a computer easily determine and apply a nearest neighbor classification even when it is not visually obvious?",
+        "answer": "A computer can easily determine and apply a nearest neighbor classification even when it is not visually obvious.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 32,
+        "question": "Where do nonCKD individuals tend to cluster in the scatter plot when looking at white blood cell count?",
+        "answer": "NonCKD individuals tend to cluster in the lower left of the scatter plot when looking at white blood cell count.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 33,
+        "question": "Where do most CKD patients appear in relation to the nonCKD cluster in the scatter plot?",
+        "answer": "Most CKD patients appear above or to the right of the nonCKD cluster in the scatter plot.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 34,
+        "question": "Can we definitively diagnose CKD using only glucose level and white blood cell count?",
+        "answer": "We cannot definitively diagnose CKD using only glucose level and white blood cell count.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 35,
+        "question": "Is it possible to predict whether someone has CKD based on their position in the scatter plot?",
+        "answer": "It is possible to predict whether someone has CKD based on their position in the scatter plot, but the prediction will not be 100% accurate.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 36,
+        "question": "What is the intuitive prediction for a person located in the lower left of the scatter plot?",
+        "answer": "If a person is in the lower left of the scatter plot, the intuitive prediction is that they do not have CKD.",
+        "difficulty": 1,
+        "category": "application"
+      },
+      {
+        "id": 37,
+        "question": "Why may the nearest neighbor classifier's predictions for CKD differ from intuitive strategies?",
+        "answer": "The nearest neighbor classifier is a reasonable choice for predicting CKD (Chronic Kidney Disease), but its predictions may sometimes differ from intuitive strategies due to similarities in glucose and white blood cell levels between patients with and without CKD.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 38,
+        "question": "Why do classifiers sometimes make incorrect predictions when predicting CKD?",
+        "answer": "In predicting CKD, classifiers sometimes make incorrect predictions because some individuals with CKD may have glucose and white blood cell levels that are similar to those of healthy individuals.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 39,
+        "question": "When might a nearest neighbor classifier's prediction differ from intuitive strategies?",
+        "answer": "The nearest neighbor classifier prediction will be similar to intuitive strategies most of the time, but may differ when a patient's test results closely resemble those of another class's sample.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 40,
+        "question": "Why might a classifier incorrectly predict a patient as not having CKD?",
+        "answer": "A classifier may incorrectly predict a patient without CKD due to overlapping features like glucose and white blood cell levels between CKD and non-CKD patients.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 41,
+        "question": "Why do classifiers make errors in CKD prediction?",
+        "answer": "Classifiers make errors for CKD prediction when test results for CKD patients resemble those of non-CKD patients, leading to similar predictions.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 42,
+        "question": "How does the k-nearest neighbor classifier predict a target?",
+        "answer": "The k-nearest neighbor classifier predicts a target by considering the 'k' closest points and selecting the majority value as the prediction.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 43,
+        "question": "Why is an odd number used for 'k' in the k-nearest neighbor algorithm?",
+        "answer": "Using an odd number for 'k' in the k-nearest neighbor algorithm helps avoid ties when determining the majority value.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 44,
+        "question": "What determines how many nearest points are used for prediction in k-nearest neighbors?",
+        "answer": "The choice of 'k' in k-nearest neighbors can be any positive integer, and it determines how many nearest points are used for prediction.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 45,
+        "question": "How can the nearest neighbor classifier be improved to reduce incorrect predictions?",
+        "answer": "The nearest neighbor classifier can sometimes make incorrect predictions, which can be improved by the k-nearest neighbor method.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 46,
+        "question": "How does the k-nearest neighbor classifier make predictions?",
+        "answer": "The k-nearest neighbor classifier uses the $k$ most similar data points to make predictions, similar to how we would intuitively predict based on similar examples.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 47,
+        "question": "What does $k$ denote in the context of k-nearest neighbors?",
+        "answer": "In k-nearest neighbors, $k$ refers to the number of closest data points considered for making a prediction.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 48,
+        "question": "How is similarity typically determined in the k-nearest neighbors algorithm?",
+        "answer": "The similarity in the k-nearest neighbors algorithm is often determined by comparing feature vectors, such as blood test results.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 49,
+        "question": "What assumption is the k-nearest neighbors method based on?",
+        "answer": "The k-nearest neighbors method is based on the assumption that similar instances have similar outcomes.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 50,
+        "question": "How does the k-nearest neighbors algorithm predict Alice's diagnosis?",
+        "answer": "To predict Alice's diagnosis, the k-nearest neighbors algorithm considers the diagnoses of patients whose test results are similar to hers.",
+        "difficulty": 2,
+        "category": "application"
+      }
+    ],
+    "content_md": "Nearest Neighbors In this section we'll develop the nearest neighbor method of classification. Just focus on the ideas for now and don't worry if some of the code is mysterious. Later in the chapter we'll see how to organize our ideas into code that performs the classification.  Chronic kidney disease Let's work through an example. We're going to work with a data set that was collected to help doctors diagnose chronic kidney disease (CKD). Each row in the data set represents a single patient who was treated in the past and whose diagnosis is known. For each patient, we have a bunch of measurements from a blood test. We'd like to find which measurements are most useful for diagnosing CKD, and develop a way to classify future patients as \"has CKD\" or \"doesn't have CKD\" based on their blood test results. Some of the variables are categorical (words like \"abnormal\"), and some quantitative. T\n\nhe quantitative variables all have different scales. We're going to want to make comparisons and estimate distances, often by eye, so let's select just a few of the variables and work in standard units. Then we won't have to worry about the scale of each of the different variables. Let's look at two columns in particular: the hemoglobin level (in the patient's blood), and the blood glucose level (at a random time in the day; without fasting specially for the blood test). We'll draw a scatter plot to visualize the relation between the two variables. Blue dots are patients with CKD; gold dots are patients without CKD. What kind of medical test results seem to indicate CKD? Suppose Alice is a new patient who is not in the data set. If I tell you Alice's hemoglobin level and blood glucose level, could you predict whether she has CKD? It sure looks like it! You can see a very clear pattern he\n\nre: points in the lowerright tend to represent people who don't have CKD, and the rest tend to be folks with CKD. To a human, the pattern is obvious. But how can we program a computer to automatically detect patterns such as this one?  A Nearest Neighbor Classifier There are lots of kinds of patterns one might look for, and lots of algorithms for classification. But I'm going to tell you about one that turns out to be surprisingly effective. It is called nearest neighbor classification. Here's the idea. If we have Alice's hemoglobin and glucose numbers, we can put her somewhere on this scatterplot; the hemoglobin is her xcoordinate, and the glucose is her ycoordinate. Now, to predict whether she has CKD or not, we find the nearest point in the scatterplot and check whether it is blue or gold; we predict that Alice should receive the same diagnosis as that patient. In other words, to clas\n\nsify Alice as CKD or not, we find the patient in the training set who is \"nearest\" to Alice, and then use that patient's diagnosis as our prediction for Alice. The intuition is that if two points are near each other in the scatterplot, then the corresponding measurements are pretty similar, so we might expect them to receive the same diagnosis (more likely than not). We don't know Alice's diagnosis, but we do know the diagnosis of all the patients in the training set, so we find the patient in the training set who is most similar to Alice, and use that patient's diagnosis to predict Alice's diagnosis. In the graph below, the red dot represents Alice. It is joined with a black line to the point that is nearest to it \u2013 its nearest neighbor in the training set. The figure is drawn by a function called showclosest. It takes an array that represents the $x$ and $y$ coordinates of Alice's poin\n\nt. Vary those to see how the closest point changes! Note especially when the closest point is blue and when it is gold. Thus our nearest neighbor classifier works like this:  Find the point in the training set that is nearest to the new point.  If that nearest point is a \"CKD\" point, classify the new point as \"CKD\". If the nearest point is a \"not CKD\" point, classify the new point as \"not CKD\". The scatterplot suggests that this nearest neighbor classifier should be pretty accurate. Points in the lowerright will tend to receive a \"no CKD\" diagnosis, as their nearest neighbor will be a gold point. The rest of the points will tend to receive a \"CKD\" diagnosis, as their nearest neighbor will be a blue point. So the nearest neighbor strategy seems to capture our intuition pretty well, for this example.  Decision boundary Sometimes a helpful way to visualize a classifier is to map out the kin\n\nds of attributes where the classifier would predict 'CKD', and the kinds where it would predict 'not CKD'. We end up with some boundary between the two, where points on one side of the boundary will be classified 'CKD' and points on the other side will be classified 'not CKD'. This boundary is called the decision boundary. Each different classifier will have a different decision boundary; the decision boundary is just a way to visualize what criteria the classifier is using to classify points. For example, suppose the coordinates of Alice's point are (0, 1.5). Notice that the nearest neighbor is blue. Now try reducing the height (the $y$coordinate) of the point. You'll see that at around $y  0.95$ the nearest neighbor turns from blue to gold. Here are hundreds of new unclassified points, all in red. Each of the red points has a nearest neighbor in the training set (the same blue and gold\n\n points as before). For some red points you can easily tell whether the nearest neighbor is blue or gold. For others, it's a little more tricky to make the decision by eye. Those are the points near the decision boundary. But the computer can easily determine the nearest neighbor of each point. So let's get it to apply our nearest neighbor classifier to each of the red points: For each red point, it must find the closest point in the training set; it must then change the color of the red point to become the color of the nearest neighbor. The resulting graph shows which points will get classified as 'CKD' (all the blue ones), and which as 'not CKD' (all the gold ones). The decision boundary is where the classifier switches from turning the red points blue to turning them gold.  kNearest Neighbors However, the separation between the two classes won't always be quite so clean. For instance,\n\n suppose that instead of hemoglobin levels we were to look at white blood cell count. Look at what happens: As you can see, nonCKD individuals are all clustered in the lowerleft. Most of the patients with CKD are above or to the right of that cluster... but not all. There are some patients with CKD who are in the lower left of the above figure (as indicated by the handful of blue dots scattered among the gold cluster). What this means is that you can't tell for certain whether someone has CKD from just these two blood test measurements. If we are given Alice's glucose level and white blood cell count, can we predict whether she has CKD? Yes, we can make a prediction, but we shouldn't expect it to be 100% accurate. Intuitively, it seems like there's a natural strategy for predicting: plot where Alice lands in the scatter plot; if she is in the lowerleft, predict that she doesn't have CKD,\n\n otherwise predict she has CKD. This isn't perfect  our predictions will sometimes be wrong. (Take a minute and think it through: for which patients will it make a mistake?) As the scatterplot above indicates, sometimes people with CKD have glucose and white blood cell levels that look identical to those of someone without CKD, so any classifier is inevitably going to make the wrong prediction for them. Can we automate this on a computer? Well, the nearest neighbor classifier would be a reasonable choice here too. Take a minute and think it through: how will its predictions compare to those from the intuitive strategy above? When will they differ? Its predictions will be pretty similar to our intuitive strategy, but occasionally it will make a different prediction. In particular, if Alice's blood test results happen to put her right near one of the blue dots in the lowerleft, the intuiti\n\nve strategy would predict 'not CKD', whereas the nearest neighbor classifier will predict 'CKD'. There is a simple generalization of the nearest neighbor classifier that fixes this anomaly. It is called the knearest neighbor classifier. To predict Alice's diagnosis, rather than looking at just the one neighbor closest to her, we can look at the 3 points that are closest to her, and use the diagnosis for each of those 3 points to predict Alice's diagnosis. In particular, we'll use the majority value among those 3 diagnoses as our prediction for Alice's diagnosis. Of course, there's nothing special about the number 3: we could use 4, or 5, or more. (It's often convenient to pick an odd number, so that we don't have to deal with ties.) In general, we pick a number $k$, and our predicted diagnosis for Alice is based on the $k$ patients in the training set who are closest to Alice. Intuitivel\n\ny, these are the $k$ patients whose blood test results were most similar to Alice, so it seems reasonable to use their diagnoses to predict Alice's diagnosis. The $k$nearest neighbor classifier will now behave just like our intuitive strategy above."
+  },
+  {
+    "id": 4268785128,
+    "slug": "175accuracy_of_the_classifieripynb",
+    "title": "The Accuracy of the Classifier",
+    "topic": "Data Science",
+    "level": 5,
+    "metadata": {
+      "source": "Data 8 Textbook (local copy)",
+      "source_path": "17/5/Accuracy_of_the_Classifier.ipynb",
+      "word_count": 972,
+      "estimated_minutes": 5
+    },
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is a common method to assess classifier accuracy?",
+        "answer": "A common method to assess classifier accuracy is to split the dataset into a training set and a test set, typically using 50% for each.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 2,
+        "question": "What is the purpose of the test set in classifier accuracy assessment?",
+        "answer": "The test set is used to measure the accuracy of the classifier after it has been trained.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 3,
+        "question": "What does the holdout method involve in model evaluation?",
+        "answer": "The holdout method involves setting aside a portion of data for testing to estimate the accuracy of a model.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 4,
+        "question": "Why is it important to refrain from using the test set during the classifier's development process?",
+        "answer": "It is important to refrain from using the test set during the development process of the classifier to ensure an unbiased evaluation.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 5,
+        "question": "When should the test set, also known as the holdout set, be used in the evaluation process?",
+        "answer": "The test set, also known as the holdout set, should only be used once, at the end of the evaluation process, to finalize the accuracy estimation.",
+        "difficulty": 2,
+        "category": "definition"
+      },
+      {
+        "id": 6,
+        "question": "What does the holdout method involve when evaluating a classifier's effectiveness?",
+        "answer": "The holdout method involves splitting a dataset into a training set and a test set to evaluate a classifier's effectiveness.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 7,
+        "question": "What process is typically used in the holdout method for dividing a dataset?",
+        "answer": "In the holdout method, we randomly permute the dataset and typically divide it equally between training and test sets.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 8,
+        "question": "What is the k-nearest neighbor classifier used for?",
+        "answer": "The k-nearest neighbor classifier is a simple algorithm used for classification tasks, such as identifying wines.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 9,
+        "question": "What does using k=5 mean in the k-nearest neighbor classifier?",
+        "answer": "Using k=5 in the k-nearest neighbor classifier means that the algorithm will consider the 5 nearest neighbors to make a classification decision.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 10,
+        "question": "Why is it necessary to test a classifier on data it wasn't trained on?",
+        "answer": "To evaluate a classifier, it is necessary to test it on data it wasn't trained on, ensuring an unbiased estimate of its accuracy.",
+        "difficulty": 3,
+        "category": "concept_check"
+      },
+      {
+        "id": 11,
+        "question": "Who won a grand prize for developing a breast cancer diagnosis algorithm with nearly 99% accuracy?",
+        "answer": "Brittany won a grand prize for developing a breast cancer diagnosis algorithm with nearly 99% accuracy.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 12,
+        "question": "What is a less invasive procedure used to take a biopsy of a lump in a breast?",
+        "answer": "Fine needle aspiration (FNA) is a less invasive procedure used to take a biopsy of a lump in a breast.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 13,
+        "question": "Who analyzes a microscope image of a biopsy sample to determine if there is cancer?",
+        "answer": "A trained lab technician analyzes a microscope image of a biopsy sample to determine if there is cancer.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 14,
+        "question": "What did the dataset Brittany used involve?",
+        "answer": "The dataset Brittany used involved analyzing breast biopsy images to classify them as cancerous or not.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 15,
+        "question": "How can machine learning assist in diagnosing whether a sample is malignant?",
+        "answer": "Machine learning can assist in diagnosing whether a sample is malignant by analyzing image attributes like cell size and variation.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 16,
+        "question": "What does a training set consist of and what is its purpose in machine learning?",
+        "answer": "A training set consists of past samples with known diagnoses, used to train a machine learning algorithm for accurate future predictions.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 17,
+        "question": "What does the 'Class' column indicate in the data set?",
+        "answer": "In the data set, the 'Class' column indicates whether a sample is malignant (1) or benign (0).",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 18,
+        "question": "Why would you pick two attributes to create a scatterplot?",
+        "answer": "Picking two attributes to create a scatterplot helps in visualizing data when it is not possible to plot all nine dimensions.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 19,
+        "question": "What is jittering used for in visualization?",
+        "answer": "Jittering is used for visualization purposes to make overlapping data points easier to see.",
+        "difficulty": 1,
+        "category": "concept_check"
+      },
+      {
+        "id": 20,
+        "question": "What does the data set consist of?",
+        "answer": "The data set consists of 683 patients, divided into a training set of 342 patients and a test set of 341 patients.",
+        "difficulty": 1,
+        "category": "definition"
+      },
+      {
+        "id": 21,
+        "question": "How are the training and test data sets created from the original data set?",
+        "answer": "The training and test data sets are created by randomly permuting the original data set.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 22,
+        "question": "What accuracy result was achieved using 5 nearest neighbors in classification?",
+        "answer": "Using 5 nearest neighbors in classification resulted in over 96% accuracy.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 23,
+        "question": "How does visualization with jittering help in data analysis?",
+        "answer": "The visualization with jittering helps to understand the data distribution but is not used in actual data analysis.",
+        "difficulty": 2,
+        "category": "application"
+      },
+      {
+        "id": 24,
+        "question": "What feature did Brittany Wenger's algorithm include to determine when it could make a prediction?",
+        "answer": "Brittany Wenger's algorithm included a confidence score to determine when it could make a prediction.",
+        "difficulty": 2,
+        "category": "concept_check"
+      },
+      {
+        "id": 25,
+        "question": "How did the algorithm improve its overall accuracy?",
+        "answer": "The algorithm avoided making predictions when it was not confident, which helped improve its overall accuracy.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 26,
+        "question": "What was the impact of including a confidence score on the algorithm's prediction accuracy?",
+        "answer": "The inclusion of a confidence score allowed the algorithm to be 99% accurate on predictions it chose to make.",
+        "difficulty": 3,
+        "category": "application"
+      },
+      {
+        "id": 27,
+        "question": "How did Brittany Wenger's algorithm achieve high accuracy?",
+        "answer": "Brittany Wenger achieved high accuracy by having her algorithm refrain from predicting in uncertain situations.",
+        "difficulty": 2,
+        "category": "concept_check"
+      }
+    ],
+    "content_md": "The Accuracy of the Classifier To see how well our classifier does, we might put 50% of the data into the training set and the other 50% into the test set. Basically, we are setting aside some data for later use, so we can use it to measure the accuracy of our classifier. We've been calling that the test set. Sometimes people will call the data that you set aside for testing a holdout set, and they'll call this strategy for estimating accuracy the holdout method. Note that this approach requires great discipline. Before you start applying machine learning methods, you have to take some of your data and set it aside for testing. You must avoid using the test set for developing your classifier: you shouldn't use it to help train your classifier or tweak its settings or for brainstorming ways to improve your classifier. Instead, you should use it only once, at the very end, after you've fin\n\nalized your classifier, when you want an unbiased estimate of its accuracy.  Measuring the Accuracy of Our Wine Classifier OK, so let's apply the holdout method to evaluate the effectiveness of the $k$nearest neighbor classifier for identifying wines. The data set has 178 wines, so we'll randomly permute the data set and put 89 of them in the training set and the remaining 89 in the test set. We'll train the classifier using the 89 wines in the training set, and evaluate how well it performs on the test set. To make our lives easier, we'll write a function to evaluate a classifier on every wine in the test set: Now for the grand reveal  let's see how we did. We'll arbitrarily use $k5$. The accuracy rate isn't bad at all for a simple classifier.  Breast Cancer Diagnosis Now I want to do an example based on diagnosing breast cancer. I was inspired by Brittany Wenger, who won the Google nat\n\nional science fair in 2012 as a 17year old high school student. Here's Brittany: ! Brittany's  was to build a classification algorithm to diagnose breast cancer. She won grand prize for building an algorithm whose accuracy was almost 99%. Let's see how well we can do, with the ideas we've learned in this course. So, let me tell you a little bit about the data set. Basically, if a woman has a lump in her breast, the doctors may want to take a biopsy to see if it is cancerous. There are several different procedures for doing that. Brittany focused on fine needle aspiration (FNA), because it is less invasive than the alternatives. The doctor gets a sample of the mass, puts it under a microscope, takes a picture, and a trained lab tech analyzes the picture to determine whether it is cancer or not. We get a picture like one of the following: ! ! Unfortunately, distinguishing between benign vs\n\n malignant can be tricky. So, researchers have studied the use of machine learning to help with this task. The idea is that we'll ask the lab tech to analyze the image and compute various attributes: things like the typical size of a cell, how much variation there is among the cell sizes, and so on. Then, we'll try to use this information to predict (classify) whether the sample is malignant or not. We have a training set of past samples from women where the correct diagnosis is known, and we'll hope that our machine learning algorithm can use those to learn how to predict the diagnosis for future samples. We end up with the following data set. For the \"Class\" column, 1 means malignant (cancer); 0 means benign (not cancer). So we have 9 different attributes. I don't know how to make a 9dimensional scatterplot of all of them, so I'm going to pick two and plot them: Oops. That plot is utte\n\nrly misleading, because there are a bunch of points that have identical values for both the x and ycoordinates. To make it easier to see all the data points, I'm going to add a little bit of random jitter to the x and yvalues. Here's how that looks: For instance, you can see there are lots of samples with chromatin  2 and epithelial cell size  2; all noncancerous. Keep in mind that the jittering is just for visualization purposes, to make it easier to get a feeling for the data. We're ready to work with the data now, and we'll use the original (unjittered) data. First we'll create a training set and a test set. The data set has 683 patients, so we'll randomly permute the data set and put 342 of them in the training set and the remaining 341 in the test set. Let's stick with 5 nearest neighbors, and see how well our classifier does. Over 96% accuracy. Not bad! Once again, pretty darn good\n\n for such a simple technique. As a footnote, you might have noticed that Brittany Wenger did even better. What techniques did she use? One key innovation is that she incorporated a confidence score into her results: her algorithm had a way to determine when it was not able to make a confident prediction, and for those patients, it didn't even try to predict their diagnosis. Her algorithm was 99% accurate on the patients where it made a prediction  so that extension seemed to help quite a bit."
+  }
+]

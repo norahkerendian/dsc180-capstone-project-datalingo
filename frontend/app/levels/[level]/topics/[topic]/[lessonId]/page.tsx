@@ -236,7 +236,7 @@ export default function LessonDetailPage() {
                 <p className="text-sm text-gray-600 text-center">
                   Lesson content sourced from{" "}
                   <a
-                    href="https://www.data8.org/"
+                    href="https://inferentialthinking.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green-600 font-semibold hover:text-green-700 hover:underline transition-colors"

@@ -114,9 +114,9 @@ def print_report(stats):
 
 def main():
     """Main execution function."""
-    lessons_file = "../NEW_AIGeneratedData_json/final_generated_level3_02Feb 16, 2026_181723.json"
-    mcqs_file = "../NEW_AIGeneratedData_json/MCQ_generated_level3_02Feb 22, 2026_165759.json"
-    level = 3
+    lessons_file = "../NEW_AIGeneratedData_json/final_generated_level5_02Feb 16, 2026_184017.json"
+    mcqs_file = "../NEW_AIGeneratedData_json/MCQ_generated_level5_02Feb 25, 2026_041753.json"
+    level = 5
     timestamp = datetime.now().strftime("%d%b %d, %Y_%H%M%S")
     output_file = f"../NEW_AIGeneratedData_json/merged_lessons_with_mcqs_level{level}_{timestamp}.json"
     

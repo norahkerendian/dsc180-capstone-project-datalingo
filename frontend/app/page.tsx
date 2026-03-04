@@ -65,16 +65,31 @@
 
 /////////////////////////////// Claude pls help ////////////////// //////////////////////////////
 import Link from "next/link";
+import Image from "next/image";
+
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
       {/* Header */}
       <header className="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <span className="text-3xl">📊</span>
           <span className="text-2xl font-bold text-green-600">DataLingo</span>
+        </div> */}
+        <div className="flex items-center gap-2">
+          <Image
+            src="/datalingo-mascot.png"
+            alt="DataLingo mascot"
+            width={40}   // slightly bigger since this was text-3xl
+            height={40}
+            className="object-contain"
+          />
+          <span className="text-2xl font-bold text-green-600">
+            DataLingo
+          </span>
         </div>
+        {/* added this ^ */}
         <Link
           href="/login"
           className="px-6 py-2.5 border-2 border-green-600 text-green-600 font-bold rounded-xl hover:bg-green-50 transition-all duration-200"

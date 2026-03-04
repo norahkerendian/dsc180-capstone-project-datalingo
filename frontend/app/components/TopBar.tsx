@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { FireSvg, GemSvg } from "./Svgs";
+import Image from "next/image"; // added this 
 
 type Language = { name: string; code?: string };
 
@@ -146,10 +147,24 @@ export default function TopBar({
   return (
     <header className="fixed inset-x-0 top-0 z-20 border-b border-zinc-200 bg-white/80 backdrop-blur">
       <div className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        {/* <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <span className="text-2xl">📊</span>
           <span className="text-xl font-bold text-green-600">DataLingo</span>
-        </Link>
+        </Link> */}
+        <Link
+          href="/"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
+          <Image
+            src="/datalingo-mascot.png"
+            alt="DataLingo mascot"
+            width={33}
+            height={33}
+            className="object-contain"
+          />
+          <span className="text-xl font-bold text-green-600">DataLingo</span>
+        </Link> 
+        {/* added this ^ */}
 
         <div className="flex items-center gap-3 text-xs font-medium text-zinc-700 sm:text-sm">
           <div className="flex items-center gap-1 rounded-full bg-zinc-100 px-3 py-1">

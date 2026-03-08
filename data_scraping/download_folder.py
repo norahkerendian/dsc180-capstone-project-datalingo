@@ -7,7 +7,6 @@ load_dotenv()
 load_dotenv(dotenv_path=Path(__file__).parent / ".env", override=False)
 
 TOKEN = os.getenv("PA_TOKEN")
-# "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"
 
 headers = {
     "Accept": "application/vnd.github.v3+json",
